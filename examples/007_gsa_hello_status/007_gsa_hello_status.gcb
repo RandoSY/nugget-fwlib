@@ -13,19 +13,19 @@
 #include "../../nugget_fwlib_all.inc"
 
 Dim InChar As Byte
-RB_Board_Init()
-RB_LED_Status_Init()
-RB_GSA_Init()
-RB_GSA_SendID()
+RB_Board_Init
+RB_LED_Status_Init
+RB_GSA_Init
+RB_GSA_SendID
 Do
     ' ADAPTER POINT:
     ' If HSerReceiveAvailable Then
     '     InChar = HSerReceive
     '     RB_GSA_AddChar(InChar)
     ' End If
-    If RB_GSA_IsLineReady() = 1 Then
-        RB_GSA_ProcessLine()
+    If RB_GSA_IsLineReady = 1 Then
+        RB_GSA_ProcessLine
     End If
-    RB_LED_Status_Toggle()
+    RB_LED_Status_Toggle
     Wait 250 ms
 Loop

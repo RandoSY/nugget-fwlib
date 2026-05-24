@@ -12,14 +12,14 @@
 
 #include "../../nugget_fwlib_all.inc"
 
-RB_Board_Init()
-RB_LED_Status_Init()
-RB_HX711_Init()
+RB_Board_Init
+RB_LED_Status_Init
+RB_HX711_Init
 Do
-    If RB_HX711_IsReady() = 1 Then
+    If RB_HX711_IsReady = 1 Then
         HSerPrint "STATUS HX711_READY"
         HSerPrintCRLF
-        RB_LED_Status_Pulse100()
+        RB_LED_Status_Pulse100
     Else
         HSerPrint "FAULT HX711_NOT_READY"
         HSerPrintCRLF

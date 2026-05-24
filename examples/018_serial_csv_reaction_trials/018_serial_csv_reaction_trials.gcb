@@ -14,23 +14,23 @@
 
 Dim Trial As Long
 Dim ReactionMs As Long
-RB_Board_Init()
-RB_SW1_InitPullup()
-RB_LED_Status_Init()
+RB_Board_Init
+RB_SW1_InitPullup
+RB_LED_Status_Init
 RB_CSV_Header2("trial", "reaction_ms")
 Trial = 1
 Do
-    RB_SW1_WaitForRelease()
+    RB_SW1_WaitForRelease
     Wait 1000 ms
-    RB_LED_Status_On()
+    RB_LED_Status_On
     ReactionMs = 0
-    Do While RB_SW1_IsReleased() = 1
+    Do While RB_SW1_IsReleased = 1
         Wait 1 ms
         ReactionMs = ReactionMs + 1
     Loop
-    RB_LED_Status_Off()
+    RB_LED_Status_Off
     RB_CSV_Row2_Int(Trial, ReactionMs)
     Trial = Trial + 1
-    RB_SW1_WaitForRelease()
+    RB_SW1_WaitForRelease
     Wait 500 ms
 Loop

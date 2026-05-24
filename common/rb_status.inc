@@ -9,6 +9,6 @@
 #define RB_FAULT_BUTTON_STUCK 5
 #define RB_FAULT_LINE_TOO_LONG 6
 Dim RB_LastFault As Byte
-Sub RB_Status_Init()
+Sub RB_Status_Init
     RB_LastFault = RB_FAULT_NONE
 End Sub

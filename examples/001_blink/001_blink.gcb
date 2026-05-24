@@ -10,11 +10,11 @@
 
 #include "../../nugget_fwlib_all.inc"
 
-RB_Board_Init()
-RB_LED_Status_Init()
+RB_Board_Init
+RB_LED_Status_Init
 Do
-    RB_LED_Status_On()
+    RB_LED_Status_On
     Wait 500 ms
-    RB_LED_Status_Off()
+    RB_LED_Status_Off
     Wait 500 ms
 Loop

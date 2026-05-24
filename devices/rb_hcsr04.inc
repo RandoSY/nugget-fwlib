@@ -1,5 +1,5 @@
 ''' HC-SR04 ultrasonic trigger/echo placeholder.
-Sub RB_HCSR04_Init()
+Sub RB_HCSR04_Init
     Dir PORTC.1 Out
     Dir PORTC.2 In
     ANSELC.1 = 0

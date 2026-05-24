@@ -10,13 +10,13 @@
 
 #include "../../nugget_fwlib_all.inc"
 
-RB_Board_Init()
-RB_SW1_InitPullup()
-RB_LED_Status_Init()
+RB_Board_Init
+RB_SW1_InitPullup
+RB_LED_Status_Init
 Do
-    If RB_SW1_ToggleLatch() = 1 Then
-        RB_LED_Status_On()
+    If RB_SW1_ToggleLatch = 1 Then
+        RB_LED_Status_On
     Else
-        RB_LED_Status_Off()
+        RB_LED_Status_Off
     End If
 Loop

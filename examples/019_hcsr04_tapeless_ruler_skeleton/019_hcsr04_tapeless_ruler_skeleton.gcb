@@ -13,14 +13,14 @@
 #include "../../nugget_fwlib_all.inc"
 
 Dim DistanceCm As Word
-RB_Board_Init()
-RB_HCSR04_Init()
-RB_LED_Status_Init()
+RB_Board_Init
+RB_HCSR04_Init
+RB_LED_Status_Init
 Do
-    DistanceCm = RB_HCSR04_ReadCm()
+    DistanceCm = RB_HCSR04_ReadCm
     HSerPrint "DATA DIST_CM "
     HSerPrint DistanceCm
     HSerPrintCRLF
-    RB_LED_Status_Toggle()
+    RB_LED_Status_Toggle
     Wait 500 ms
 Loop

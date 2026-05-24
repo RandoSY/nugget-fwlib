@@ -12,12 +12,12 @@
 
 #include "../../nugget_fwlib_all.inc"
 
-RB_Board_Init()
-RB_LED_Status_Init()
+RB_Board_Init
+RB_LED_Status_Init
 HSerPrint "HELLO FROM NUGGET-REDBOARD PIC16F18424"
 HSerPrintCRLF
 Do
-    RB_LED_Status_Heartbeat()
+    RB_LED_Status_Heartbeat
     HSerPrint "STATUS ALIVE"
     HSerPrintCRLF
 Loop

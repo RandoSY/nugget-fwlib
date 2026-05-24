@@ -13,16 +13,16 @@
 #include "../../nugget_fwlib_all.inc"
 
 Dim TareCount As Long
-RB_Board_Init()
-RB_SW1_InitPullup()
-RB_LED_Status_Init()
+RB_Board_Init
+RB_SW1_InitPullup
+RB_LED_Status_Init
 TareCount = 0
 Do
-    If RB_SW1_PressedEvent() = 1 Then
+    If RB_SW1_PressedEvent = 1 Then
         TareCount = TareCount + 1
         HSerPrint "OK TARE LOCAL COUNT "
         HSerPrint TareCount
         HSerPrintCRLF
-        RB_LED_Status_Pulse100()
+        RB_LED_Status_Pulse100
     End If
 Loop

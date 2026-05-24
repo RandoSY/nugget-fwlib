@@ -10,11 +10,11 @@
 
 #include "../../nugget_fwlib_all.inc"
 
-RB_Board_Init()
-RB_SW1_InitPullup()
-RB_LED_Status_Init()
+RB_Board_Init
+RB_SW1_InitPullup
+RB_LED_Status_Init
 Do
-    If RB_SW1_PressedEvent() = 1 Then
-        RB_LED_Status_Pulse100()
+    If RB_SW1_PressedEvent = 1 Then
+        RB_LED_Status_Pulse100
     End If
 Loop

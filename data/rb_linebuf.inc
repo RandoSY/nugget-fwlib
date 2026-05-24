@@ -4,13 +4,13 @@ Dim RB_Line As String * RB_LINE_MAX
 Dim RB_LineReady As Bit
 Dim RB_LineCount As Byte
 Dim RB_LineTooLong As Bit
-Sub RB_LineBuf_Init()
+Sub RB_LineBuf_Init
     RB_Line = ""
     RB_LineReady = 0
     RB_LineCount = 0
     RB_LineTooLong = 0
 End Sub
-Sub RB_LineBuf_Clear()
+Sub RB_LineBuf_Clear
     RB_Line = ""
     RB_LineReady = 0
     RB_LineCount = 0

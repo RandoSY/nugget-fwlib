@@ -12,23 +12,23 @@
 
 #include "../../nugget_fwlib_all.inc"
 
-RB_Board_Init()
-RB_LED_Status_Init()
-RB_SW1_InitPullup()
-RB_Task_Init()
+RB_Board_Init
+RB_LED_Status_Init
+RB_SW1_InitPullup
+RB_Task_Init
 Do
     Wait 10 ms
-    RB_Task_Tick10ms()
+    RB_Task_Tick10ms
     If RB_Flag100ms = 1 Then
-        If RB_SW1_IsPressed() = 1 Then
-            RB_LED_Status_On()
+        If RB_SW1_IsPressed = 1 Then
+            RB_LED_Status_On
         Else
-            RB_LED_Status_Off()
+            RB_LED_Status_Off
         End If
     End If
     If RB_Flag1s = 1 Then
         HSerPrint "STATUS ALIVE"
         HSerPrintCRLF
     End If
-    RB_Task_ClearFlags()
+    RB_Task_ClearFlags
 Loop

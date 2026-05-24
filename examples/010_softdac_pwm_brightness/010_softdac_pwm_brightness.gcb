@@ -11,8 +11,8 @@
 #include "../../nugget_fwlib_all.inc"
 
 Dim Level As Byte
-RB_Board_Init()
-RB_LED_Status_Init()
+RB_Board_Init
+RB_LED_Status_Init
 Do
     For Level = 0 To 100 Step 10
         RB_SoftDAC_PulseWidth_RC0(Level)

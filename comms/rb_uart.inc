@@ -1,5 +1,5 @@
 ''' UART print helpers: the PIC speaks readable text.
-Sub RB_UART_Init9600()
+Sub RB_UART_Init9600
     ' Typical programs use #define USART_BAUD_RATE 9600 near the top.
 End Sub
 Sub RB_UART_PrintLine(In RB_Text As String)

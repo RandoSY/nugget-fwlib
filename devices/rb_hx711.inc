@@ -1,5 +1,5 @@
 ''' HX711 behavior placeholder. HX711 is clock/data, not I2C.
-Sub RB_HX711_Init()
+Sub RB_HX711_Init
     Dir PORTA.1 In      ' DOUT
     ANSELA.1 = 0
     Dir PORTA.2 Out     ' SCK

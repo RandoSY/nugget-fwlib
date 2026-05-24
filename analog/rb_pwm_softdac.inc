@@ -9,7 +9,7 @@ Sub RB_SoftDAC_PulseWidth_RC0(In RB_Level As Byte)
     LATC.0 = 0
     Wait RB_OffTime ms
 End Sub
-Sub RB_SoftDAC_Ramp_RC0()
+Sub RB_SoftDAC_Ramp_RC0
     Dim RB_Level As Byte
     For RB_Level = 0 To 100 Step 5
         RB_SoftDAC_PulseWidth_RC0(RB_Level)

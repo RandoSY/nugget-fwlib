@@ -13,26 +13,26 @@
 #include "../../nugget_fwlib_all.inc"
 
 Dim ReactionMs As Long
-RB_Board_Init()
-RB_SW1_InitPullup()
-RB_LED_Status_Init()
+RB_Board_Init
+RB_SW1_InitPullup
+RB_LED_Status_Init
 HSerPrint "Reaction timer ready. Release SW1."
 HSerPrintCRLF
 Do
-    RB_SW1_WaitForRelease()
+    RB_SW1_WaitForRelease
     HSerPrint "Armed. Wait for LED."
     HSerPrintCRLF
     Wait 1500 ms
-    RB_LED_Status_On()
+    RB_LED_Status_On
     ReactionMs = 0
-    Do While RB_SW1_IsReleased() = 1
+    Do While RB_SW1_IsReleased = 1
         Wait 1 ms
         ReactionMs = ReactionMs + 1
     Loop
-    RB_LED_Status_Off()
+    RB_LED_Status_Off
     HSerPrint "REACTION_MS "
     HSerPrint ReactionMs
     HSerPrintCRLF
-    RB_SW1_WaitForRelease()
+    RB_SW1_WaitForRelease
     Wait 500 ms
 Loop

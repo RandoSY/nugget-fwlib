@@ -14,15 +14,15 @@
 
 Dim Sample As Long
 Dim Value As Word
-RB_Board_Init()
-RB_ADC_Init()
-RB_LED_Status_Init()
+RB_Board_Init
+RB_ADC_Init
+RB_LED_Status_Init
 RB_CSV_Header2("sample", "adc")
 Sample = 0
 Do
     Value = RB_ADC_ReadAverage_AN2(8)
     RB_CSV_Row2_Int(Sample, Value)
     Sample = Sample + 1
-    RB_LED_Status_Toggle()
+    RB_LED_Status_Toggle
     Wait 250 ms
 Loop

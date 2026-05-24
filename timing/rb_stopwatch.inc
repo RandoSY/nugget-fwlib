@@ -1,18 +1,18 @@
 ''' Simple teaching stopwatch. This is a readable model, not yet an interrupt driver.
 Dim RB_Stopwatch_ms As Long
 Dim RB_Stopwatch_Running As Bit
-Sub RB_Stopwatch_Reset()
+Sub RB_Stopwatch_Reset
     RB_Stopwatch_ms = 0
     RB_Stopwatch_Running = 0
 End Sub
-Sub RB_Stopwatch_Start()
+Sub RB_Stopwatch_Start
     RB_Stopwatch_ms = 0
     RB_Stopwatch_Running = 1
 End Sub
-Sub RB_Stopwatch_Stop()
+Sub RB_Stopwatch_Stop
     RB_Stopwatch_Running = 0
 End Sub
-Sub RB_Stopwatch_Tick1ms()
+Sub RB_Stopwatch_Tick1ms
     If RB_Stopwatch_Running = 1 Then
         RB_Stopwatch_ms = RB_Stopwatch_ms + 1
     End If
