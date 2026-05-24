@@ -25,6 +25,14 @@ Each module tries to explain:
 3. What the classroom behavior is.
 4. How it fits into a real instrument.
 
+## Attribution
+
+The structure of this repository is intentionally inspired by the original
+Piconomix FW Library (`px-fwlib`). Full credit for that firmware-library
+organization belongs to Piconomix and the `px-fwlib` author or authors.
+
+See [ATTRIBUTION.md](ATTRIBUTION.md) for the complete attribution statement.
+
 ## Primary target
 
 ```gcb
