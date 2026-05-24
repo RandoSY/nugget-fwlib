@@ -1,5 +1,7 @@
 ''' 020_full_tiny_gsa_node.gcb
-''' Library-based working version for PIC16F18424.
+''' Direct-include diagnostic version for PIC16F18424.
+''' This bypasses nugget_fwlib_all.inc and the board wrapper.
+''' Purpose: prove the real library modules one layer at a time.
 
 #chip 16F18424
 #option Explicit
@@ -8,13 +10,16 @@
 
 #define USART_BAUD_RATE 9600
 
-#include "../../nugget_fwlib_all.inc"
+#include "../../arch/pic16f1/pic16f18424/rb_chip_16f18424.inc"
+#include "../../gpio/rb_switch.inc"
+#include "../../gpio/rb_led.inc"
+#include "../../analog/rb_adc.inc"
 
 Dim Value As Word
 Dim Running As Bit
 Dim Sample As Long
 
-RB_Board_Init
+RB_Core_Init
 RB_SW1_InitPullup
 RB_LED_Status_Init
 RB_ADC_Init
@@ -22,12 +27,15 @@ RB_ADC_Init
 Running = 0
 Sample = 0
 
-RB_Board_SendIdentity
+HSerPrint "ID NUGGET-REDBOARD PIC16F18424 FW=0.1.1"
+HSerPrintCRLF
 HSerPrint "STATUS READY"
 HSerPrintCRLF
 
 Do
+
     If RB_SW1_PressedEvent = 1 Then
+
         If Running = 1 Then
             Running = 0
             HSerPrint "OK STOP LOCAL_BUTTON"
@@ -37,21 +45,35 @@ Do
             HSerPrint "OK START LOCAL_BUTTON"
             HSerPrintCRLF
         End If
+
         RB_SW1_WaitForRelease
+
     End If
 
+
     If Running = 1 Then
+
         Value = RB_ADC_ReadAverage_AN2(8)
+
         HSerPrint "DATA SAMPLE "
         HSerPrint Sample
         HSerPrint " ADC "
         HSerPrint Value
         HSerPrintCRLF
+
         Sample = Sample + 1
+
         RB_LED_Status_Toggle
+
         Wait 500 ms
+
     Else
+
         RB_LED_Status_Off
+
         Wait 50 ms
+
     End If
+
 Loop
+
