@@ -1,0 +1,28 @@
+''' ================================================================
+''' 008_adc_read_serial_csv.gcb
+''' Read AN2 and print CSV lines.
+''' ================================================================
+
+#chip 16F18424
+#option Explicit
+#config LVP = ON
+#config MCLRE = ON
+
+#define USART_BAUD_RATE 9600
+
+#include "../../nugget_fwlib_all.inc"
+
+Dim Sample As Long
+Dim Value As Word
+RB_Board_Init()
+RB_ADC_Init()
+RB_LED_Status_Init()
+RB_CSV_Header2("sample", "adc")
+Sample = 0
+Do
+    Value = RB_ADC_ReadAverage_AN2(8)
+    RB_CSV_Row2_Int(Sample, Value)
+    Sample = Sample + 1
+    RB_LED_Status_Toggle()
+    Wait 250 ms
+Loop

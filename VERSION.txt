@@ -1,0 +1,4 @@
+0.1.0
+
+nugget-fwlib v0.1.0
+First public teaching release: REDBOARD PIC16F18424 core, GPIO, switch input, timers, ADC, UART/GSA text, diagnostics, and example applications.

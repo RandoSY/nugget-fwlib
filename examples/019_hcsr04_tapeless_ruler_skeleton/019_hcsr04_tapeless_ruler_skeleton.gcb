@@ -1,0 +1,26 @@
+''' ================================================================
+''' 019_hcsr04_tapeless_ruler_skeleton.gcb
+''' Tapeless ruler skeleton using time-of-flight idea.
+''' ================================================================
+
+#chip 16F18424
+#option Explicit
+#config LVP = ON
+#config MCLRE = ON
+
+#define USART_BAUD_RATE 9600
+
+#include "../../nugget_fwlib_all.inc"
+
+Dim DistanceCm As Word
+RB_Board_Init()
+RB_HCSR04_Init()
+RB_LED_Status_Init()
+Do
+    DistanceCm = RB_HCSR04_ReadCm()
+    HSerPrint "DATA DIST_CM "
+    HSerPrint DistanceCm
+    HSerPrintCRLF
+    RB_LED_Status_Toggle()
+    Wait 500 ms
+Loop

@@ -1,0 +1,23 @@
+''' ================================================================
+''' 006_uart_hello.gcb
+''' Serial hello message and heartbeat.
+''' ================================================================
+
+#chip 16F18424
+#option Explicit
+#config LVP = ON
+#config MCLRE = ON
+
+#define USART_BAUD_RATE 9600
+
+#include "../../nugget_fwlib_all.inc"
+
+RB_Board_Init()
+RB_LED_Status_Init()
+HSerPrint "HELLO FROM NUGGET-REDBOARD PIC16F18424"
+HSerPrintCRLF
+Do
+    RB_LED_Status_Heartbeat()
+    HSerPrint "STATUS ALIVE"
+    HSerPrintCRLF
+Loop

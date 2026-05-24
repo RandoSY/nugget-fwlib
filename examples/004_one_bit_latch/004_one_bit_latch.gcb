@@ -1,0 +1,22 @@
+''' ================================================================
+''' 004_one_bit_latch.gcb
+''' SW1 toggles LED state: a one-bit software memory.
+''' ================================================================
+
+#chip 16F18424
+#option Explicit
+#config LVP = ON
+#config MCLRE = ON
+
+#include "../../nugget_fwlib_all.inc"
+
+RB_Board_Init()
+RB_SW1_InitPullup()
+RB_LED_Status_Init()
+Do
+    If RB_SW1_ToggleLatch() = 1 Then
+        RB_LED_Status_On()
+    Else
+        RB_LED_Status_Off()
+    End If
+Loop

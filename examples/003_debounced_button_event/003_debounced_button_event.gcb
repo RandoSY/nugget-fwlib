@@ -1,0 +1,20 @@
+''' ================================================================
+''' 003_debounced_button_event.gcb
+''' One clean SW1 press produces one LED pulse.
+''' ================================================================
+
+#chip 16F18424
+#option Explicit
+#config LVP = ON
+#config MCLRE = ON
+
+#include "../../nugget_fwlib_all.inc"
+
+RB_Board_Init()
+RB_SW1_InitPullup()
+RB_LED_Status_Init()
+Do
+    If RB_SW1_PressedEvent() = 1 Then
+        RB_LED_Status_Pulse100()
+    End If
+Loop

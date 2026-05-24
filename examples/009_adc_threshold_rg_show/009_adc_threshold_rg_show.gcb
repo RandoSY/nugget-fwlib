@@ -1,0 +1,21 @@
+''' ================================================================
+''' 009_adc_threshold_rg_show.gcb
+''' ADC value controls red/green status.
+''' ================================================================
+
+#chip 16F18424
+#option Explicit
+#config LVP = ON
+#config MCLRE = ON
+
+#include "../../nugget_fwlib_all.inc"
+
+Dim Value As Word
+RB_Board_Init()
+RB_ADC_Init()
+RB_RG_Init()
+Do
+    Value = RB_ADC_ReadAverage_AN2(8)
+    RB_RG_ShowThreshold(Value, 512)
+    Wait 100 ms
+Loop

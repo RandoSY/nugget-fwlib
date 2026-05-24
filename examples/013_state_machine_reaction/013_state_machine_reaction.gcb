@@ -1,0 +1,52 @@
+''' ================================================================
+''' 013_state_machine_reaction.gcb
+''' Reaction timer as explicit state machine.
+''' ================================================================
+
+#chip 16F18424
+#option Explicit
+#config LVP = ON
+#config MCLRE = ON
+
+#define USART_BAUD_RATE 9600
+
+#include "../../nugget_fwlib_all.inc"
+
+Dim State As Byte
+Dim ReactionMs As Long
+RB_Board_Init()
+RB_SW1_InitPullup()
+RB_LED_Status_Init()
+State = 0
+Do
+    Select Case State
+        Case 0
+            HSerPrint "STATE IDLE"
+            HSerPrintCRLF
+            RB_SW1_WaitForPress()
+            RB_SW1_WaitForRelease()
+            State = 1
+        Case 1
+            HSerPrint "STATE ARMED"
+            HSerPrintCRLF
+            Wait 1000 ms
+            State = 2
+        Case 2
+            HSerPrint "STATE GO"
+            HSerPrintCRLF
+            RB_LED_Status_On()
+            ReactionMs = 0
+            Do While RB_SW1_IsReleased() = 1
+                Wait 1 ms
+                ReactionMs = ReactionMs + 1
+            Loop
+            State = 3
+        Case 3
+            RB_LED_Status_Off()
+            HSerPrint "REACTION_MS "
+            HSerPrint ReactionMs
+            HSerPrintCRLF
+            RB_SW1_WaitForRelease()
+            State = 0
+    End Select
+Loop

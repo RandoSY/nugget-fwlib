@@ -1,0 +1,10 @@
+# Generated build artifacts
+*.hex
+*.lst
+*.asm
+*.cof
+*.map
+*.err
+*.tmp
+__pycache__/
+.DS_Store

@@ -1,0 +1,28 @@
+''' ================================================================
+''' 016_tare_button_pattern.gcb
+''' SW1 acts as local TARE/control button.
+''' ================================================================
+
+#chip 16F18424
+#option Explicit
+#config LVP = ON
+#config MCLRE = ON
+
+#define USART_BAUD_RATE 9600
+
+#include "../../nugget_fwlib_all.inc"
+
+Dim TareCount As Long
+RB_Board_Init()
+RB_SW1_InitPullup()
+RB_LED_Status_Init()
+TareCount = 0
+Do
+    If RB_SW1_PressedEvent() = 1 Then
+        TareCount = TareCount + 1
+        HSerPrint "OK TARE LOCAL COUNT "
+        HSerPrint TareCount
+        HSerPrintCRLF
+        RB_LED_Status_Pulse100()
+    End If
+Loop

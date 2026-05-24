@@ -1,0 +1,26 @@
+''' ================================================================
+''' 015_gsa_adc_instrument.gcb
+''' ADC instrument that reports GSA DATA lines.
+''' ================================================================
+
+#chip 16F18424
+#option Explicit
+#config LVP = ON
+#config MCLRE = ON
+
+#define USART_BAUD_RATE 9600
+
+#include "../../nugget_fwlib_all.inc"
+
+Dim Value As Word
+RB_Board_Init()
+RB_LED_Status_Init()
+RB_ADC_Init()
+RB_GSA_Init()
+RB_GSA_SendID()
+Do
+    Value = RB_ADC_ReadAverage_AN2(8)
+    RB_GSA_SendDataInt("ADC", Value)
+    RB_LED_Status_Toggle()
+    Wait 1000 ms
+Loop

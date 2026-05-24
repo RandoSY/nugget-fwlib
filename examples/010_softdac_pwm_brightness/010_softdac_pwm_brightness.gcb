@@ -1,0 +1,20 @@
+''' ================================================================
+''' 010_softdac_pwm_brightness.gcb
+''' Software PWM: number to duty cycle to brightness.
+''' ================================================================
+
+#chip 16F18424
+#option Explicit
+#config LVP = ON
+#config MCLRE = ON
+
+#include "../../nugget_fwlib_all.inc"
+
+Dim Level As Byte
+RB_Board_Init()
+RB_LED_Status_Init()
+Do
+    For Level = 0 To 100 Step 10
+        RB_SoftDAC_PulseWidth_RC0(Level)
+    Next
+Loop

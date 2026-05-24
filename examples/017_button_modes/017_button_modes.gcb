@@ -1,0 +1,40 @@
+''' ================================================================
+''' 017_button_modes.gcb
+''' One button advances through modes.
+''' ================================================================
+
+#chip 16F18424
+#option Explicit
+#config LVP = ON
+#config MCLRE = ON
+
+#define USART_BAUD_RATE 9600
+
+#include "../../nugget_fwlib_all.inc"
+
+Dim Mode As Byte
+RB_Board_Init()
+RB_SW1_InitPullup()
+RB_LED_Status_Init()
+Mode = 0
+Do
+    If RB_SW1_PressedEvent() = 1 Then
+        Mode = Mode + 1
+        If Mode > 3 Then Mode = 0
+        HSerPrint "MODE "
+        HSerPrint Mode
+        HSerPrintCRLF
+    End If
+    Select Case Mode
+        Case 0
+            RB_LED_Status_Off()
+        Case 1
+            RB_LED_Status_On()
+        Case 2
+            RB_LED_Status_Toggle()
+            Wait 250 ms
+        Case 3
+            RB_LED_Status_Toggle()
+            Wait 75 ms
+    End Select
+Loop

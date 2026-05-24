@@ -1,0 +1,53 @@
+''' ================================================================
+''' 020_full_tiny_gsa_node.gcb
+''' Integrated GSA endpoint pattern.
+''' ================================================================
+
+#chip 16F18424
+#option Explicit
+#config LVP = ON
+#config MCLRE = ON
+
+#define USART_BAUD_RATE 9600
+
+#include "../../nugget_fwlib_all.inc"
+
+Dim Value As Word
+Dim Running As Bit
+Dim Sample As Long
+RB_Board_Init()
+RB_SW1_InitPullup()
+RB_LED_Status_Init()
+RB_ADC_Init()
+Running = 0
+Sample = 0
+HSerPrint "ID NUGGET-REDBOARD PIC16F18424 FW=0.1.0"
+HSerPrintCRLF
+HSerPrint "STATUS READY"
+HSerPrintCRLF
+Do
+    If RB_SW1_PressedEvent() = 1 Then
+        Running = !Running
+        If Running = 1 Then
+            HSerPrint "OK START LOCAL_BUTTON"
+            HSerPrintCRLF
+        Else
+            HSerPrint "OK STOP LOCAL_BUTTON"
+            HSerPrintCRLF
+        End If
+    End If
+    If Running = 1 Then
+        Value = RB_ADC_ReadAverage_AN2(8)
+        HSerPrint "DATA SAMPLE "
+        HSerPrint Sample
+        HSerPrint " ADC "
+        HSerPrint Value
+        HSerPrintCRLF
+        Sample = Sample + 1
+        RB_LED_Status_Toggle()
+        Wait 500 ms
+    Else
+        RB_LED_Status_Off()
+        Wait 50 ms
+    End If
+Loop

@@ -1,0 +1,22 @@
+''' ================================================================
+''' 002_switch_pullup_led.gcb
+''' SW1 on RA0 controls LED on RC0 using internal weak pull-up.
+''' ================================================================
+
+#chip 16F18424
+#option Explicit
+#config LVP = ON
+#config MCLRE = ON
+
+#include "../../nugget_fwlib_all.inc"
+
+RB_Board_Init()
+RB_SW1_InitPullup()
+RB_LED_Status_Init()
+Do
+    If RB_SW1_IsPressed() = 1 Then
+        RB_LED_Status_On()
+    Else
+        RB_LED_Status_Off()
+    End If
+Loop

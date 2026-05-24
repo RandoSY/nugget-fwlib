@@ -1,0 +1,19 @@
+''' ================================================================
+''' 011_blink_codes_faults.gcb
+''' Visible diagnostic blink codes.
+''' ================================================================
+
+#chip 16F18424
+#option Explicit
+#config LVP = ON
+#config MCLRE = ON
+
+#include "../../nugget_fwlib_all.inc"
+
+RB_Board_Init()
+RB_LED_Status_Init()
+Do
+    RB_LED_Status_BlinkCode(1)
+    RB_LED_Status_BlinkCode(2)
+    RB_LED_Status_BlinkCode(3)
+Loop
