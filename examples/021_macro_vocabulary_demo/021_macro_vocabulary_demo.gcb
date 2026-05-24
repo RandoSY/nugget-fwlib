@@ -1,0 +1,66 @@
+''' 021_macro_vocabulary_demo.gcb
+''' Demonstrates conservative nugget-fwlib macro vocabulary.
+''' Target: PIC16F18424
+
+#chip 16F18424
+#option Explicit
+#config LVP = ON
+#config MCLRE = ON
+
+#define USART_BAUD_RATE 9600
+
+#include "../../common/rb_macros.inc"
+#include "../../arch/pic16f1/pic16f18424/rb_chip_16f18424.inc"
+#include "../../gpio/rb_switch.inc"
+#include "../../gpio/rb_led.inc"
+
+Dim Running As Bit
+
+RB_Core_Init
+RB_SW1_InitPullup
+RB_LED_Status_Init
+
+Running = RB_FALSE
+
+HSerPrint RB_GSA_WORD_ID
+HSerPrint " "
+HSerPrint RB_BOARD_NAME_MACRO
+HSerPrint " "
+HSerPrint RB_CHIP_NAME_MACRO
+HSerPrint " FW="
+HSerPrint RB_FW_VERSION_MACRO
+HSerPrintCRLF
+
+HSerPrint RB_GSA_WORD_STATUS
+HSerPrint " "
+HSerPrint RB_GSA_STATUS_READY
+HSerPrintCRLF
+
+Do
+    If RB_SW1_PressedEvent = RB_TRUE Then
+
+        If Running = RB_TRUE Then
+            Running = RB_FALSE
+            HSerPrint RB_GSA_WORD_OK
+            HSerPrint " "
+            HSerPrint RB_GSA_CMD_STOP
+            HSerPrintCRLF
+        Else
+            Running = RB_TRUE
+            HSerPrint RB_GSA_WORD_OK
+            HSerPrint " "
+            HSerPrint RB_GSA_CMD_START
+            HSerPrintCRLF
+        End If
+
+        RB_SW1_WaitForRelease
+    End If
+
+    If Running = RB_TRUE Then
+        RB_LED_Status_Toggle
+        Wait RB_HALF_SECOND_MS ms
+    Else
+        RB_LED_Status_Off
+        Wait RB_IDLE_POLL_MS ms
+    End If
+Loop
