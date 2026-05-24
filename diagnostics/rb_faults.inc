@@ -1,4 +1,3 @@
-#include "../common/rb_status.inc"
 Sub RB_Diag_Init
     RB_Status_Init
 End Sub
