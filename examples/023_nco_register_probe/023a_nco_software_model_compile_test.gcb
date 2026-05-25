@@ -1,0 +1,46 @@
+''' ================================================================
+''' 023a_nco_software_model_compile_test.gcb
+''' NCO software model compile test
+''' Target: PIC16F18424
+'''
+''' Purpose:
+'''   Verify that peripherals/rb_nco.inc compiles without touching
+'''   hardware NCO registers.
+'''
+''' Expected:
+'''   This should compile before any hardware register probe is tried.
+''' ================================================================
+
+#chip 16F18424
+#option Explicit
+#config LVP = ON
+#config MCLRE = ON
+
+#define USART_BAUD_RATE 9600
+
+#include "../../common/rb_macros.inc"
+#include "../../peripherals/rb_nco.inc"
+
+RB_NCO_InitState
+
+HSerPrint "023A NCO SOFTWARE MODEL COMPILE TEST"
+HSerPrintCRLF
+RB_NCO_PrintFormulaNote
+RB_NCO_PrintStatus
+
+RB_NCO_SetDemoSlow
+RB_NCO_PrintStatus
+
+RB_NCO_SetDemoMedium
+RB_NCO_PrintStatus
+
+RB_NCO_SetDemoFast
+RB_NCO_PrintStatus
+
+RB_NCO_SetModePFM
+RB_NCO_EnableSoftwareState
+RB_NCO_PrintStatus
+
+Do
+    Wait 1000 ms
+Loop
