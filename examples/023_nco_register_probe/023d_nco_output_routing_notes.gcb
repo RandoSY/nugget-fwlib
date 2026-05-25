@@ -1,0 +1,37 @@
+''' ================================================================
+''' 023d_nco_output_routing_notes.gcb
+''' NCO output routing placeholder / notes
+''' Target: PIC16F18424
+'''
+''' Purpose:
+'''   Document the next step without guessing PPS syntax.
+'''
+''' NCO output usually requires two separate tasks:
+'''   1. Configure and enable the NCO peripheral.
+'''   2. Route the NCO output to a physical pin using PPS.
+'''
+''' The exact Great Cow BASIC names for PPS output selection must be
+''' discovered separately. Do not guess them inside the main library.
+''' ================================================================
+
+#chip 16F18424
+#option Explicit
+#config LVP = ON
+#config MCLRE = ON
+
+#define USART_BAUD_RATE 9600
+
+HSerPrint "023D NCO OUTPUT ROUTING NOTES"
+HSerPrintCRLF
+HSerPrint "STEP 1: compile NCO register symbols."
+HSerPrintCRLF
+HSerPrint "STEP 2: configure NCO1CLK/NCO1CON."
+HSerPrintCRLF
+HSerPrint "STEP 3: discover PPS output symbol for NCO1OUT."
+HSerPrintCRLF
+HSerPrint "STEP 4: route NCO output to selected pin."
+HSerPrintCRLF
+
+Do
+    Wait 1000 ms
+Loop
