@@ -1,0 +1,39 @@
+'===============================================================================
+' 026_portable_signal_expression_redboard.gcb
+'
+' Portable Signal Expression contract demo
+' Target: PIC16F18424 + REDBOARD
+'
+' This program demonstrates the separation:
+'
+'   portable/nse_signal_expression_core.inc
+'       generic signal-expression algorithm
+'
+'   boards/redboard/nse_redboard_pic16f18424_hooks.inc
+'       board/chip-specific hardware binding
+'
+' Core idea:
+'   same Great Cow BASIC algorithm can be reused on other chips/boards
+'   by replacing only the hook include.
+'===============================================================================
+
+#chip 16F18424, 32
+#option explicit
+#config LVP = ON
+
+#define USART_BAUD_RATE 9600
+
+#include "../../boards/redboard/nse_redboard_pic16f18424_hooks.inc"
+#include "../../portable/nse_signal_expression_core.inc"
+
+NSE_InitHardware
+
+' Alive announcement through the portable hook interface.
+NSE_ShowFrameStart
+NSE_ShowBitOne
+NSE_ShowBitZero
+NSE_ShowFrameEnd
+
+Do
+    NSE_RunOneFrame
+Loop
