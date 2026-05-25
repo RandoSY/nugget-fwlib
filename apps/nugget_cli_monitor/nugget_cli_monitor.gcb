@@ -9,16 +9,9 @@
 '''   The PIC sits on the serial port and lets the programmer exercise
 '''   important nugget-fwlib behaviors from a terminal.
 '''
-''' Current proven library areas:
-'''   - PIC16F18424 core setup
-'''   - SW1 switch-to-ground input on RA0
-'''   - status LED on RC0
-'''   - ADC demonstration input on RA2 / AN2
-'''   - serial text output
-'''
 ''' Important:
 '''   The serial receive adapter is isolated. If your local GCB build
-'''   uses a different receive syntax, change only the adapter section.
+'''   uses a different receive syntax, change only CLI_PollSerial.
 ''' ================================================================
 
 #chip 16F18424
@@ -32,13 +25,17 @@
 #include "../../arch/pic16f1/pic16f18424/rb_chip_16f18424.inc"
 #include "../../gpio/rb_switch.inc"
 #include "../../gpio/rb_led.inc"
+#include "../../gpio/rb_led_bank.inc"
 #include "../../analog/rb_adc.inc"
+#include "../../devices/rb_7seg.inc"
 
-Dim CLI_Running As Bit
 Dim CLI_StreamADC As Bit
 Dim CLI_Ch As Byte
 Dim CLI_ADC As Word
 Dim CLI_Count As Long
+Dim CLI_LEDIndex As Byte
+Dim CLI_DigitIndex As Byte
+Dim CLI_DemoChar As Byte
 
 
 ''' ------------------------------------------------
@@ -65,14 +62,6 @@ Sub CLI_PrintHelp
     HSerPrintCRLF
     HSerPrint "S      = status"
     HSerPrintCRLF
-    HSerPrint "B      = blink status LED"
-    HSerPrintCRLF
-    HSerPrint "L      = toggle status LED"
-    HSerPrintCRLF
-    HSerPrint "0      = LED off"
-    HSerPrintCRLF
-    HSerPrint "1      = LED on"
-    HSerPrintCRLF
     HSerPrint "P      = print SW1 state"
     HSerPrintCRLF
     HSerPrint "A      = read ADC once"
@@ -84,6 +73,34 @@ Sub CLI_PrintHelp
     HSerPrint "D      = diagnostic blink code"
     HSerPrintCRLF
     HSerPrint "X      = I2C scan placeholder"
+    HSerPrintCRLF
+    HSerPrint ""
+    HSerPrintCRLF
+    HSerPrint "LED PRIMITIVES"
+    HSerPrintCRLF
+    HSerPrint "M      = print LED map"
+    HSerPrintCRLF
+    HSerPrint "N      = next selected LED"
+    HSerPrintCRLF
+    HSerPrint "+      = selected LED on"
+    HSerPrintCRLF
+    HSerPrint "-      = selected LED off"
+    HSerPrintCRLF
+    HSerPrint "L      = selected LED toggle"
+    HSerPrintCRLF
+    HSerPrint "0      = status LED off"
+    HSerPrintCRLF
+    HSerPrint "1      = status LED on"
+    HSerPrintCRLF
+    HSerPrint ""
+    HSerPrintCRLF
+    HSerPrint "7SEG PRIMITIVES"
+    HSerPrintCRLF
+    HSerPrint "Y      = print 7-seg map"
+    HSerPrintCRLF
+    HSerPrint "G      = next selected digit"
+    HSerPrintCRLF
+    HSerPrint "C      = send next demo char to selected digit"
     HSerPrintCRLF
     HSerPrintCRLF
 End Sub
@@ -102,6 +119,10 @@ Sub CLI_PrintStatus
     Else
         HSerPrint "READY"
     End If
+    HSerPrint " LED="
+    HSerPrint CLI_LEDIndex
+    HSerPrint " DIGIT="
+    HSerPrint CLI_DigitIndex
     HSerPrintCRLF
 End Sub
 
@@ -151,20 +172,122 @@ End Sub
 
 
 ''' ------------------------------------------------
+''' Addressable LED primitive helpers
+''' ------------------------------------------------
+
+Sub CLI_PrintSelectedLED
+    HSerPrint "SELECTED LED "
+    HSerPrint CLI_LEDIndex
+    If RB_LEDBank_IsImplemented(CLI_LEDIndex) = RB_TRUE Then
+        HSerPrint " IMPLEMENTED"
+    Else
+        HSerPrint " RESERVED"
+    End If
+    HSerPrintCRLF
+End Sub
+
+
+Sub CLI_NextLED
+    CLI_LEDIndex = CLI_LEDIndex + 1
+    If CLI_LEDIndex >= RB_LED_COUNT Then
+        CLI_LEDIndex = 0
+    End If
+    CLI_PrintSelectedLED
+End Sub
+
+
+Sub CLI_SelectedLEDOn
+    If RB_LEDBank_Set(CLI_LEDIndex, RB_TRUE) = RB_TRUE Then
+        HSerPrint "OK LED "
+        HSerPrint CLI_LEDIndex
+        HSerPrint " ON"
+        HSerPrintCRLF
+    Else
+        HSerPrint "ERR LED "
+        HSerPrint CLI_LEDIndex
+        HSerPrint " NOT_IMPLEMENTED"
+        HSerPrintCRLF
+    End If
+End Sub
+
+
+Sub CLI_SelectedLEDOff
+    If RB_LEDBank_Set(CLI_LEDIndex, RB_FALSE) = RB_TRUE Then
+        HSerPrint "OK LED "
+        HSerPrint CLI_LEDIndex
+        HSerPrint " OFF"
+        HSerPrintCRLF
+    Else
+        HSerPrint "ERR LED "
+        HSerPrint CLI_LEDIndex
+        HSerPrint " NOT_IMPLEMENTED"
+        HSerPrintCRLF
+    End If
+End Sub
+
+
+Sub CLI_SelectedLEDToggle
+    If RB_LEDBank_Toggle(CLI_LEDIndex) = RB_TRUE Then
+        HSerPrint "OK LED "
+        HSerPrint CLI_LEDIndex
+        HSerPrint " TOGGLE"
+        HSerPrintCRLF
+    Else
+        HSerPrint "ERR LED "
+        HSerPrint CLI_LEDIndex
+        HSerPrint " NOT_IMPLEMENTED"
+        HSerPrintCRLF
+    End If
+End Sub
+
+
+''' ------------------------------------------------
+''' Seven-segment primitive helpers
+''' ------------------------------------------------
+
+Sub CLI_PrintSelectedDigit
+    HSerPrint "SELECTED 7SEG DIGIT "
+    HSerPrint CLI_DigitIndex
+    HSerPrintCRLF
+End Sub
+
+
+Sub CLI_NextDigit
+    CLI_DigitIndex = CLI_DigitIndex + 1
+    If CLI_DigitIndex >= RB_7SEG_DIGIT_COUNT Then
+        CLI_DigitIndex = 0
+    End If
+    CLI_PrintSelectedDigit
+End Sub
+
+
+Sub CLI_SendDemoCharToDigit
+    RB_7Seg_PrintCharInfo(CLI_DigitIndex, CLI_DemoChar)
+
+    If RB_7Seg_WriteChar(CLI_DigitIndex, CLI_DemoChar) = RB_TRUE Then
+        HSerPrint "OK 7SEG WRITE"
+        HSerPrintCRLF
+    Else
+        HSerPrint "ERR 7SEG PIN_MAP_PENDING"
+        HSerPrintCRLF
+    End If
+
+    CLI_DemoChar = CLI_DemoChar + 1
+    If CLI_DemoChar > 57 Then
+        CLI_DemoChar = 48
+    End If
+End Sub
+
+
+''' ------------------------------------------------
 ''' Serial receive adapter
 ''' ------------------------------------------------
-''' This is the only intentionally uncertain section.
-'''
-''' Replace CLI_PollSerial with the receive syntax proven in your
-''' local Great Cow BASIC setup.
-'''
 ''' Required behavior:
 '''   - If no character is available, return RB_FALSE.
 '''   - If one character is available, place it in CLI_Ch and return
 '''     RB_TRUE.
 '''
-''' The placeholder below always returns RB_FALSE, so this file should
-''' still compile as a TX/menu framework even before RX is verified.
+''' Placeholder stays compile-safe until local RX syntax is proven.
 ''' ------------------------------------------------
 
 Function CLI_PollSerial As Bit
@@ -194,30 +317,6 @@ Sub CLI_DispatchCommand
         CLI_PrintStatus
     ElseIf CLI_Ch = 115 Then
         CLI_PrintStatus
-
-    ElseIf CLI_Ch = 66 Then
-        CLI_DiagnosticBlink
-    ElseIf CLI_Ch = 98 Then
-        CLI_DiagnosticBlink
-
-    ElseIf CLI_Ch = 76 Then
-        RB_LED_Status_Toggle
-        HSerPrint "OK LED TOGGLE"
-        HSerPrintCRLF
-    ElseIf CLI_Ch = 108 Then
-        RB_LED_Status_Toggle
-        HSerPrint "OK LED TOGGLE"
-        HSerPrintCRLF
-
-    ElseIf CLI_Ch = 48 Then
-        RB_LED_Status_Off
-        HSerPrint "OK LED OFF"
-        HSerPrintCRLF
-
-    ElseIf CLI_Ch = 49 Then
-        RB_LED_Status_On
-        HSerPrint "OK LED ON"
-        HSerPrintCRLF
 
     ElseIf CLI_Ch = 80 Then
         CLI_PrintSwitch
@@ -257,6 +356,52 @@ Sub CLI_DispatchCommand
     ElseIf CLI_Ch = 120 Then
         CLI_I2CScanPlaceholder
 
+    ElseIf CLI_Ch = 77 Then
+        RB_LEDBank_PrintMap
+    ElseIf CLI_Ch = 109 Then
+        RB_LEDBank_PrintMap
+
+    ElseIf CLI_Ch = 78 Then
+        CLI_NextLED
+    ElseIf CLI_Ch = 110 Then
+        CLI_NextLED
+
+    ElseIf CLI_Ch = 43 Then
+        CLI_SelectedLEDOn
+
+    ElseIf CLI_Ch = 45 Then
+        CLI_SelectedLEDOff
+
+    ElseIf CLI_Ch = 76 Then
+        CLI_SelectedLEDToggle
+    ElseIf CLI_Ch = 108 Then
+        CLI_SelectedLEDToggle
+
+    ElseIf CLI_Ch = 48 Then
+        RB_LED_Status_Off
+        HSerPrint "OK STATUS LED OFF"
+        HSerPrintCRLF
+
+    ElseIf CLI_Ch = 49 Then
+        RB_LED_Status_On
+        HSerPrint "OK STATUS LED ON"
+        HSerPrintCRLF
+
+    ElseIf CLI_Ch = 89 Then
+        RB_7Seg_PrintMap
+    ElseIf CLI_Ch = 121 Then
+        RB_7Seg_PrintMap
+
+    ElseIf CLI_Ch = 71 Then
+        CLI_NextDigit
+    ElseIf CLI_Ch = 103 Then
+        CLI_NextDigit
+
+    ElseIf CLI_Ch = 67 Then
+        CLI_SendDemoCharToDigit
+    ElseIf CLI_Ch = 99 Then
+        CLI_SendDemoCharToDigit
+
     ElseIf CLI_Ch = 13 Then
         ' Ignore CR.
     ElseIf CLI_Ch = 10 Then
@@ -276,14 +421,20 @@ End Sub
 
 RB_Core_Init
 RB_SW1_InitPullup
-RB_LED_Status_Init
+RB_LEDBank_Init
 RB_ADC_Init
+RB_7Seg_Init
 
 CLI_StreamADC = RB_FALSE
 CLI_Count = 0
+CLI_LEDIndex = 0
+CLI_DigitIndex = 0
+CLI_DemoChar = 48
 
 CLI_PrintBanner
 CLI_PrintHelp
+CLI_PrintSelectedLED
+CLI_PrintSelectedDigit
 
 
 ''' ------------------------------------------------
