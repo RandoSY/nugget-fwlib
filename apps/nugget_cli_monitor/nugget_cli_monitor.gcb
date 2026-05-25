@@ -1,0 +1,313 @@
+''' ================================================================
+''' nugget_cli_monitor.gcb
+''' Nugget CLI Monitor for PIC16F18424 / REDBOARD
+'''
+''' Purpose:
+'''   A marquee firmware-library application in the spirit of the
+'''   Piconomix / px-fwlib command-line monitor pattern.
+'''
+'''   The PIC sits on the serial port and lets the programmer exercise
+'''   important nugget-fwlib behaviors from a terminal.
+'''
+''' Current proven library areas:
+'''   - PIC16F18424 core setup
+'''   - SW1 switch-to-ground input on RA0
+'''   - status LED on RC0
+'''   - ADC demonstration input on RA2 / AN2
+'''   - serial text output
+'''
+''' Important:
+'''   The serial receive adapter is isolated. If your local GCB build
+'''   uses a different receive syntax, change only the adapter section.
+''' ================================================================
+
+#chip 16F18424
+#option Explicit
+#config LVP = ON
+#config MCLRE = ON
+
+#define USART_BAUD_RATE 9600
+
+#include "../../common/rb_macros.inc"
+#include "../../arch/pic16f1/pic16f18424/rb_chip_16f18424.inc"
+#include "../../gpio/rb_switch.inc"
+#include "../../gpio/rb_led.inc"
+#include "../../analog/rb_adc.inc"
+
+Dim CLI_Running As Bit
+Dim CLI_StreamADC As Bit
+Dim CLI_Ch As Byte
+Dim CLI_ADC As Word
+Dim CLI_Count As Long
+
+
+''' ------------------------------------------------
+''' CLI printing helpers
+''' ------------------------------------------------
+
+Sub CLI_PrintBanner
+    HSerPrint "NUGGET CLI MONITOR"
+    HSerPrintCRLF
+    HSerPrint "BOARD NUGGET-REDBOARD PIC16F18424 FW=0.1.1"
+    HSerPrintCRLF
+    HSerPrint "Type H or ? for help."
+    HSerPrintCRLF
+End Sub
+
+
+Sub CLI_PrintHelp
+    HSerPrintCRLF
+    HSerPrint "NUGGET CLI COMMANDS"
+    HSerPrintCRLF
+    HSerPrint "? or H = help"
+    HSerPrintCRLF
+    HSerPrint "I      = identity"
+    HSerPrintCRLF
+    HSerPrint "S      = status"
+    HSerPrintCRLF
+    HSerPrint "B      = blink status LED"
+    HSerPrintCRLF
+    HSerPrint "L      = toggle status LED"
+    HSerPrintCRLF
+    HSerPrint "0      = LED off"
+    HSerPrintCRLF
+    HSerPrint "1      = LED on"
+    HSerPrintCRLF
+    HSerPrint "P      = print SW1 state"
+    HSerPrintCRLF
+    HSerPrint "A      = read ADC once"
+    HSerPrintCRLF
+    HSerPrint "R      = run ADC stream"
+    HSerPrintCRLF
+    HSerPrint "T      = stop ADC stream"
+    HSerPrintCRLF
+    HSerPrint "D      = diagnostic blink code"
+    HSerPrintCRLF
+    HSerPrint "X      = I2C scan placeholder"
+    HSerPrintCRLF
+    HSerPrintCRLF
+End Sub
+
+
+Sub CLI_PrintIdentity
+    HSerPrint "ID NUGGET-REDBOARD PIC16F18424 FW=0.1.1"
+    HSerPrintCRLF
+End Sub
+
+
+Sub CLI_PrintStatus
+    HSerPrint "STATUS "
+    If CLI_StreamADC = RB_TRUE Then
+        HSerPrint "ADC_STREAMING"
+    Else
+        HSerPrint "READY"
+    End If
+    HSerPrintCRLF
+End Sub
+
+
+Sub CLI_PrintSwitch
+    HSerPrint "SW1 "
+    If RB_SW1_IsPressed = RB_TRUE Then
+        HSerPrint "PRESSED"
+    Else
+        HSerPrint "RELEASED"
+    End If
+    HSerPrintCRLF
+End Sub
+
+
+Sub CLI_PrintADC
+    CLI_ADC = RB_ADC_ReadAverage_AN2(8)
+    HSerPrint "DATA ADC "
+    HSerPrint CLI_ADC
+    HSerPrintCRLF
+End Sub
+
+
+Sub CLI_DiagnosticBlink
+    HSerPrint "OK DIAG BLINK"
+    HSerPrintCRLF
+    RB_LED_Status_On
+    Wait 100 ms
+    RB_LED_Status_Off
+    Wait 100 ms
+    RB_LED_Status_On
+    Wait 100 ms
+    RB_LED_Status_Off
+    Wait 100 ms
+    RB_LED_Status_On
+    Wait 100 ms
+    RB_LED_Status_Off
+End Sub
+
+
+Sub CLI_I2CScanPlaceholder
+    HSerPrint "I2C SCAN NOT ENABLED IN THIS BUILD"
+    HSerPrintCRLF
+    HSerPrint "Future command X will scan 0x08 through 0x77."
+    HSerPrintCRLF
+End Sub
+
+
+''' ------------------------------------------------
+''' Serial receive adapter
+''' ------------------------------------------------
+''' This is the only intentionally uncertain section.
+'''
+''' Replace CLI_PollSerial with the receive syntax proven in your
+''' local Great Cow BASIC setup.
+'''
+''' Required behavior:
+'''   - If no character is available, return RB_FALSE.
+'''   - If one character is available, place it in CLI_Ch and return
+'''     RB_TRUE.
+'''
+''' The placeholder below always returns RB_FALSE, so this file should
+''' still compile as a TX/menu framework even before RX is verified.
+''' ------------------------------------------------
+
+Function CLI_PollSerial As Bit
+    CLI_PollSerial = RB_FALSE
+End Function
+
+
+''' ------------------------------------------------
+''' Command dispatcher
+''' ------------------------------------------------
+
+Sub CLI_DispatchCommand
+
+    If CLI_Ch = 63 Then
+        CLI_PrintHelp
+    ElseIf CLI_Ch = 72 Then
+        CLI_PrintHelp
+    ElseIf CLI_Ch = 104 Then
+        CLI_PrintHelp
+
+    ElseIf CLI_Ch = 73 Then
+        CLI_PrintIdentity
+    ElseIf CLI_Ch = 105 Then
+        CLI_PrintIdentity
+
+    ElseIf CLI_Ch = 83 Then
+        CLI_PrintStatus
+    ElseIf CLI_Ch = 115 Then
+        CLI_PrintStatus
+
+    ElseIf CLI_Ch = 66 Then
+        CLI_DiagnosticBlink
+    ElseIf CLI_Ch = 98 Then
+        CLI_DiagnosticBlink
+
+    ElseIf CLI_Ch = 76 Then
+        RB_LED_Status_Toggle
+        HSerPrint "OK LED TOGGLE"
+        HSerPrintCRLF
+    ElseIf CLI_Ch = 108 Then
+        RB_LED_Status_Toggle
+        HSerPrint "OK LED TOGGLE"
+        HSerPrintCRLF
+
+    ElseIf CLI_Ch = 48 Then
+        RB_LED_Status_Off
+        HSerPrint "OK LED OFF"
+        HSerPrintCRLF
+
+    ElseIf CLI_Ch = 49 Then
+        RB_LED_Status_On
+        HSerPrint "OK LED ON"
+        HSerPrintCRLF
+
+    ElseIf CLI_Ch = 80 Then
+        CLI_PrintSwitch
+    ElseIf CLI_Ch = 112 Then
+        CLI_PrintSwitch
+
+    ElseIf CLI_Ch = 65 Then
+        CLI_PrintADC
+    ElseIf CLI_Ch = 97 Then
+        CLI_PrintADC
+
+    ElseIf CLI_Ch = 82 Then
+        CLI_StreamADC = RB_TRUE
+        HSerPrint "OK ADC STREAM ON"
+        HSerPrintCRLF
+    ElseIf CLI_Ch = 114 Then
+        CLI_StreamADC = RB_TRUE
+        HSerPrint "OK ADC STREAM ON"
+        HSerPrintCRLF
+
+    ElseIf CLI_Ch = 84 Then
+        CLI_StreamADC = RB_FALSE
+        HSerPrint "OK ADC STREAM OFF"
+        HSerPrintCRLF
+    ElseIf CLI_Ch = 116 Then
+        CLI_StreamADC = RB_FALSE
+        HSerPrint "OK ADC STREAM OFF"
+        HSerPrintCRLF
+
+    ElseIf CLI_Ch = 68 Then
+        CLI_DiagnosticBlink
+    ElseIf CLI_Ch = 100 Then
+        CLI_DiagnosticBlink
+
+    ElseIf CLI_Ch = 88 Then
+        CLI_I2CScanPlaceholder
+    ElseIf CLI_Ch = 120 Then
+        CLI_I2CScanPlaceholder
+
+    ElseIf CLI_Ch = 13 Then
+        ' Ignore CR.
+    ElseIf CLI_Ch = 10 Then
+        ' Ignore LF.
+    Else
+        HSerPrint "ERR BAD_CMD ASCII "
+        HSerPrint CLI_Ch
+        HSerPrintCRLF
+    End If
+
+End Sub
+
+
+''' ------------------------------------------------
+''' Setup
+''' ------------------------------------------------
+
+RB_Core_Init
+RB_SW1_InitPullup
+RB_LED_Status_Init
+RB_ADC_Init
+
+CLI_StreamADC = RB_FALSE
+CLI_Count = 0
+
+CLI_PrintBanner
+CLI_PrintHelp
+
+
+''' ------------------------------------------------
+''' Main loop
+''' ------------------------------------------------
+
+Do
+
+    If CLI_PollSerial = RB_TRUE Then
+        CLI_DispatchCommand
+    End If
+
+    If CLI_StreamADC = RB_TRUE Then
+        CLI_ADC = RB_ADC_ReadAverage_AN2(8)
+        HSerPrint "DATA SAMPLE "
+        HSerPrint CLI_Count
+        HSerPrint " ADC "
+        HSerPrint CLI_ADC
+        HSerPrintCRLF
+        CLI_Count = CLI_Count + 1
+        RB_LED_Status_Toggle
+        Wait 500 ms
+    Else
+        Wait 25 ms
+    End If
+
+Loop
