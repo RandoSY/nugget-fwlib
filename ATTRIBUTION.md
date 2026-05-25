@@ -19,7 +19,7 @@ The original project is:
 All credit for that firmware-library organization belongs to Piconomix and the
 author or authors of `px-fwlib`.
 
-This repository is an independent Great Cow BASIC teaching library for the
+This repository is an independent GCBASIC teaching library for the
 Nugget / REDBOARD / PIC16F18424 pathway. It is not an official Piconomix
 project, is not affiliated with Piconomix, and does not claim ownership of the
 ideas behind the original FW-LIB structure. Where this repository follows a

@@ -1,7 +1,7 @@
 ''' ================================================================
 ''' rb_nco.inc
 ''' Numerically Controlled Oscillator support layer.
-''' Target concept: PIC16F18424 / REDBOARD / Great Cow BASIC
+''' Target concept: PIC16F18424 / REDBOARD / GCBASIC
 '''
 ''' Purpose:
 '''   Turn the PIC16F18424 NCO into a Nugget-visible behavior class:
@@ -10,7 +10,7 @@
 '''
 ''' Important status:
 '''   This is an advanced peripheral layer. The Microchip register
-'''   family is known from the data sheet, but the exact Great Cow BASIC
+'''   family is known from the data sheet, but the exact GCBASIC
 '''   chip-header register names must be verified locally before this
 '''   module is promoted to compile-proven status.
 '''

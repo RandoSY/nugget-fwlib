@@ -4,7 +4,7 @@
 
 One of the strengths of px-fwlib is not merely that it has drivers. It has a disciplined firmware vocabulary. Its macro and configuration patterns help make code portable, readable, and systematic.
 
-`nugget-fwlib` needs a similar idea, but adapted to Great Cow BASIC and the PIC16F18424.
+`nugget-fwlib` needs a similar idea, but adapted to GCBASIC and the PIC16F18424.
 
 The purpose of the macro layer is not to make the code clever. The purpose is to make intent visible.
 
@@ -15,9 +15,9 @@ string literal → protocol word
 number → state or fault code
 ```
 
-## The Great Cow BASIC Constraint
+## The GCBASIC Constraint
 
-Great Cow BASIC is not C. Therefore `nugget-fwlib` should not blindly imitate C macro tricks.
+GCBASIC is not C. Therefore `nugget-fwlib` should not blindly imitate C macro tricks.
 
 The first safe macro layer uses simple `#define` constants only:
 
@@ -180,4 +180,4 @@ Loop
 
 ## Final Intent
 
-The macro layer should give `nugget-fwlib` the same kind of disciplined vocabulary that makes px-fwlib feel organized, but without losing the transparency that makes Great Cow BASIC valuable for teaching.
+The macro layer should give `nugget-fwlib` the same kind of disciplined vocabulary that makes px-fwlib feel organized, but without losing the transparency that makes GCBASIC valuable for teaching.

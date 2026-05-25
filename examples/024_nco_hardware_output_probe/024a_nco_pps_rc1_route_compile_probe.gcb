@@ -4,7 +4,7 @@
 ''' Target: PIC16F18424
 '''
 ''' Purpose:
-'''   Verify that Great Cow BASIC accepts the PPS-related symbols:
+'''   Verify that GCBASIC accepts the PPS-related symbols:
 '''     PPSLOCK
 '''     RC1PPS
 '''

@@ -4,7 +4,7 @@ This note records what was learned while turning `020_full_tiny_gsa_node` from a
 
 ## Verified local facts
 
-These compiled in the user's Great Cow BASIC / PIC16F18424 setup:
+These compiled in the user's GCBASIC / PIC16F18424 setup:
 
 ```gcb
 ANSELA = 0

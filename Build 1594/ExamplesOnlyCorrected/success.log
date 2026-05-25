@@ -1,0 +1,32 @@
+Started @ 25/05/2026 10:03:39.49 — GCBASIC 2026.05.24 Build 1594 
+C:\Gits\nugget-fwlib\examples\001_blink\001_blink.gcb
+C:\Gits\nugget-fwlib\examples\002_switch_pullup_led\002_switch_pullup_led.gcb
+C:\Gits\nugget-fwlib\examples\003_debounced_button_event\003_debounced_button_event.gcb
+C:\Gits\nugget-fwlib\examples\004_one_bit_latch\004_one_bit_latch.gcb
+C:\Gits\nugget-fwlib\examples\005_reaction_timer_blocking\005_reaction_timer_blocking.gcb
+C:\Gits\nugget-fwlib\examples\006_uart_hello\006_uart_hello.gcb
+C:\Gits\nugget-fwlib\examples\007_gsa_hello_status\007_gsa_hello_status.gcb
+C:\Gits\nugget-fwlib\examples\008_adc_read_serial_csv\008_adc_read_serial_csv.gcb
+C:\Gits\nugget-fwlib\examples\009_adc_threshold_rg_show\009_adc_threshold_rg_show.gcb
+C:\Gits\nugget-fwlib\examples\010_softdac_pwm_brightness\010_softdac_pwm_brightness.gcb
+C:\Gits\nugget-fwlib\examples\011_blink_codes_faults\011_blink_codes_faults.gcb
+C:\Gits\nugget-fwlib\examples\012_cooperative_tick_demo\012_cooperative_tick_demo.gcb
+C:\Gits\nugget-fwlib\examples\013_state_machine_reaction\013_state_machine_reaction.gcb
+C:\Gits\nugget-fwlib\examples\014_hx711_ready_fault_demo\014_hx711_ready_fault_demo.gcb
+C:\Gits\nugget-fwlib\examples\015_gsa_adc_instrument\015_gsa_adc_instrument.gcb
+C:\Gits\nugget-fwlib\examples\016_tare_button_pattern\016_tare_button_pattern.gcb
+C:\Gits\nugget-fwlib\examples\017_button_modes\017_button_modes.gcb
+C:\Gits\nugget-fwlib\examples\018_serial_csv_reaction_trials\018_serial_csv_reaction_trials.gcb
+C:\Gits\nugget-fwlib\examples\019_hcsr04_tapeless_ruler_skeleton\019_hcsr04_tapeless_ruler_skeleton.gcb
+C:\Gits\nugget-fwlib\examples\020_full_tiny_gsa_node\020_full_tiny_gsa_node.gcb
+C:\Gits\nugget-fwlib\examples\021_macro_vocabulary_demo\021_macro_vocabulary_demo.gcb
+C:\Gits\nugget-fwlib\examples\022_nco_status_demo\022_nco_status_demo.gcb
+C:\Gits\nugget-fwlib\examples\023_nco_register_probe\023a_nco_software_model_compile_test.gcb
+C:\Gits\nugget-fwlib\examples\023_nco_register_probe\023b_nco_microchip_register_names_probe.gcb
+C:\Gits\nugget-fwlib\examples\023_nco_register_probe\023c_nco_accumulator_register_names_probe.gcb
+C:\Gits\nugget-fwlib\examples\023_nco_register_probe\023d_nco_output_routing_notes.gcb
+C:\Gits\nugget-fwlib\examples\024_nco_hardware_output_probe\024a_nco_pps_rc1_route_compile_probe.gcb
+C:\Gits\nugget-fwlib\examples\024_nco_hardware_output_probe\024b_nco_raw_output_rc1_probe.gcb
+C:\Gits\nugget-fwlib\examples\024_nco_hardware_output_probe\024c_nco_disable_rc1_probe.gcb
+C:\Gits\nugget-fwlib\examples\025_signal_expression_triad\025_signal_expression_triad_an2_dac_tone_rg.gcb
+Completed @ 25/05/2026 10:04:47.09 — GCBASIC 2026.05.24 Build 1594 

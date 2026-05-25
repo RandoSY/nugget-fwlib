@@ -81,7 +81,7 @@ These functions create the software vocabulary first.
 
 ## Why Hardware Writes Are Isolated
 
-The Microchip data sheet gives the NCO register family, but the exact Great Cow BASIC chip-header register symbols must be verified locally before hardware writes are enabled.
+The Microchip data sheet gives the NCO register family, but the exact GCBASIC chip-header register symbols must be verified locally before hardware writes are enabled.
 
 The hardware adapter routines are deliberately isolated:
 

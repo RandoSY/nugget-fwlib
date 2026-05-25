@@ -48,7 +48,7 @@ Function CLI_PollSerial As Bit
 End Function
 ```
 
-This is intentional. The exact Great Cow BASIC serial receive syntax needs to be verified locally for the installed compiler and PIC16F18424 profile.
+This is intentional. The exact GCBASIC serial receive syntax needs to be verified locally for the installed compiler and PIC16F18424 profile.
 
 Once receive syntax is known, only `CLI_PollSerial` should need to change. The command dispatcher, help menu, and library exercise logic should remain stable.
 

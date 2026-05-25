@@ -106,7 +106,7 @@ HSerPrint "text"
 HSerPrintCRLF
 ```
 
-The RX side depends on the exact Great Cow BASIC serial receive syntax for the user's installed version and chip profile. Therefore the example isolates serial receive in a small adapter section.
+The RX side depends on the exact GCBASIC serial receive syntax for the user's installed version and chip profile. Therefore the example isolates serial receive in a small adapter section.
 
 The design rule is:
 

@@ -1,7 +1,7 @@
 NUGGET-FWLIB v0.1.0
 ====================
 
-A Great Cow BASIC firmware library for REDBOARD, PIC Black Box, and GSA teaching instruments.
+A GCBASIC firmware library for REDBOARD, PIC Black Box, and GSA teaching instruments.
 
 Purpose
 -------
@@ -27,7 +27,7 @@ Core behavior classes
 
 Primary target
 --------------
-PIC16F18424 using Great Cow BASIC on the REDBOARD / PIC Black Box workflow.
+PIC16F18424 using GCBASIC on the REDBOARD / PIC Black Box workflow.
 Default configuration:
 
     #chip 16F18424
@@ -71,5 +71,5 @@ Expected response style:
 
 Important note
 --------------
-This is a v0.1.0 teaching release. Great Cow BASIC syntax can vary slightly by version and chip header.
+This is a v0.1.0 teaching release. GCBASIC syntax can vary slightly by version and chip header.
 If a register or serial receive helper requires a local syntax correction, keep the behavior API stable and adjust the low-level routine only.
