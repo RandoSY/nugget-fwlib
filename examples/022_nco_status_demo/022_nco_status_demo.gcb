@@ -1,0 +1,59 @@
+''' ================================================================
+''' 022_nco_status_demo.gcb
+''' Numerically Controlled Oscillator software-state demo.
+''' Target: PIC16F18424
+'''
+''' Purpose:
+'''   Demonstrate the Nugget NCO vocabulary without enabling the
+'''   hardware NCO registers yet.
+'''
+''' Why this exists:
+'''   The NCO is an advanced peripheral. The software vocabulary can be
+'''   taught and tested before the exact GCB register names are proven.
+''' ================================================================
+
+#chip 16F18424
+#option Explicit
+#config LVP = ON
+#config MCLRE = ON
+
+#define USART_BAUD_RATE 9600
+
+#include "../../common/rb_macros.inc"
+#include "../../peripherals/rb_nco.inc"
+
+RB_NCO_InitState
+
+HSerPrint "NCO STATUS DEMO"
+HSerPrintCRLF
+RB_NCO_PrintFormulaNote
+RB_NCO_PrintStatus
+
+HSerPrint "SET SLOW"
+HSerPrintCRLF
+RB_NCO_SetDemoSlow
+RB_NCO_PrintStatus
+
+HSerPrint "SET MEDIUM"
+HSerPrintCRLF
+RB_NCO_SetDemoMedium
+RB_NCO_PrintStatus
+
+HSerPrint "SET FAST"
+HSerPrintCRLF
+RB_NCO_SetDemoFast
+RB_NCO_PrintStatus
+
+HSerPrint "MODE PFM"
+HSerPrintCRLF
+RB_NCO_SetModePFM
+RB_NCO_PrintStatus
+
+HSerPrint "ENABLE SOFTWARE STATE"
+HSerPrintCRLF
+RB_NCO_EnableSoftwareState
+RB_NCO_PrintStatus
+
+Do
+    Wait 1000 ms
+Loop
