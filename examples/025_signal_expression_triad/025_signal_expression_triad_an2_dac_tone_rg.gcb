@@ -1,0 +1,188 @@
+'===============================================================================
+' 025_signal_expression_triad_an2_dac_tone_rg.gcb
+'
+' PIC16F18424 + REDBOARD / Nugget signal-expression triad
+'
+' Read one analog voltage with the ADC and express the resulting number
+' three ways:
+'
+'   1. DAC voltage on RA0 / DAC1OUT for a voltmeter
+'   2. Tone pitch on RC5 / passive piezo using GCBASIC Tone
+'   3. Red/Green visual 12-bit bitstream
+'
+' AN2/RA2 is used as ADC input so RA0 can remain DAC output.
+'
+' Jumper discipline:
+'   - Display jumpers open.
+'   - RA0 is DAC output, not AN0 pot input.
+'   - RA2 is external analog input, not switch/LED service.
+'   - RC5 is piezo/tone output if board jumper supports it.
+'
+' Status:
+'   Engineering test program. The R/G show follows the proven earlier style.
+'   DAC register names are from the PIC16F18424 header/data sheet.
+'   Tone is currently GCBASIC Tone; future version can use hardware NCO.
+'===============================================================================
+
+#chip 16F18424, 32
+#option explicit
+#config LVP = ON
+
+#define USART_BAUD_RATE 9600
+
+#define ONE_LED_MASK    0x02        ' RA1 = ONE/GREEN LED path
+#define ADC2_MASK       0x04        ' RA2 = AN2 external analog input
+#define ZERO_LED_MASK   0x01        ' RC0 = ZERO/RED LED path
+#define SOUND_MASK      0x20        ' RC5 = piezo drive
+#define SoundOut        PORTC.5
+
+#define BIT_ON_MS       220
+#define BIT_GAP_MS      80
+#define FRAME_GAP_MS    500
+#define ADC_FULLSCALE   4095
+
+' DAC1CON0 setup for this test:
+'   bit 7 EN  = 1, DAC enabled
+'   bit 5 OE1 = 1, DAC voltage output on DAC1OUT pin
+'   positive reference = AVDD, negative reference = AVSS
+#define DAC1_ENABLE_AVDD_AVSS_OUT 0xA0
+
+Dim adcValue As Word
+Dim streamValue As Word
+Dim bitWeight As Word
+Dim bitIndex As Byte
+Dim dacValue As Byte
+Dim toneFreq As Word
+
+Sub AllOff
+    LATA = LATA AND 0xFD          ' RA1 ONE/GREEN off
+    LATC = LATC AND 0xFE          ' RC0 ZERO/RED off
+End Sub
+
+Sub InitHardware
+    ' RA0 = analog DAC output
+    ' RA1 = digital ONE/GREEN LED output
+    ' RA2 = analog input AN2
+    ANSELA = 0x05
+    TRISA = 0x35
+
+    ' RC0 = digital ZERO/RED LED output
+    ' RC5 = piezo output for Tone
+    ANSELC = 0x00
+    TRISC = 0x00
+
+    LATA = 0x00
+    LATC = 0x00
+
+    DAC1CON1 = 0
+    DAC1CON0 = DAC1_ENABLE_AVDD_AVSS_OUT
+
+    AllOff
+End Sub
+
+Sub FlashOneLED
+    LATC = LATC AND 0xFE
+    LATA = LATA OR ONE_LED_MASK
+    Wait BIT_ON_MS ms
+    AllOff
+    Wait BIT_GAP_MS ms
+End Sub
+
+Sub FlashZeroLED
+    LATA = LATA AND 0xFD
+    LATC = LATC OR ZERO_LED_MASK
+    Wait BIT_ON_MS ms
+    AllOff
+    Wait BIT_GAP_MS ms
+End Sub
+
+Sub FlashBothLEDs
+    LATA = LATA OR ONE_LED_MASK
+    LATC = LATC OR ZERO_LED_MASK
+    Wait BIT_ON_MS ms
+    AllOff
+    Wait BIT_GAP_MS ms
+End Sub
+
+Sub BeepMarker
+    Tone 1200, 6
+    Wait 80 ms
+End Sub
+
+Sub EndDoubleBeep
+    Tone 1400, 6
+    Wait 80 ms
+    Tone 1400, 6
+    Wait 150 ms
+End Sub
+
+Sub ReadAN2
+    ANSELA = ANSELA OR ADC2_MASK
+    TRISA = TRISA OR ADC2_MASK
+    adcValue = ReadAD12(AN2)
+    If adcValue > ADC_FULLSCALE Then
+        adcValue = ADC_FULLSCALE
+    End If
+End Sub
+
+Sub UpdateDACFromADC
+    ' 12-bit ADC 0..4095 -> 5-bit DAC 0..31
+    dacValue = adcValue / 128
+    If dacValue > 31 Then
+        dacValue = 31
+    End If
+    DAC1CON1 = dacValue
+End Sub
+
+Sub PlayProportionalTone
+    ' 0..4095 -> about 300..2347 Hz
+    toneFreq = 300 + adcValue / 2
+    Tone toneFreq, 12
+    Wait 120 ms
+End Sub
+
+Sub Stream12Bits(In newValue As Word)
+    If newValue > ADC_FULLSCALE Then
+        newValue = ADC_FULLSCALE
+    End If
+
+    streamValue = newValue
+    bitWeight = 2048
+
+    BeepMarker
+    Wait 80 ms
+
+    For bitIndex = 1 To 12
+        If streamValue >= bitWeight Then
+            FlashOneLED
+            streamValue = streamValue - bitWeight
+        Else
+            FlashZeroLED
+        End If
+        bitWeight = bitWeight / 2
+    Next
+
+    EndDoubleBeep
+    AllOff
+End Sub
+
+Sub RunOneSignalFrame
+    ReadAN2
+    UpdateDACFromADC
+    PlayProportionalTone
+    Stream12Bits adcValue
+    Wait FRAME_GAP_MS ms
+End Sub
+
+InitHardware
+
+' Alive announcement.
+BeepMarker
+FlashOneLED
+FlashZeroLED
+FlashBothLEDs
+AllOff
+
+Do
+    RunOneSignalFrame
+Loop
