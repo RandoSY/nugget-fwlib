@@ -1,0 +1,42 @@
+''' ================================================================
+''' 024c_nco_disable_rc1_probe.gcb
+''' Disable NCO and disconnect RC1 PPS route
+''' Target: PIC16F18424
+'''
+''' Purpose:
+'''   Provide a clean follow-up test that disables the NCO and clears
+'''   the RC1 PPS output mapping.
+''' ================================================================
+
+#chip 16F18424
+#option Explicit
+#config LVP = ON
+#config MCLRE = ON
+
+#define USART_BAUD_RATE 9600
+
+HSerPrint "024C NCO DISABLE RC1 PROBE"
+HSerPrintCRLF
+
+' Disable NCO candidate control register.
+NCO1CON = 0
+
+' Unlock PPS and disconnect RC1 output mapping.
+PPSLOCK = 0x55
+PPSLOCK = 0xAA
+PPSLOCK = 0x00
+RC1PPS = 0
+PPSLOCK = 0x55
+PPSLOCK = 0xAA
+PPSLOCK = 0x01
+
+Dir PORTC.1 Out
+ANSELC.1 = 0
+LATC.1 = 0
+
+HSerPrint "NCO DISABLED, RC1PPS CLEARED"
+HSerPrintCRLF
+
+Do
+    Wait 1000 ms
+Loop
