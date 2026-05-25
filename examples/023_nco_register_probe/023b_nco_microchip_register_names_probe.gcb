@@ -1,0 +1,47 @@
+''' ================================================================
+''' 023b_nco_microchip_register_names_probe.gcb
+''' NCO Microchip-style register name probe
+''' Target: PIC16F18424
+'''
+''' Purpose:
+'''   Test whether the local Great Cow BASIC PIC16F18424 header exposes
+'''   Microchip-style NCO register names.
+'''
+''' Compile target symbols:
+'''   NCO1INCL
+'''   NCO1INCH
+'''   NCO1INCU
+'''   NCO1CON
+'''   NCO1CLK
+'''
+''' If this file compiles, these names are probably usable in
+''' peripherals/rb_nco.inc.
+''' ================================================================
+
+#chip 16F18424
+#option Explicit
+#config LVP = ON
+#config MCLRE = ON
+
+#define USART_BAUD_RATE 9600
+
+HSerPrint "023B NCO MICROCHIP REGISTER NAME PROBE"
+HSerPrintCRLF
+
+' Set a small increment value.
+' Microchip recommends upper/high bytes before low byte when enabled.
+NCO1INCU = 0
+NCO1INCH = 0
+NCO1INCL = 1
+
+' Touch control and clock registers with conservative zero values.
+' This is a compile probe, not a finished hardware configuration.
+NCO1CON = 0
+NCO1CLK = 0
+
+HSerPrint "NCO1INC/NCO1CON/NCO1CLK SYMBOLS COMPILED"
+HSerPrintCRLF
+
+Do
+    Wait 1000 ms
+Loop
