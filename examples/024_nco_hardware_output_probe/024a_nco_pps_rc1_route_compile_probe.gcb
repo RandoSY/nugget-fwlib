@@ -1,0 +1,53 @@
+''' ================================================================
+''' 024a_nco_pps_rc1_route_compile_probe.gcb
+''' PPS route compile probe for NCO1OUT -> RC1
+''' Target: PIC16F18424
+'''
+''' Purpose:
+'''   Verify that Great Cow BASIC accepts the PPS-related symbols:
+'''     PPSLOCK
+'''     RC1PPS
+'''
+''' This does not enable the NCO. It only tests output routing syntax.
+''' ================================================================
+
+#chip 16F18424
+#option Explicit
+#config LVP = ON
+#config MCLRE = ON
+
+#define USART_BAUD_RATE 9600
+
+HSerPrint "024A NCO PPS RC1 ROUTE COMPILE PROBE"
+HSerPrintCRLF
+
+' Make RC1 a digital output.
+Dir PORTC.1 Out
+ANSELC.1 = 0
+LATC.1 = 0
+
+' Unlock PPS.
+' This is the standard Microchip unlock sequence.
+PPSLOCK = 0x55
+PPSLOCK = 0xAA
+PPSLOCK = 0x00
+
+' Route NCO1OUT to RC1.
+' PIC16F18424 PPS output code for NCO1OUT is 0x18 decimal 24.
+RC1PPS = 24
+
+' Lock PPS again.
+PPSLOCK = 0x55
+PPSLOCK = 0xAA
+PPSLOCK = 0x01
+
+HSerPrint "PPS ROUTE RC1PPS = 24 COMPILED"
+HSerPrintCRLF
+
+Do
+    ' Blink RC1 slowly so you can also verify that RC1 is physically reachable.
+    LATC.1 = 1
+    Wait 500 ms
+    LATC.1 = 0
+    Wait 500 ms
+Loop
