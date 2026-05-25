@@ -1,0 +1,68 @@
+''' ================================================================
+''' 024b_nco_raw_output_rc1_probe.gcb
+''' First raw NCO hardware-output attempt on RC1
+''' Target: PIC16F18424
+'''
+''' Purpose:
+'''   Attempt to generate a measurable NCO1OUT waveform on RC1.
+'''
+''' Probe assumptions:
+'''   NCO1OUT PPS value = 24 / 0x18
+'''   RC1PPS routes output to RC1
+'''   NCO1INCU/H/L, NCO1CLK, and NCO1CON are accepted GCB symbols
+'''
+''' If this compiles but no waveform appears, adjust NCO1CLK/NCO1CON
+''' after checking the datasheet bit fields and local .asm output.
+''' ================================================================
+
+#chip 16F18424
+#option Explicit
+#config LVP = ON
+#config MCLRE = ON
+
+#define USART_BAUD_RATE 9600
+
+HSerPrint "024B RAW NCO OUTPUT RC1 PROBE"
+HSerPrintCRLF
+
+' RC1 = NCO test output pin.
+Dir PORTC.1 Out
+ANSELC.1 = 0
+LATC.1 = 0
+
+' Unlock PPS and route NCO1OUT to RC1.
+PPSLOCK = 0x55
+PPSLOCK = 0xAA
+PPSLOCK = 0x00
+RC1PPS = 24
+PPSLOCK = 0x55
+PPSLOCK = 0xAA
+PPSLOCK = 0x01
+
+' Load a small NCO increment.
+' Write upper, then high, then low.
+NCO1INCU = 0
+NCO1INCH = 0
+NCO1INCL = 65
+
+' Select NCO clock source.
+' Candidate from related PIC16 example: 1 = FOSC/system clock source.
+NCO1CLK = 1
+
+' Enable NCO and output in fixed-duty mode.
+' Candidate bit pattern:
+'   bit7 = NCO enable
+'   bit6 = NCO output enable
+'   bit5 = PFM mode, left 0 for fixed duty
+'   bit4 = polarity, left 0 active high
+NCO1CON = 192
+
+HSerPrint "NCO RAW OUTPUT CONFIG WRITTEN"
+HSerPrintCRLF
+HSerPrint "PROBE RC1 WITH SCOPE OR COUNTER"
+HSerPrintCRLF
+
+Do
+    ' Keep main loop empty so hardware NCO can run freely.
+    Wait 1000 ms
+Loop
