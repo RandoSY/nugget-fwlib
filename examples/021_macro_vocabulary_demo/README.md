@@ -8,7 +8,7 @@ It uses:
 #include "../../common/rb_macros.inc"
 ```
 
-The purpose is to show how named constants can make a Great Cow BASIC program read more like an instrument story.
+The purpose is to show how named constants can make a GCBASIC program read more like an instrument story.
 
 Instead of raw numeric flags:
 

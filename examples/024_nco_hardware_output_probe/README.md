@@ -1,6 +1,6 @@
 # 024 NCO Hardware Output Probe
 
-This folder contains the first real PIC16F18424 NCO output tests for Great Cow BASIC.
+This folder contains the first real PIC16F18424 NCO output tests for GCBASIC.
 
 These examples are based on three confirmed ideas:
 
@@ -40,7 +40,7 @@ Compile in this order:
 
 ### 024a
 
-Tests whether Great Cow BASIC accepts:
+Tests whether GCBASIC accepts:
 
 ```gcb
 PPSLOCK

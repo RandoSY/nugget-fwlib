@@ -1,0 +1,17 @@
+GCBASIC (2026.05.24 (Windows 64 bit) : Build 1594)
+
+Compiling: 025_signal_expression_triad_an2_dac_tone_rg.gcb
+Program compiled successfully (Compile time: 1.343 seconds)
+
+Summary:
+     Compiled:
+          Program lines: 122
+          Subroutines:  User: 12 ; System: 10 of 485 ; Total: 22
+     Chip resource usage:
+          Program Memory: 691/4096 words (16.87%)
+          RAM: 28/512 bytes (5.47%)
+OSC: HFINT32, 32Mhz (Internal oscillator)
+
+Assembling program using GCASM
+Program assembled successfully (Assembly time: 0.078 seconds)
+Done

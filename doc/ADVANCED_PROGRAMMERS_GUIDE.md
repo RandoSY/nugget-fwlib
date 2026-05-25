@@ -2,7 +2,7 @@
 
 ## Intent and Architecture Reference for `nugget-fwlib`
 
-`nugget-fwlib` is not intended to be merely a collection of Great Cow BASIC snippets. It is a small, teaching-first firmware framework for turning low-cost PIC16F18424 programs into readable, reusable, protocol-speaking instruments.
+`nugget-fwlib` is not intended to be merely a collection of GCBASIC snippets. It is a small, teaching-first firmware framework for turning low-cost PIC16F18424 programs into readable, reusable, protocol-speaking instruments.
 
 The programmer should understand the central intent before adding code:
 
@@ -46,7 +46,7 @@ documentation
 
 `nugget-fwlib` is deliberately smaller and more transparent.
 
-`px-fwlib` is a professional bare-metal C framework intended for portability across many targets. `nugget-fwlib` is a Great Cow BASIC teaching framework centered first on PIC16F18424 / REDBOARD / PIC Black Box work.
+`px-fwlib` is a professional bare-metal C framework intended for portability across many targets. `nugget-fwlib` is a GCBASIC teaching framework centered first on PIC16F18424 / REDBOARD / PIC Black Box work.
 
 The goal is not maximum abstraction. The goal is understandable abstraction.
 
@@ -349,7 +349,7 @@ OPTION_REG.WPUEN = 0
 WPUEN = 0
 ```
 
-The local PIC16F18424 / Great Cow BASIC compile rejected those assumptions.
+The local PIC16F18424 / GCBASIC compile rejected those assumptions.
 
 The compile-proven baseline used:
 
@@ -424,7 +424,7 @@ RB_LED_Status_Off
 RB_ADC_ReadAverage_AN2
 ```
 
-## Great Cow BASIC Style Discipline
+## GCBASIC Style Discipline
 
 This project should prefer the locally compile-proven style:
 
@@ -574,4 +574,4 @@ it fits the GSA text/reporting path
 
 `nugget-fwlib` exists to turn tiny PIC programs into understandable firmware instruments.
 
-It borrows the organizational seriousness of px-fwlib, but redirects that seriousness toward REDBOARD, Great Cow BASIC, classroom transparency, and the Nugget/PIC Black Box path.
+It borrows the organizational seriousness of px-fwlib, but redirects that seriousness toward REDBOARD, GCBASIC, classroom transparency, and the Nugget/PIC Black Box path.

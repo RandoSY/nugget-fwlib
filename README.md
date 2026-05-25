@@ -1,6 +1,6 @@
 # nugget-fwlib
 
-**A Great Cow BASIC firmware library for REDBOARD, PIC Black Box, and GSA teaching instruments.**
+**A GCBASIC firmware library for REDBOARD, PIC Black Box, and GSA teaching instruments.**
 
 ![nugget-fwlib logo](assets/nugget_fwlib_logo.svg)
 

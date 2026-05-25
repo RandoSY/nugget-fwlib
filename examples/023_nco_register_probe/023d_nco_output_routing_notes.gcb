@@ -10,7 +10,7 @@
 '''   1. Configure and enable the NCO peripheral.
 '''   2. Route the NCO output to a physical pin using PPS.
 '''
-''' The exact Great Cow BASIC names for PPS output selection must be
+''' The exact GCBASIC names for PPS output selection must be
 ''' discovered separately. Do not guess them inside the main library.
 ''' ================================================================
 

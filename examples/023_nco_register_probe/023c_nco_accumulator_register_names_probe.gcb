@@ -4,7 +4,7 @@
 ''' Target: PIC16F18424
 '''
 ''' Purpose:
-'''   Test whether the local Great Cow BASIC PIC16F18424 header exposes
+'''   Test whether the local GCBASIC PIC16F18424 header exposes
 '''   accumulator byte names.
 '''
 ''' Candidate symbols:

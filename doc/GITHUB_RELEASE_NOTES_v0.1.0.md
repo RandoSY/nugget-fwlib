@@ -18,7 +18,7 @@
 
 ## Known limitations
 
-- This is not yet a verified compiled release across all Great Cow BASIC versions.
+- This is not yet a verified compiled release across all GCBASIC versions.
 - Serial receive helper names may require local adaptation.
 - HC-SR04, DS18B20, and HX711 modules include teaching skeletons rather than final timed drivers.
 - ADC channel names may need adjustment to match exact board wiring and GCB chip definitions.

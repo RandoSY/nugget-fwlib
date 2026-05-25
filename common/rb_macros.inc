@@ -1,6 +1,6 @@
 ''' ================================================================
 ''' rb_macros.inc
-''' Nugget/REDBOARD macro layer for Great Cow BASIC.
+''' Nugget/REDBOARD macro layer for GCBASIC.
 '''
 ''' Purpose:
 '''   Provide a readable symbolic vocabulary, inspired by the macro
