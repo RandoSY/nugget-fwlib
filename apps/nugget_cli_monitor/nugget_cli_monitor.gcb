@@ -241,127 +241,127 @@ Sub CLI_DispatchCommand
 
     If CLI_Ch = 63 Then
         CLI_PrintHelp
-    ElseIf CLI_Ch = 72 Then
+    Else If CLI_Ch = 72 Then
         CLI_PrintHelp
-    ElseIf CLI_Ch = 104 Then
+    Else If CLI_Ch = 104 Then
         CLI_PrintHelp
-    ElseIf CLI_Ch = 73 Then
+    Else If CLI_Ch = 73 Then
         CLI_PrintIdentity
-    ElseIf CLI_Ch = 105 Then
+    Else If CLI_Ch = 105 Then
         CLI_PrintIdentity
-    ElseIf CLI_Ch = 83 Then
+    Else If CLI_Ch = 83 Then
         CLI_PrintStatus
-    ElseIf CLI_Ch = 115 Then
+    Else If CLI_Ch = 115 Then
         CLI_PrintStatus
-    ElseIf CLI_Ch = 80 Then
+    Else If CLI_Ch = 80 Then
         CLI_PrintSwitch
-    ElseIf CLI_Ch = 112 Then
+    Else If CLI_Ch = 112 Then
         CLI_PrintSwitch
-    ElseIf CLI_Ch = 65 Then
+    Else If CLI_Ch = 65 Then
         CLI_PrintADC
-    ElseIf CLI_Ch = 97 Then
+    Else If CLI_Ch = 97 Then
         CLI_PrintADC
-    ElseIf CLI_Ch = 82 Then
+    Else If CLI_Ch = 82 Then
         CLI_StreamADC = RB_TRUE
         HSerPrint "OK ADC STREAM ON"
         HSerPrintCRLF
-    ElseIf CLI_Ch = 114 Then
+    Else If CLI_Ch = 114 Then
         CLI_StreamADC = RB_TRUE
         HSerPrint "OK ADC STREAM ON"
         HSerPrintCRLF
-    ElseIf CLI_Ch = 84 Then
+    Else If CLI_Ch = 84 Then
         CLI_StreamADC = RB_FALSE
         HSerPrint "OK ADC STREAM OFF"
         HSerPrintCRLF
-    ElseIf CLI_Ch = 116 Then
+    Else If CLI_Ch = 116 Then
         CLI_StreamADC = RB_FALSE
         HSerPrint "OK ADC STREAM OFF"
         HSerPrintCRLF
-    ElseIf CLI_Ch = 68 Then
+    Else If CLI_Ch = 68 Then
         CLI_DiagnosticBlink
-    ElseIf CLI_Ch = 100 Then
+    Else If CLI_Ch = 100 Then
         CLI_DiagnosticBlink
-    ElseIf CLI_Ch = 88 Then
+    Else If CLI_Ch = 88 Then
         CLI_I2CScanPlaceholder
-    ElseIf CLI_Ch = 120 Then
+    Else If CLI_Ch = 120 Then
         CLI_I2CScanPlaceholder
-    ElseIf CLI_Ch = 77 Then
+    Else If CLI_Ch = 77 Then
         RB_LEDBank_PrintMap
-    ElseIf CLI_Ch = 109 Then
+    Else If CLI_Ch = 109 Then
         RB_LEDBank_PrintMap
-    ElseIf CLI_Ch = 78 Then
+    Else If CLI_Ch = 78 Then
         CLI_NextLED
-    ElseIf CLI_Ch = 110 Then
+    Else If CLI_Ch = 110 Then
         CLI_NextLED
-    ElseIf CLI_Ch = 43 Then
+    Else If CLI_Ch = 43 Then
         CLI_SelectedLEDOn
-    ElseIf CLI_Ch = 45 Then
+    Else If CLI_Ch = 45 Then
         CLI_SelectedLEDOff
-    ElseIf CLI_Ch = 76 Then
+    Else If CLI_Ch = 76 Then
         CLI_SelectedLEDToggle
-    ElseIf CLI_Ch = 108 Then
+    Else If CLI_Ch = 108 Then
         CLI_SelectedLEDToggle
-    ElseIf CLI_Ch = 48 Then
+    Else If CLI_Ch = 48 Then
         RB_LED_Status_Off
         HSerPrint "OK STATUS LED OFF"
         HSerPrintCRLF
-    ElseIf CLI_Ch = 49 Then
+    Else If CLI_Ch = 49 Then
         RB_LED_Status_On
         HSerPrint "OK STATUS LED ON"
         HSerPrintCRLF
-    ElseIf CLI_Ch = 89 Then
+    Else If CLI_Ch = 89 Then
         RB_7Seg_PrintMap
-    ElseIf CLI_Ch = 121 Then
+    Else If CLI_Ch = 121 Then
         RB_7Seg_PrintMap
-    ElseIf CLI_Ch = 71 Then
+    Else If CLI_Ch = 71 Then
         CLI_NextDigit
-    ElseIf CLI_Ch = 103 Then
+    Else If CLI_Ch = 103 Then
         CLI_NextDigit
-    ElseIf CLI_Ch = 67 Then
+    Else If CLI_Ch = 67 Then
         CLI_SendDemoCharToDigit
-    ElseIf CLI_Ch = 99 Then
+    Else If CLI_Ch = 99 Then
         CLI_SendDemoCharToDigit
-    ElseIf CLI_Ch = 79 Then
+    Else If CLI_Ch = 79 Then
         RB_NCO_PrintStatus
-    ElseIf CLI_Ch = 111 Then
+    Else If CLI_Ch = 111 Then
         RB_NCO_PrintStatus
-    ElseIf CLI_Ch = 86 Then
+    Else If CLI_Ch = 86 Then
         RB_NCO_PrintFormulaNote
-    ElseIf CLI_Ch = 118 Then
+    Else If CLI_Ch = 118 Then
         RB_NCO_PrintFormulaNote
-    ElseIf CLI_Ch = 74 Then
+    Else If CLI_Ch = 74 Then
         RB_NCO_SetDemoSlow
         RB_NCO_PrintStatus
-    ElseIf CLI_Ch = 106 Then
+    Else If CLI_Ch = 106 Then
         RB_NCO_SetDemoSlow
         RB_NCO_PrintStatus
-    ElseIf CLI_Ch = 75 Then
+    Else If CLI_Ch = 75 Then
         RB_NCO_SetDemoMedium
         RB_NCO_PrintStatus
-    ElseIf CLI_Ch = 107 Then
+    Else If CLI_Ch = 107 Then
         RB_NCO_SetDemoMedium
         RB_NCO_PrintStatus
-    ElseIf CLI_Ch = 81 Then
+    Else If CLI_Ch = 81 Then
         RB_NCO_SetDemoFast
         RB_NCO_PrintStatus
-    ElseIf CLI_Ch = 113 Then
+    Else If CLI_Ch = 113 Then
         RB_NCO_SetDemoFast
         RB_NCO_PrintStatus
-    ElseIf CLI_Ch = 69 Then
+    Else If CLI_Ch = 69 Then
         RB_NCO_EnableSoftwareState
         RB_NCO_PrintStatus
-    ElseIf CLI_Ch = 101 Then
+    Else If CLI_Ch = 101 Then
         RB_NCO_EnableSoftwareState
         RB_NCO_PrintStatus
-    ElseIf CLI_Ch = 87 Then
+    Else If CLI_Ch = 87 Then
         RB_NCO_DisableSoftwareState
         RB_NCO_PrintStatus
-    ElseIf CLI_Ch = 119 Then
+    Else If CLI_Ch = 119 Then
         RB_NCO_DisableSoftwareState
         RB_NCO_PrintStatus
-    ElseIf CLI_Ch = 13 Then
+    Else If CLI_Ch = 13 Then
         ' Ignore CR.
-    ElseIf CLI_Ch = 10 Then
+    Else If CLI_Ch = 10 Then
         ' Ignore LF.
     Else
         HSerPrint "ERR BAD_CMD ASCII "
