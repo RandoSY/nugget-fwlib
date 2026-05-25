@@ -1,0 +1,47 @@
+''' ================================================================
+''' 023c_nco_accumulator_register_names_probe.gcb
+''' NCO accumulator register name probe
+''' Target: PIC16F18424
+'''
+''' Purpose:
+'''   Test whether the local Great Cow BASIC PIC16F18424 header exposes
+'''   accumulator byte names.
+'''
+''' Candidate symbols:
+'''   NCO1ACCL
+'''   NCO1ACCH
+'''   NCO1ACCU
+'''
+''' If this file fails, that does not prevent basic NCO output work.
+''' Increment/control registers are more important for the first demo.
+''' ================================================================
+
+#chip 16F18424
+#option Explicit
+#config LVP = ON
+#config MCLRE = ON
+
+#define USART_BAUD_RATE 9600
+
+Dim AccL As Byte
+Dim AccH As Byte
+Dim AccU As Byte
+
+HSerPrint "023C NCO ACCUMULATOR REGISTER NAME PROBE"
+HSerPrintCRLF
+
+AccL = NCO1ACCL
+AccH = NCO1ACCH
+AccU = NCO1ACCU
+
+HSerPrint "NCO1ACC SYMBOLS COMPILED "
+HSerPrint AccU
+HSerPrint ":"
+HSerPrint AccH
+HSerPrint ":"
+HSerPrint AccL
+HSerPrintCRLF
+
+Do
+    Wait 1000 ms
+Loop
