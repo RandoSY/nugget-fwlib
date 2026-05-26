@@ -8,20 +8,26 @@
 ''' Behavior:
 '''   1. User releases SW1 to arm the test.
 '''   2. PIC waits a fixed quiet interval.
-'''   3. Status LED turns ON = GO.
+'''   3. Green GO LED turns ON and buzzer chirps.
 '''   4. Stopwatch starts.
 '''   5. First detected SW1 press captures reaction time in ms.
-'''   6. Result prints over UART.
+'''   6. Result transmits through TX-only software UART.
 '''
 ''' Teaching point:
 '''   250 ms human reaction time is easy for a PIC.
 '''   This example uses a readable 1 ms cooperative software tick.
 '''
-''' Notes:
-'''   - SW1 is active-low on RA0 through rb_switch.inc.
-'''   - Status LED is on RC0 through rb_led.inc.
-'''   - The 20 ms debounce confirmation occurs AFTER the reaction time
-'''     is captured, so it does not add 20 ms to the reported result.
+''' Reaction Game I/O map for this example:
+'''   RA0 = SW1 / reaction switch, active-low with weak pull-up
+'''   RC0 = status / armed LED
+'''   RC1 = red false-start LED
+'''   RC2 = green GO LED
+'''   RC3 = buzzer output
+'''   RC4 = software UART TX, idle high, 9600 baud, 8N1
+'''
+''' Important timing rule:
+'''   Do not transmit while measuring reaction time.
+'''   Capture ReactionMs first, stop the stopwatch, then print telemetry.
 ''' ================================================================
 
 #chip 16F18424
@@ -29,43 +35,223 @@
 #config LVP = ON
 #config MCLRE = ON
 
-#define USART_BAUD_RATE 9600
-
 #include "../../arch/pic16f1/pic16f18424/rb_chip_16f18424.inc"
 #include "../../gpio/rb_switch.inc"
 #include "../../gpio/rb_led.inc"
 #include "../../timing/rb_stopwatch.inc"
+#include "../../comms/rb_soft_uart_tx.inc"
 
-Dim ReactionMs As Long
+Dim ReactionMs As Word
 Dim DelayMs As Word
 Dim FalseStart As Bit
 Dim Confirmed As Bit
 
-Sub Print_Banner
-    HSerPrint "ID NUGGET-REDBOARD REACTION_GAME PIC16F18424 FW=0.1.0"
-    HSerPrintCRLF
-    HSerPrint "STATUS READY"
-    HSerPrintCRLF
+Sub RG_IO_Init
+    RB_LED_Status_Init
+    RB_SoftUART_TX_Init
+
+    Dir PORTC.1 Out
+    Dir PORTC.2 Out
+    Dir PORTC.3 Out
+
+    ANSELC.1 = 0
+    ANSELC.2 = 0
+    ANSELC.3 = 0
+
+    LATC.1 = 0
+    LATC.2 = 0
+    LATC.3 = 0
+End Sub
+
+Sub RG_All_Off
+    RB_LED_Status_Off
+    LATC.1 = 0
+    LATC.2 = 0
+    LATC.3 = 0
+End Sub
+
+Sub RG_Buzzer_Chirp
+    LATC.3 = 1
+    Wait 40 ms
+    LATC.3 = 0
+End Sub
+
+Sub RG_Buzzer_Error
+    LATC.3 = 1
+    Wait 80 ms
+    LATC.3 = 0
+    Wait 80 ms
+    LATC.3 = 1
+    Wait 80 ms
+    LATC.3 = 0
+End Sub
+
+Sub RG_Tx_Banner
+    RB_SoftUART_TxByte(73)   ' I
+    RB_SoftUART_TxByte(68)   ' D
+    RB_SoftUART_PrintSpace
+    RB_SoftUART_TxByte(78)   ' N
+    RB_SoftUART_TxByte(85)   ' U
+    RB_SoftUART_TxByte(71)   ' G
+    RB_SoftUART_TxByte(71)   ' G
+    RB_SoftUART_TxByte(69)   ' E
+    RB_SoftUART_TxByte(84)   ' T
+    RB_SoftUART_TxByte(45)   ' -
+    RB_SoftUART_TxByte(82)   ' R
+    RB_SoftUART_TxByte(69)   ' E
+    RB_SoftUART_TxByte(65)   ' A
+    RB_SoftUART_TxByte(67)   ' C
+    RB_SoftUART_TxByte(84)   ' T
+    RB_SoftUART_TxByte(73)   ' I
+    RB_SoftUART_TxByte(79)   ' O
+    RB_SoftUART_TxByte(78)   ' N
+    RB_SoftUART_PrintSpace
+    RB_SoftUART_TxByte(70)   ' F
+    RB_SoftUART_TxByte(87)   ' W
+    RB_SoftUART_TxByte(61)   ' =
+    RB_SoftUART_TxByte(48)   ' 0
+    RB_SoftUART_TxByte(46)   ' .
+    RB_SoftUART_TxByte(50)   ' 2
+    RB_SoftUART_TxByte(46)   ' .
+    RB_SoftUART_TxByte(48)   ' 0
+    RB_SoftUART_PrintCRLF
+End Sub
+
+Sub RG_Tx_Status_Ready
+    RB_SoftUART_TxByte(83)   ' S
+    RB_SoftUART_TxByte(84)   ' T
+    RB_SoftUART_TxByte(65)   ' A
+    RB_SoftUART_TxByte(84)   ' T
+    RB_SoftUART_TxByte(85)   ' U
+    RB_SoftUART_TxByte(83)   ' S
+    RB_SoftUART_PrintSpace
+    RB_SoftUART_TxByte(82)   ' R
+    RB_SoftUART_TxByte(69)   ' E
+    RB_SoftUART_TxByte(65)   ' A
+    RB_SoftUART_TxByte(68)   ' D
+    RB_SoftUART_TxByte(89)   ' Y
+    RB_SoftUART_PrintCRLF
+End Sub
+
+Sub RG_Tx_Status_Armed
+    RB_SoftUART_TxByte(83)   ' S
+    RB_SoftUART_TxByte(84)   ' T
+    RB_SoftUART_TxByte(65)   ' A
+    RB_SoftUART_TxByte(84)   ' T
+    RB_SoftUART_TxByte(85)   ' U
+    RB_SoftUART_TxByte(83)   ' S
+    RB_SoftUART_PrintSpace
+    RB_SoftUART_TxByte(65)   ' A
+    RB_SoftUART_TxByte(82)   ' R
+    RB_SoftUART_TxByte(77)   ' M
+    RB_SoftUART_TxByte(69)   ' E
+    RB_SoftUART_TxByte(68)   ' D
+    RB_SoftUART_PrintCRLF
+End Sub
+
+Sub RG_Tx_Go
+    RB_SoftUART_TxByte(71)   ' G
+    RB_SoftUART_TxByte(79)   ' O
+    RB_SoftUART_PrintCRLF
+End Sub
+
+Sub RG_Tx_FalseStart
+    RB_SoftUART_TxByte(70)   ' F
+    RB_SoftUART_TxByte(65)   ' A
+    RB_SoftUART_TxByte(85)   ' U
+    RB_SoftUART_TxByte(76)   ' L
+    RB_SoftUART_TxByte(84)   ' T
+    RB_SoftUART_PrintSpace
+    RB_SoftUART_TxByte(70)   ' F
+    RB_SoftUART_TxByte(65)   ' A
+    RB_SoftUART_TxByte(76)   ' L
+    RB_SoftUART_TxByte(83)   ' S
+    RB_SoftUART_TxByte(69)   ' E
+    RB_SoftUART_TxByte(95)   ' _
+    RB_SoftUART_TxByte(83)   ' S
+    RB_SoftUART_TxByte(84)   ' T
+    RB_SoftUART_TxByte(65)   ' A
+    RB_SoftUART_TxByte(82)   ' R
+    RB_SoftUART_TxByte(84)   ' T
+    RB_SoftUART_PrintCRLF
+End Sub
+
+Sub RG_Tx_Result
+    RB_SoftUART_TxByte(68)   ' D
+    RB_SoftUART_TxByte(65)   ' A
+    RB_SoftUART_TxByte(84)   ' T
+    RB_SoftUART_TxByte(65)   ' A
+    RB_SoftUART_PrintSpace
+    RB_SoftUART_TxByte(82)   ' R
+    RB_SoftUART_TxByte(69)   ' E
+    RB_SoftUART_TxByte(65)   ' A
+    RB_SoftUART_TxByte(67)   ' C
+    RB_SoftUART_TxByte(84)   ' T
+    RB_SoftUART_TxByte(73)   ' I
+    RB_SoftUART_TxByte(79)   ' O
+    RB_SoftUART_TxByte(78)   ' N
+    RB_SoftUART_TxByte(95)   ' _
+    RB_SoftUART_TxByte(77)   ' M
+    RB_SoftUART_TxByte(83)   ' S
+    RB_SoftUART_PrintSpace
+    RB_SoftUART_PrintWord(ReactionMs)
+    RB_SoftUART_PrintSpace
+    RB_SoftUART_TxByte(67)   ' C
+    RB_SoftUART_TxByte(76)   ' L
+    RB_SoftUART_TxByte(65)   ' A
+    RB_SoftUART_TxByte(83)   ' S
+    RB_SoftUART_TxByte(83)   ' S
+    RB_SoftUART_PrintSpace
+
+    If ReactionMs < 150 Then
+        RB_SoftUART_TxByte(65)   ' A
+        RB_SoftUART_TxByte(78)   ' N
+        RB_SoftUART_TxByte(84)   ' T
+        RB_SoftUART_TxByte(73)   ' I
+        RB_SoftUART_TxByte(67)   ' C
+        RB_SoftUART_TxByte(73)   ' I
+        RB_SoftUART_TxByte(80)   ' P
+        RB_SoftUART_TxByte(65)   ' A
+        RB_SoftUART_TxByte(84)   ' T
+        RB_SoftUART_TxByte(69)   ' E
+        RB_SoftUART_TxByte(68)   ' D
+    Else
+        If ReactionMs < 250 Then
+            RB_SoftUART_TxByte(70)   ' F
+            RB_SoftUART_TxByte(65)   ' A
+            RB_SoftUART_TxByte(83)   ' S
+            RB_SoftUART_TxByte(84)   ' T
+        Else
+            If ReactionMs < 350 Then
+                RB_SoftUART_TxByte(78)   ' N
+                RB_SoftUART_TxByte(79)   ' O
+                RB_SoftUART_TxByte(82)   ' R
+                RB_SoftUART_TxByte(77)   ' M
+                RB_SoftUART_TxByte(65)   ' A
+                RB_SoftUART_TxByte(76)   ' L
+            Else
+                RB_SoftUART_TxByte(83)   ' S
+                RB_SoftUART_TxByte(76)   ' L
+                RB_SoftUART_TxByte(79)   ' O
+                RB_SoftUART_TxByte(87)   ' W
+            End If
+        End If
+    End If
+
+    RB_SoftUART_PrintCRLF
 End Sub
 
 Sub Wait_For_User_Ready
-    HSerPrint "PROMPT RELEASE_SW1_TO_ARM"
-    HSerPrintCRLF
-
-    RB_LED_Status_Off
-
-    ' Make sure the button is not already being held.
+    RG_All_Off
     RB_SW1_WaitForRelease
 
-    HSerPrint "OK ARMED"
-    HSerPrintCRLF
+    RB_LED_Status_On
+    RG_Tx_Status_Armed
+    RG_Buzzer_Chirp
 End Sub
 
 Sub Quiet_Wait_Before_Go
     FalseStart = 0
-
-    HSerPrint "STATUS WAITING"
-    HSerPrintCRLF
 
     ' Fixed 1500 ms teaching delay.
     ' Later this can become pseudo-random.
@@ -83,11 +269,14 @@ Sub Quiet_Wait_Before_Go
 End Sub
 
 Sub Report_False_Start
-    HSerPrint "FAULT FALSE_START"
-    HSerPrintCRLF
+    RB_LED_Status_Off
+    LATC.1 = 1
+    LATC.2 = 0
 
-    RB_LED_Status_BlinkCode(3)
+    RG_Tx_FalseStart
+    RG_Buzzer_Error
 
+    LATC.1 = 0
     RB_SW1_WaitForRelease
 End Sub
 
@@ -95,10 +284,13 @@ Sub Run_Reaction_Trial
 
     RB_Stopwatch_Reset
 
-    HSerPrint "GO"
-    HSerPrintCRLF
+    RB_LED_Status_Off
+    LATC.1 = 0
+    LATC.2 = 1
 
-    RB_LED_Status_On
+    RG_Tx_Go
+    RG_Buzzer_Chirp
+
     RB_Stopwatch_Start
 
     Confirmed = 0
@@ -125,29 +317,10 @@ Sub Run_Reaction_Trial
     Loop Until Confirmed = 1
 
     RB_Stopwatch_Stop
-    RB_LED_Status_Off
+    LATC.2 = 0
 
-    HSerPrint "DATA REACTION_MS "
-    HSerPrint ReactionMs
-    HSerPrintCRLF
-
-    If ReactionMs < 150 Then
-        HSerPrint "CLASS VERY_FAST_OR_ANTICIPATED"
-        HSerPrintCRLF
-    Else
-        If ReactionMs < 250 Then
-            HSerPrint "CLASS FAST"
-            HSerPrintCRLF
-        Else
-            If ReactionMs < 350 Then
-                HSerPrint "CLASS NORMAL"
-                HSerPrintCRLF
-            Else
-                HSerPrint "CLASS SLOW"
-                HSerPrintCRLF
-            End If
-        End If
-    End If
+    RG_Tx_Result
+    RG_Buzzer_Chirp
 
     RB_SW1_WaitForRelease
 
@@ -159,10 +332,12 @@ End Sub
 
 RB_Core_Init
 RB_SW1_InitPullup
-RB_LED_Status_Init
+RG_IO_Init
 RB_Stopwatch_Reset
 
-Print_Banner
+RG_All_Off
+RG_Tx_Banner
+RG_Tx_Status_Ready
 
 Do
 
@@ -174,10 +349,6 @@ Do
     Else
         Run_Reaction_Trial
     End If
-
-    HSerPrint "PROMPT PRESS_AGAIN_FOR_NEXT_TRIAL"
-    HSerPrintCRLF
-    HSerPrintCRLF
 
     Wait 500 ms
 
