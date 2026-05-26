@@ -4,6 +4,15 @@ The Nugget CLI Monitor is the marquee application for `nugget-fwlib`.
 
 It is inspired by the role played by command-line monitor applications in more mature firmware libraries: a small program sits on the serial port, waits for commands, and exercises important library functions.
 
+## Revelator 3.6 analysis
+
+The current assembly review artifacts are generated with XC8 ASM Revelator v3.6:
+
+- [nugget_cli_monitor_revelator_v3_6.md](nugget_cli_monitor_revelator_v3_6.md)
+- [nugget_cli_monitor_triage_v3_6.md](nugget_cli_monitor_triage_v3_6.md)
+- [nugget_cli_monitor_revelator_v3_6.json](nugget_cli_monitor_revelator_v3_6.json)
+- [xc8_asm_revelator_v3_6_gcbasic.py](xc8_asm_revelator_v3_6_gcbasic.py)
+
 ## Why this matters
 
 A firmware library becomes real when a programmer can interrogate it from a terminal.
