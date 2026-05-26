@@ -1,0 +1,184 @@
+''' ================================================================
+''' 030_reaction_game.gcb
+''' Nugget FWLIB / REDBOARD Reaction Game
+'''
+''' Target: PIC16F18424
+''' Board:  REDBOARD / PIC Black Box
+'''
+''' Behavior:
+'''   1. User releases SW1 to arm the test.
+'''   2. PIC waits a fixed quiet interval.
+'''   3. Status LED turns ON = GO.
+'''   4. Stopwatch starts.
+'''   5. First detected SW1 press captures reaction time in ms.
+'''   6. Result prints over UART.
+'''
+''' Teaching point:
+'''   250 ms human reaction time is easy for a PIC.
+'''   This example uses a readable 1 ms cooperative software tick.
+'''
+''' Notes:
+'''   - SW1 is active-low on RA0 through rb_switch.inc.
+'''   - Status LED is on RC0 through rb_led.inc.
+'''   - The 20 ms debounce confirmation occurs AFTER the reaction time
+'''     is captured, so it does not add 20 ms to the reported result.
+''' ================================================================
+
+#chip 16F18424
+#option Explicit
+#config LVP = ON
+#config MCLRE = ON
+
+#define USART_BAUD_RATE 9600
+
+#include "../../arch/pic16f1/pic16f18424/rb_chip_16f18424.inc"
+#include "../../gpio/rb_switch.inc"
+#include "../../gpio/rb_led.inc"
+#include "../../timing/rb_stopwatch.inc"
+
+Dim ReactionMs As Long
+Dim DelayMs As Word
+Dim FalseStart As Bit
+Dim Confirmed As Bit
+
+Sub Print_Banner
+    HSerPrint "ID NUGGET-REDBOARD REACTION_GAME PIC16F18424 FW=0.1.0"
+    HSerPrintCRLF
+    HSerPrint "STATUS READY"
+    HSerPrintCRLF
+End Sub
+
+Sub Wait_For_User_Ready
+    HSerPrint "PROMPT RELEASE_SW1_TO_ARM"
+    HSerPrintCRLF
+
+    RB_LED_Status_Off
+
+    ' Make sure the button is not already being held.
+    RB_SW1_WaitForRelease
+
+    HSerPrint "OK ARMED"
+    HSerPrintCRLF
+End Sub
+
+Sub Quiet_Wait_Before_Go
+    FalseStart = 0
+
+    HSerPrint "STATUS WAITING"
+    HSerPrintCRLF
+
+    ' Fixed 1500 ms teaching delay.
+    ' Later this can become pseudo-random.
+    For DelayMs = 1 To 1500
+
+        Wait 1 ms
+
+        ' Pressing before GO is a false start.
+        If RB_SW1_IsPressed = 1 Then
+            FalseStart = 1
+            Exit For
+        End If
+
+    Next
+End Sub
+
+Sub Report_False_Start
+    HSerPrint "FAULT FALSE_START"
+    HSerPrintCRLF
+
+    RB_LED_Status_BlinkCode(3)
+
+    RB_SW1_WaitForRelease
+End Sub
+
+Sub Run_Reaction_Trial
+
+    RB_Stopwatch_Reset
+
+    HSerPrint "GO"
+    HSerPrintCRLF
+
+    RB_LED_Status_On
+    RB_Stopwatch_Start
+
+    Confirmed = 0
+
+    Do
+
+        Wait 1 ms
+        RB_Stopwatch_Tick1ms
+
+        ' Capture the first raw press quickly.
+        If RB_SW1_IsPressed = 1 Then
+
+            ReactionMs = RB_Stopwatch_ReadMs
+
+            ' Confirm that this was not just a bounce/noise event.
+            Wait 20 ms
+
+            If RB_SW1_IsPressed = 1 Then
+                Confirmed = 1
+            End If
+
+        End If
+
+    Loop Until Confirmed = 1
+
+    RB_Stopwatch_Stop
+    RB_LED_Status_Off
+
+    HSerPrint "DATA REACTION_MS "
+    HSerPrint ReactionMs
+    HSerPrintCRLF
+
+    If ReactionMs < 150 Then
+        HSerPrint "CLASS VERY_FAST_OR_ANTICIPATED"
+        HSerPrintCRLF
+    Else
+        If ReactionMs < 250 Then
+            HSerPrint "CLASS FAST"
+            HSerPrintCRLF
+        Else
+            If ReactionMs < 350 Then
+                HSerPrint "CLASS NORMAL"
+                HSerPrintCRLF
+            Else
+                HSerPrint "CLASS SLOW"
+                HSerPrintCRLF
+            End If
+        End If
+    End If
+
+    RB_SW1_WaitForRelease
+
+End Sub
+
+''' ================================================================
+''' Main program
+''' ================================================================
+
+RB_Core_Init
+RB_SW1_InitPullup
+RB_LED_Status_Init
+RB_Stopwatch_Reset
+
+Print_Banner
+
+Do
+
+    Wait_For_User_Ready
+    Quiet_Wait_Before_Go
+
+    If FalseStart = 1 Then
+        Report_False_Start
+    Else
+        Run_Reaction_Trial
+    End If
+
+    HSerPrint "PROMPT PRESS_AGAIN_FOR_NEXT_TRIAL"
+    HSerPrintCRLF
+    HSerPrintCRLF
+
+    Wait 500 ms
+
+Loop
