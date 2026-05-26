@@ -1,0 +1,432 @@
+%CMF
+# %PSECTS Section
+# For each object file, details of its psects are enumerated here.
+# The begining of the section is indicated by %PSECTS.  The first
+# line indicates the name of the first object file, e.g.
+#    $foo.obj
+# Each line that follows describes a psect in that object file, until
+# the next object file.  The lines that describe a psect have the
+# format:
+#    <psect name> <class name> <space> <link address> <load addresses> <length> <delta> <reloc>
+# All addresses and the length are given in unqualified hexadecimal
+# in delta units.  Any other numeric values are decimal.
+%PSECTS
+$C:\Users\rasyoung\Desktop\nugget-fwlib\examples\012_cooperative_tick_demo\012_cooperative_tick_demo.o
+PROGMEM0 - 0 0 0 E2 2 1
+config CONFIG 4 8007 8007 5 2 1
+# %UNUSED Section
+# This section enumerates the unused ranges of each CLASS. Each entry
+# is described on a single line as follows:
+#    <class name> <range> <delta>
+# Addresses given in the range are in hexadecimal and units of delta.
+%UNUSED
+RAM 20-6F 1
+RAM A0-EF 1
+RAM 120-16F 1
+RAM 1A0-1EF 1
+RAM 220-26F 1
+RAM 2A0-2EF 1
+RAM 320-32F 1
+BANK0 20-6F 1
+BANK1 A0-EF 1
+BANK2 120-16F 1
+BANK3 1A0-1EF 1
+BANK4 220-26F 1
+BANK5 2A0-2EF 1
+BANK6 320-32F 1
+CONST E2-FFF 2
+ENTRY E2-FFF 2
+IDLOC 8000-8003 2
+SFR10 500-56F 1
+SFR11 580-5EF 1
+SFR12 600-66F 1
+SFR13 680-6EF 1
+SFR14 700-76F 1
+SFR15 780-7EF 1
+SFR16 800-86F 1
+SFR17 880-8EF 1
+SFR18 900-96F 1
+SFR19 980-9EF 1
+SFR20 A00-A6F 1
+SFR21 A80-AEF 1
+SFR22 B00-B6F 1
+SFR23 B80-BEF 1
+SFR24 C00-C6F 1
+SFR25 C80-CEF 1
+SFR26 D00-D6F 1
+SFR27 D80-DEF 1
+SFR28 E00-E6F 1
+SFR29 E80-EEF 1
+SFR30 F00-F6F 1
+SFR31 F80-FEF 1
+SFR32 1000-106F 1
+SFR33 1080-10EF 1
+SFR34 1100-116F 1
+SFR35 1180-11EF 1
+SFR36 1200-126F 1
+SFR37 1280-12EF 1
+SFR38 1300-136F 1
+SFR39 1380-13EF 1
+SFR40 1400-146F 1
+SFR41 1480-14EF 1
+SFR42 1500-156F 1
+SFR43 1580-15EF 1
+SFR44 1600-166F 1
+SFR45 1680-16EF 1
+SFR46 1700-176F 1
+SFR47 1780-17EF 1
+SFR48 1800-186F 1
+SFR49 1880-18EF 1
+SFR50 1900-196F 1
+SFR51 1980-19EF 1
+SFR52 1A00-1A6F 1
+SFR53 1A80-1AEF 1
+SFR54 1B00-1B6F 1
+SFR55 1B80-1BEF 1
+SFR56 1C00-1C6F 1
+SFR57 1C80-1CEF 1
+SFR58 1D00-1D6F 1
+SFR59 1D80-1DEF 1
+SFR60 1E00-1E6F 1
+SFR61 1E80-1EEF 1
+SFR62 1F00-1F6F 1
+SFR63 1F80-1FEF 1
+CODE E2-FFF 2
+SFR4 200-21F 1
+SFR5 280-29F 1
+SFR6 300-31F 1
+SFR7 380-3EF 1
+SFR8 400-46F 1
+SFR9 480-4EF 1
+BIGRAM 2000-21EF 1
+COMMON 70-7F 1
+EEDATA F000-F0FF 2
+STRCODE E2-FFF 2
+STRING E2-FFF 2
+# %LINETAB Section
+# This section enumerates the file/line to address mappings.
+# The beginning of the section is indicated by %LINETAB.
+# The first line indicates the name of the first object file, e.g.
+#   $foo.obj
+# Each line that follows describes a single mapping until the next
+# object file.  Mappings have the following format:
+#    <address> <psect name> <class name> ><line number>:<file name>
+# The address is absolute and given given in unqualified hex 
+# in delta units of the psect. All mappings within an object file
+# are in ascending order of addresses.
+# All other numeric values are in decimal.
+%LINETAB
+$C:\Users\rasyoung\Desktop\nugget-fwlib\examples\012_cooperative_tick_demo\012_cooperative_tick_demo.o
+800 PROGMEM1 CODE >431:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+0 PROGMEM0 ABS >88:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+0 PROGMEM0 ABS >89:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+1 PROGMEM0 ABS >90:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+2 PROGMEM0 ABS >91:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+4 PROGMEM0 ABS >92:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+5 PROGMEM0 ABS >97:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+5 PROGMEM0 ABS >100:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+6 PROGMEM0 ABS >101:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+7 PROGMEM0 ABS >104:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+8 PROGMEM0 ABS >105:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+9 PROGMEM0 ABS >106:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+A PROGMEM0 ABS >107:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+B PROGMEM0 ABS >109:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+C PROGMEM0 ABS >110:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+D PROGMEM0 ABS >111:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+E PROGMEM0 ABS >112:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+F PROGMEM0 ABS >113:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+10 PROGMEM0 ABS >114:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+11 PROGMEM0 ABS >115:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+12 PROGMEM0 ABS >116:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+13 PROGMEM0 ABS >117:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+14 PROGMEM0 ABS >118:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+15 PROGMEM0 ABS >119:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+16 PROGMEM0 ABS >120:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+17 PROGMEM0 ABS >122:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+18 PROGMEM0 ABS >125:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+19 PROGMEM0 ABS >126:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+1A PROGMEM0 ABS >127:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+1B PROGMEM0 ABS >128:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+1C PROGMEM0 ABS >129:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+1D PROGMEM0 ABS >130:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+1E PROGMEM0 ABS >131:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+1F PROGMEM0 ABS >132:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+20 PROGMEM0 ABS >133:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+21 PROGMEM0 ABS >134:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+22 PROGMEM0 ABS >135:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+23 PROGMEM0 ABS >136:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+24 PROGMEM0 ABS >137:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+25 PROGMEM0 ABS >138:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+26 PROGMEM0 ABS >140:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+27 PROGMEM0 ABS >141:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+28 PROGMEM0 ABS >144:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+29 PROGMEM0 ABS >145:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+2A PROGMEM0 ABS >150:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+2B PROGMEM0 ABS >152:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+2C PROGMEM0 ABS >153:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+2D PROGMEM0 ABS >155:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+2E PROGMEM0 ABS >156:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+2F PROGMEM0 ABS >158:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+30 PROGMEM0 ABS >159:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+31 PROGMEM0 ABS >160:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+32 PROGMEM0 ABS >161:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+33 PROGMEM0 ABS >162:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+34 PROGMEM0 ABS >163:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+35 PROGMEM0 ABS >164:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+36 PROGMEM0 ABS >165:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+37 PROGMEM0 ABS >166:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+38 PROGMEM0 ABS >171:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+39 PROGMEM0 ABS >172:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+3A PROGMEM0 ABS >173:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+3B PROGMEM0 ABS >174:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+3C PROGMEM0 ABS >175:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+3D PROGMEM0 ABS >176:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+3E PROGMEM0 ABS >177:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+3F PROGMEM0 ABS >178:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+40 PROGMEM0 ABS >179:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+41 PROGMEM0 ABS >180:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+42 PROGMEM0 ABS >181:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+43 PROGMEM0 ABS >182:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+44 PROGMEM0 ABS >183:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+45 PROGMEM0 ABS >184:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+46 PROGMEM0 ABS >186:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+47 PROGMEM0 ABS >187:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+48 PROGMEM0 ABS >188:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+49 PROGMEM0 ABS >189:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+4A PROGMEM0 ABS >190:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+4B PROGMEM0 ABS >191:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+4C PROGMEM0 ABS >192:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+4D PROGMEM0 ABS >193:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+4E PROGMEM0 ABS >194:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+4F PROGMEM0 ABS >195:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+50 PROGMEM0 ABS >196:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+51 PROGMEM0 ABS >197:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+52 PROGMEM0 ABS >198:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+53 PROGMEM0 ABS >199:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+54 PROGMEM0 ABS >202:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+55 PROGMEM0 ABS >207:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+56 PROGMEM0 ABS >208:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+57 PROGMEM0 ABS >209:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+58 PROGMEM0 ABS >210:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+59 PROGMEM0 ABS >212:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+5A PROGMEM0 ABS >213:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+5B PROGMEM0 ABS >214:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+5C PROGMEM0 ABS >215:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+5D PROGMEM0 ABS >216:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+5E PROGMEM0 ABS >217:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+5F PROGMEM0 ABS >218:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+60 PROGMEM0 ABS >219:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+61 PROGMEM0 ABS >221:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+62 PROGMEM0 ABS >227:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+63 PROGMEM0 ABS >228:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+64 PROGMEM0 ABS >229:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+65 PROGMEM0 ABS >230:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+66 PROGMEM0 ABS >231:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+67 PROGMEM0 ABS >232:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+68 PROGMEM0 ABS >233:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+69 PROGMEM0 ABS >234:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+6A PROGMEM0 ABS >240:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+6B PROGMEM0 ABS >241:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+6C PROGMEM0 ABS >242:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+6D PROGMEM0 ABS >243:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+6E PROGMEM0 ABS >244:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+6F PROGMEM0 ABS >245:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+70 PROGMEM0 ABS >248:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+71 PROGMEM0 ABS >249:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+72 PROGMEM0 ABS >251:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+73 PROGMEM0 ABS >252:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+74 PROGMEM0 ABS >253:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+75 PROGMEM0 ABS >254:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+76 PROGMEM0 ABS >255:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+77 PROGMEM0 ABS >256:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+78 PROGMEM0 ABS >257:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+79 PROGMEM0 ABS >258:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+7A PROGMEM0 ABS >259:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+7B PROGMEM0 ABS >260:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+7C PROGMEM0 ABS >261:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+7D PROGMEM0 ABS >262:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+7E PROGMEM0 ABS >263:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+7F PROGMEM0 ABS >268:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+80 PROGMEM0 ABS >269:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+81 PROGMEM0 ABS >270:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+82 PROGMEM0 ABS >271:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+83 PROGMEM0 ABS >272:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+84 PROGMEM0 ABS >273:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+85 PROGMEM0 ABS >274:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+86 PROGMEM0 ABS >275:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+87 PROGMEM0 ABS >276:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+88 PROGMEM0 ABS >277:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+89 PROGMEM0 ABS >278:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+8A PROGMEM0 ABS >279:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+8B PROGMEM0 ABS >280:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+8C PROGMEM0 ABS >281:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+8D PROGMEM0 ABS >282:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+8E PROGMEM0 ABS >283:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+8F PROGMEM0 ABS >288:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+90 PROGMEM0 ABS >293:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+91 PROGMEM0 ABS >294:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+92 PROGMEM0 ABS >295:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+93 PROGMEM0 ABS >296:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+94 PROGMEM0 ABS >297:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+95 PROGMEM0 ABS >302:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+96 PROGMEM0 ABS >303:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+97 PROGMEM0 ABS >304:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+98 PROGMEM0 ABS >309:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+99 PROGMEM0 ABS >310:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+9A PROGMEM0 ABS >315:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+9B PROGMEM0 ABS >316:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+9C PROGMEM0 ABS >317:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+9D PROGMEM0 ABS >318:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+9E PROGMEM0 ABS >319:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+9F PROGMEM0 ABS >320:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+A0 PROGMEM0 ABS >325:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+A1 PROGMEM0 ABS >326:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+A2 PROGMEM0 ABS >331:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+A3 PROGMEM0 ABS >332:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+A4 PROGMEM0 ABS >337:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+A5 PROGMEM0 ABS >338:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+A6 PROGMEM0 ABS >339:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+A7 PROGMEM0 ABS >340:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+A8 PROGMEM0 ABS >341:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+A9 PROGMEM0 ABS >342:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+AA PROGMEM0 ABS >343:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+AB PROGMEM0 ABS >344:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+AC PROGMEM0 ABS >345:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+AD PROGMEM0 ABS >346:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+AE PROGMEM0 ABS >351:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+AF PROGMEM0 ABS >352:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+B0 PROGMEM0 ABS >353:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+B1 PROGMEM0 ABS >354:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+B2 PROGMEM0 ABS >356:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+B3 PROGMEM0 ABS >358:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+B4 PROGMEM0 ABS >363:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+B5 PROGMEM0 ABS >364:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+B6 PROGMEM0 ABS >365:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+B7 PROGMEM0 ABS >366:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+B8 PROGMEM0 ABS >371:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+B9 PROGMEM0 ABS >372:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+BA PROGMEM0 ABS >373:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+BB PROGMEM0 ABS >374:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+BC PROGMEM0 ABS >375:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+BD PROGMEM0 ABS >376:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+BE PROGMEM0 ABS >381:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+BF PROGMEM0 ABS >382:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+C0 PROGMEM0 ABS >383:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+C1 PROGMEM0 ABS >384:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+C2 PROGMEM0 ABS >385:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+C3 PROGMEM0 ABS >386:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+C4 PROGMEM0 ABS >387:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+C5 PROGMEM0 ABS >388:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+C6 PROGMEM0 ABS >389:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+C7 PROGMEM0 ABS >391:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+C8 PROGMEM0 ABS >392:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+C9 PROGMEM0 ABS >393:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+CA PROGMEM0 ABS >394:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+CB PROGMEM0 ABS >395:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+CC PROGMEM0 ABS >396:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+CD PROGMEM0 ABS >398:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+CE PROGMEM0 ABS >403:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+CF PROGMEM0 ABS >404:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+D0 PROGMEM0 ABS >405:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+D1 PROGMEM0 ABS >406:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+D2 PROGMEM0 ABS >407:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+D3 PROGMEM0 ABS >408:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+D4 PROGMEM0 ABS >409:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+D5 PROGMEM0 ABS >412:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+D6 PROGMEM0 ABS >413:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+D7 PROGMEM0 ABS >414:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+D8 PROGMEM0 ABS >415:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+D9 PROGMEM0 ABS >416:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+DA PROGMEM0 ABS >417:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+DB PROGMEM0 ABS >418:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+DC PROGMEM0 ABS >419:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+DD PROGMEM0 ABS >420:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+DE PROGMEM0 ABS >421:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+DF PROGMEM0 ABS >422:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+E0 PROGMEM0 ABS >423:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+E1 PROGMEM0 ABS >424:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\012_cooperative_tick_demo\\012_cooperative_tick_demo.S
+# %SYMTAB Section
+# An enumeration of all symbols in the program.
+# The beginning of the section is indicated by %SYMTAB.
+# Each line describes a single symbol as follows:
+#    <label> <value> [-]<load-adj> <class> <space> <psect> <file-name>
+# The value and load-adj are both in unqualified hexadecimal.
+# All other numeric values are in decimal.  The load-adj is the
+# quantity one needs to add to the symbol value in order to obtain the load
+# address of the symbol.  This value may be signed. If the symbol
+# was defined in a psect then <psect> will be "-". File-name
+# is the name of the object file in which the symbol was defined.
+%SYMTAB
+__Hspace_0 1000 0 ABS 0 - -
+__Hspace_1 0 0 ABS 0 - -
+__Hspace_3 0 0 ABS 0 - -
+__Hspace_4 10013 0 ABS 0 - -
+__Hudata_bank0 0 0 ABS 0 udata_bank0 -
+__Hudata_bank1 0 0 ABS 0 udata_bank1 -
+__Hudata_bank2 0 0 ABS 0 udata_bank2 -
+__Hudata_bank3 0 0 ABS 0 udata_bank3 -
+__Hudata_bank4 0 0 ABS 0 udata_bank4 -
+__Hudata_bank5 0 0 ABS 0 udata_bank5 -
+__Hudata_bank6 0 0 ABS 0 udata_bank6 -
+__Hedata 0 0 ABS 0 edata -
+__Hudata 0 0 ABS 0 udata -
+__Hconfig 10018 0 CONFIG 4 config -
+__Ledata 0 0 ABS 0 edata -
+__Ludata 0 0 ABS 0 udata -
+__Hcode 0 0 ABS 0 code -
+__Hdata 0 0 ABS 0 data -
+__Lcode 0 0 ABS 0 code -
+__Ldata 0 0 ABS 0 data -
+__S0 0 0 ABS 0 - -
+__S1 0 0 ABS 0 - -
+__S3 0 0 ABS 0 - -
+__Lconfig 0 0 CONFIG 4 config -
+__Lspace_0 0 0 ABS 0 - -
+__Lspace_1 0 0 ABS 0 - -
+__Lspace_3 0 0 ABS 0 - -
+__Lspace_4 0 0 ABS 0 - -
+__LPROGMEM0 0 0 ABS 0 PROGMEM0 -
+__LPROGMEM1 0 0 CODE 0 PROGMEM1 -
+__Ludata_bank0 0 0 ABS 0 udata_bank0 -
+__Ludata_bank1 0 0 ABS 0 udata_bank1 -
+__Ludata_bank2 0 0 ABS 0 udata_bank2 -
+__Ludata_bank3 0 0 ABS 0 udata_bank3 -
+__Ludata_bank4 0 0 ABS 0 udata_bank4 -
+__Ludata_bank5 0 0 ABS 0 udata_bank5 -
+__Ludata_bank6 0 0 ABS 0 udata_bank6 -
+__HPROGMEM0 1C4 0 ABS 0 PROGMEM0 -
+__HPROGMEM1 1000 0 CODE 0 PROGMEM1 -
+__Hudata_shr 0 0 ABS 0 udata_shr -
+__Ludata_shr 0 0 ABS 0 udata_shr -
+# %SPLITSTAB Section
+# This section enumerates all the psect splits performed by the assembler.
+# The beginning of the section is indicated by %SPLITSTAB.
+# Each line is a record a particular split, where the parent psect is on
+# the left and the child on the right.  Note that a child psect is always
+# split form the top of the parent psect. All splits from a given parent
+# are listed in the order in which they occurred.
+%SPLITSTAB
+# %DABS Section
+# This section contains a table of all usuage of the assember
+# directive DABS in the program. Each line has the following format:
+#   <name> <space> <address> <size>
+# If the DABS was originally labelled then that shall be <name>,
+# otherwise name will be "-".  The <space> number is in decimal.
+# <address> and <size> are in byte units as unqaulified hexadecimal
+%DABS
+# %SEGMENTS Section
+# This sections enumerates the segments of the program.  Each segment
+# is described on a single line as follows:
+#    <name> <space> <link address> <file address> <size> <delta>
+# Addresses and size are in unqualified hexadecimal.  The link address
+# and size are in units of delta. The file address is in units of bytes.
+# All other numeric quantities are in decimal.
+%SEGMENTS
+# %NOTES Section
+# This section contains data of all the note-psects.  The beginning of the section
+# is indicated by %NOTES. The first line indicates the name and decimal
+# byte-length of the first note-psect, e.g.
+#   $codecov_info_hdr 16
+# Each line that follows contains the byte-data of the psect in hexadecimal as a
+# space-separated list. These lines are limited to 16 bytes of data.
+%NOTES

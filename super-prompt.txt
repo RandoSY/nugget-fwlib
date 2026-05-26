@@ -1,0 +1,50 @@
+You are working in my GitHub repo RandoSY/nugget-fwlib.
+
+Goal:
+Make examples/020_full_tiny_gsa_node/020_full_tiny_gsa_node.gcb compile cleanly in Great Cow BASIC for PIC16F18424.
+
+Important verified facts from local compile:
+1. A monolithic version compiled when it used:
+   ANSELA = 0
+   ANSELC = 0
+   WPUA.0 = 1
+   Dir PORTA.0 In
+   Dir PORTC.0 Out
+   LATC.0 = 0
+
+2. These failed and must not be used in the PIC16F18424 baseline:
+   ANSELB = 0
+   OPTION_REG.WPUEN = 0
+   WPUEN = 0
+
+3. This direct-include version compiled:
+   #include "../../arch/pic16f1/pic16f18424/rb_chip_16f18424.inc"
+   #include "../../gpio/rb_switch.inc"
+   #include "../../gpio/rb_led.inc"
+   #include "../../analog/rb_adc.inc"
+
+4. The master include / board wrapper path is still suspect:
+   #include "../../nugget_fwlib_all.inc"
+   RB_Board_Init
+
+Task:
+A. Treat the direct-include version of 020_full_tiny_gsa_node.gcb as the accepted working baseline.
+B. Inspect nugget_fwlib_all.inc and boards/redboard/rb_board_redboard.inc.
+C. Fix the include chain and subroutine style so the master include path can compile too, or clearly document that example 020 intentionally uses direct includes for now.
+D. Search all .gcb and .inc files for:
+   ANSELB
+   OPTION_REG.WPUEN
+   WPUEN
+   Sub Something()
+   zero-argument calls written as Something()
+   ! used for logical NOT
+E. Replace unsafe patterns with the compile-proven style.
+F. Do not change the educational comments unless necessary.
+G. After changes, show me:
+   - git diff summary
+   - files changed
+   - exact commit message to use
+
+Important:
+Do not invent Great Cow BASIC syntax. Keep everything conservative and based on the compile-proven patterns above.
+

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Compilation Report</title>
+</head>
+<body>
+<h1>Compilation Report</h1>
+<p>Compiler Version (YYYY-MM-DD): 2025.10.04 (Windows 64 bit) : Build 1523)</p>
+<h2>Compilation time</h2>
+<p> (Compile time: 1.15625 seconds)</p>
+<p> (Assembly time: 0 seconds)</p>
+<p> (Download time: 0 seconds)</p>
+<p> (Total time: 1.15625 seconds)</p>
+<h2>Chip resource usage:</h2>
+<p>Chip Model: 16F18424</p>
+<p>Program Memory: 689/4096 words (16.82%)</p>
+<p>RAM: 33/512 bytes (6.45%)</p>
+<p> OSC: HFINT32, 32Mhz (Internal oscillator)</p>
+<h2>RAM Allocation</h2>
+<table border="1">
+</table>
+<h2>Subroutines</h2>
+<table border="1">
+<tr><th>Name</th><th>Code Size (lines)</th><th>Compiled Size (words)</th><th>Page</th><th>Outgoing calls</th></tr>
+<tr><td>Main</td><td>10</td><td>12</td><td>1</td><td>INITSOUND(2), NSE_RUNONEFRAME(1), NSE_SHOWFRAMEEND(1), NSE_SHOWBITZERO(1), NSE_SHOWBITONE(1), NSE_SHOWFRAMESTART(1), NSE_INITHARDWARE(1), INITSYS(19)</td></tr>
+<tr><td>NSE_ALLOFF</td><td>2</td><td>5</td><td>1</td><td></td></tr>
+<tr><td>NSE_INITHARDWARE</td><td>9</td><td>18</td><td>1</td><td>NSE_ALLOFF(1)</td></tr>
+<tr><td>NSE_READINPUT12</td><td>3</td><td>14</td><td>1</td><td>READAD12(1)</td></tr>
+<tr><td>NSE_WRITEDAC5</td><td>4</td><td>11</td><td>1</td><td></td></tr>
+<tr><td>NSE_PLAYTONEHZ</td><td>2</td><td>12</td><td>1</td><td>Delay_MS(1), TONE(1)</td></tr>
+<tr><td>NSE_SHOWBITONE</td><td>5</td><td>13</td><td>1</td><td>Delay_MS(2), NSE_ALLOFF(1)</td></tr>
+<tr><td>NSE_SHOWBITZERO</td><td>5</td><td>13</td><td>1</td><td>Delay_MS(2), NSE_ALLOFF(1)</td></tr>
+<tr><td>NSE_SHOWFRAMESTART</td><td>2</td><td>12</td><td>1</td><td>Delay_MS(1), TONE(1)</td></tr>
+<tr><td>NSE_SHOWFRAMEEND</td><td>5</td><td>25</td><td>1</td><td>Delay_MS(2), NSE_ALLOFF(1), TONE(2)</td></tr>
+<tr><td>NSE_DELAYFRAME</td><td>1</td><td>5</td><td>1</td><td>Delay_MS(1)</td></tr>
+<tr><td>NSE_SCALEVALUE</td><td>5</td><td>30</td><td>1</td><td>SYSDIVSUB16(2)</td></tr>
+<tr><td>NSE_STREAM12BITS</td><td>16</td><td>61</td><td>1</td><td>SYSDIVSUB16(1), SYSCOMPLESSTHAN16(2), NSE_SHOWFRAMEEND(1), NSE_SHOWBITZERO(1), NSE_SHOWBITONE(1), NSE_SHOWFRAMESTART(1)</td></tr>
+<tr><td>NSE_RUNONEFRAME</td><td>9</td><td>35</td><td>1</td><td>SYSCOMPLESSTHAN16(1), NSE_DELAYFRAME(1), NSE_STREAM12BITS(1), NSE_PLAYTONEHZ(1), NSE_WRITEDAC5(1), NSE_SCALEVALUE(1), NSE_READINPUT12(1)</td></tr>
+<tr><td>READAD12</td><td>52</td><td>205</td><td>1</td><td>Delay_10US(1)</td></tr>
+<tr><td>TONE</td><td>16</td><td>95</td><td>1</td><td>SYSDIVSUB16(2), SYSCOMPLESSTHAN16(4), SYSCOMPEQUAL16(1), Delay_10US(2)</td></tr>
+<tr><td>INITSOUND</td><td>1</td><td>2</td><td>1</td><td></td></tr>
+<tr><td>INITSYS</td><td>1146</td><td>21</td><td>1</td><td></td></tr>
+<tr><td>SYSDIVSUB16</td><td>38</td><td>52</td><td>1</td><td>SYSCOMPEQUAL16(1)</td></tr>
+<tr><td>SYSCOMPEQUAL16</td><td>34</td><td>11</td><td>1</td><td></td></tr>
+<tr><td>SYSCOMPLESSTHAN16</td><td>38</td><td>15</td><td>1</td><td></td></tr>
+<tr><td>Delay_10US</td><td>0</td><td>8</td><td>1</td><td></td></tr>
+<tr><td>Delay_MS</td><td>0</td><td>14</td><td>1</td><td></td></tr>
+</table>
+</body>
+</html>

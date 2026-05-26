@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Compilation Report</title>
+</head>
+<body>
+<h1>Compilation Report</h1>
+<p>Compiler Version (YYYY-MM-DD): 2025.10.04 (Windows 64 bit) : Build 1523)</p>
+<h2>Compilation time</h2>
+<p> (Compile time: 6.03125 seconds)</p>
+<p> (Assembly time: 2.875 seconds)</p>
+<p> (Download time: 0 seconds)</p>
+<p> (Total time: 8.90625 seconds)</p>
+<h2>Chip resource usage:</h2>
+<p>Chip Model: 16F18424</p>
+<p>Program Memory: 3978/4096 words (97.12%)</p>
+<p>RAM: 79/512 bytes (15.43%)</p>
+<p> OSC: HFINT32, 32Mhz (Internal oscillator)</p>
+<h2>RAM Allocation</h2>
+<table border="1">
+</table>
+<h2>Subroutines</h2>
+<table border="1">
+<tr><th>Name</th><th>Code Size (lines)</th><th>Compiled Size (words)</th><th>Page</th><th>Outgoing calls</th></tr>
+<tr><td>Main</td><td>44</td><td>135</td><td>1</td><td>Delay_MS(2), RB_LED_STATUS_TOGGLE(1), HSERPRINTCRLF(1), HSERPRINT(1), HSERPRINT(1), HSERPRINT(2), RB_ADC_READAVERAGE_AN2(1), CLI_DISPATCHCOMMAND(1), CLI_POLLSERIAL(1), RB_NCO_PRINTSTATUS(1), CLI_PRINTSELECTEDDIGIT(1), CLI_PRINTSELECTEDLED(1), CLI_PRINTHELP(1), CLI_PRINTBANNER(1), RB_NCO_INITSTATE(1), RB_7SEG_INIT(1), RB_ADC_INIT(1), RB_LEDBANK_INIT(1), RB_SW1_INITPULLUP(1), RB_CORE_INIT(1), INITSYS(15)</td></tr>
+<tr><td>CLI_PRINTBANNER</td><td>6</td><td>48</td><td>2</td><td>HSERPRINTCRLF(3), HSERPRINT(3)</td></tr>
+<tr><td>CLI_PRINTHELP</td><td>16</td><td>112</td><td>2</td><td>HSERPRINT(7), HSERPRINTCRLF(9)</td></tr>
+<tr><td>CLI_PRINTIDENTITY</td><td>2</td><td>14</td><td>2</td><td>HSERPRINTCRLF(1), HSERPRINT(1)</td></tr>
+<tr><td>CLI_PRINTSTATUS</td><td>11</td><td>55</td><td>2</td><td>HSERPRINTCRLF(1), HSERPRINT(2), HSERPRINT(5)</td></tr>
+<tr><td>CLI_PRINTSWITCH</td><td>7</td><td>40</td><td>1</td><td>HSERPRINTCRLF(1), RB_SW1_ISPRESSED(1), HSERPRINT(3)</td></tr>
+<tr><td>CLI_PRINTADC</td><td>4</td><td>30</td><td>2</td><td>HSERPRINTCRLF(1), HSERPRINT(1), HSERPRINT(1), RB_ADC_READAVERAGE_AN2(1)</td></tr>
+<tr><td>CLI_DIAGNOSTICBLINK</td><td>13</td><td>64</td><td>2</td><td>Delay_MS(5), RB_LED_STATUS_OFF(3), RB_LED_STATUS_ON(3), HSERPRINTCRLF(1), HSERPRINT(1)</td></tr>
+<tr><td>CLI_I2CSCANPLACEHOLDER</td><td>4</td><td>28</td><td>2</td><td>HSERPRINTCRLF(2), HSERPRINT(2)</td></tr>
+<tr><td>CLI_PRINTSELECTEDLED</td><td>8</td><td>49</td><td>2</td><td>HSERPRINTCRLF(1), RB_LEDBANK_ISIMPLEMENTED(1), HSERPRINT(1), HSERPRINT(3)</td></tr>
+<tr><td>CLI_NEXTLED</td><td>5</td><td>6</td><td>2</td><td>CLI_PRINTSELECTEDLED(1)</td></tr>
+<tr><td>CLI_SELECTEDLEDON</td><td>11</td><td>60</td><td>2</td><td>HSERPRINTCRLF(2), HSERPRINT(2), HSERPRINT(4), RB_LEDBANK_SET(1)</td></tr>
+<tr><td>CLI_SELECTEDLEDOFF</td><td>11</td><td>60</td><td>2</td><td>HSERPRINTCRLF(2), HSERPRINT(2), HSERPRINT(4), RB_LEDBANK_SET(1)</td></tr>
+<tr><td>CLI_SELECTEDLEDTOGGLE</td><td>11</td><td>59</td><td>2</td><td>HSERPRINTCRLF(2), HSERPRINT(2), HSERPRINT(4), RB_LEDBANK_TOGGLE(1)</td></tr>
+<tr><td>CLI_PRINTSELECTEDDIGIT</td><td>3</td><td>19</td><td>2</td><td>HSERPRINTCRLF(1), HSERPRINT(1), HSERPRINT(1)</td></tr>
+<tr><td>CLI_NEXTDIGIT</td><td>5</td><td>6</td><td>2</td><td>CLI_PRINTSELECTEDDIGIT(1)</td></tr>
+<tr><td>CLI_SENDDEMOCHARTODIGIT</td><td>12</td><td>49</td><td>2</td><td>HSERPRINTCRLF(2), HSERPRINT(2), RB_7SEG_WRITECHAR(1), RB_7SEG_PRINTCHARINFO(1)</td></tr>
+<tr><td>CLI_POLLSERIAL</td><td>1</td><td>2</td><td>2</td><td></td></tr>
+<tr><td>CLI_DISPATCHCOMMAND</td><td>127</td><td>544</td><td>1</td><td>HSERPRINT(1), RB_NCO_DISABLESOFTWARESTATE(2), RB_NCO_ENABLESOFTWARESTATE(2), RB_NCO_SETDEMOFAST(2), RB_NCO_SETDEMOMEDIUM(2), RB_NCO_SETDEMOSLOW(2), RB_NCO_PRINTFORMULANOTE(2), RB_NCO_PRINTSTATUS(12), CLI_SENDDEMOCHARTODIGIT(2), CLI_NEXTDIGIT(2), RB_7SEG_PRINTMAP(2), RB_LED_STATUS_ON(1), RB_LED_STATUS_OFF(1), CLI_SELECTEDLEDTOGGLE(2), CLI_SELECTEDLEDOFF(1), CLI_SELECTEDLEDON(1), CLI_NEXTLED(2), RB_LEDBANK_PRINTMAP(2), CLI_I2CSCANPLACEHOLDER(2), CLI_DIAGNOSTICBLINK(2), HSERPRINTCRLF(7), HSERPRINT(7), CLI_PRINTADC(2), CLI_PRINTSWITCH(2), CLI_PRINTSTATUS(2), CLI_PRINTIDENTITY(2), CLI_PRINTHELP(3)</td></tr>
+<tr><td>RB_CORE_ALLDIGITAL</td><td>2</td><td>5</td><td>2</td><td></td></tr>
+<tr><td>RB_CORE_CLEARLATCHES</td><td>2</td><td>3</td><td>1</td><td></td></tr>
+<tr><td>RB_CORE_INIT</td><td>2</td><td>6</td><td>2</td><td>RB_CORE_CLEARLATCHES(1), RB_CORE_ALLDIGITAL(1)</td></tr>
+<tr><td>RB_SW1_INITPULLUP</td><td>5</td><td>10</td><td>2</td><td></td></tr>
+<tr><td>RB_SW1_ISPRESSED</td><td>5</td><td>6</td><td>2</td><td></td></tr>
+<tr><td>RB_LED_STATUS_INIT</td><td>3</td><td>6</td><td>2</td><td></td></tr>
+<tr><td>RB_LED_STATUS_ON</td><td>1</td><td>2</td><td>2</td><td></td></tr>
+<tr><td>RB_LED_STATUS_OFF</td><td>1</td><td>2</td><td>2</td><td></td></tr>
+<tr><td>RB_LED_STATUS_TOGGLE</td><td>1</td><td>8</td><td>2</td><td></td></tr>
+<tr><td>RB_LEDBANK_INIT</td><td>1</td><td>3</td><td>2</td><td>RB_LED_STATUS_INIT(1)</td></tr>
+<tr><td>RB_LEDBANK_ISIMPLEMENTED</td><td>5</td><td>7</td><td>2</td><td></td></tr>
+<tr><td>RB_LEDBANK_SET</td><td>9</td><td>11</td><td>2</td><td>RB_LED_STATUS_OFF(1), RB_LED_STATUS_ON(1)</td></tr>
+<tr><td>RB_LEDBANK_TOGGLE</td><td>5</td><td>7</td><td>2</td><td>RB_LED_STATUS_TOGGLE(1)</td></tr>
+<tr><td>RB_LEDBANK_PRINTMAP</td><td>6</td><td>48</td><td>2</td><td>HSERPRINTCRLF(3), HSERPRINT(3)</td></tr>
+<tr><td>RB_ADC_INIT</td><td>2</td><td>5</td><td>2</td><td></td></tr>
+<tr><td>RB_ADC_READAVERAGE_AN2</td><td>8</td><td>50</td><td>2</td><td>SYSDIVSUB32(1), Delay_MS(1), READAD(1)</td></tr>
+<tr><td>RB_7SEG_CHARTOPATTERN</td><td>68</td><td>230</td><td>2</td><td></td></tr>
+<tr><td>RB_7SEG_INIT</td><td>0</td><td>1</td><td>2</td><td></td></tr>
+<tr><td>RB_7SEG_WRITEPATTERN</td><td>1</td><td>2</td><td>2</td><td></td></tr>
+<tr><td>RB_7SEG_WRITECHAR</td><td>3</td><td>10</td><td>2</td><td>RB_7SEG_WRITEPATTERN(1), RB_7SEG_CHARTOPATTERN(1)</td></tr>
+<tr><td>RB_7SEG_PRINTCHARINFO</td><td>9</td><td>48</td><td>2</td><td>HSERPRINTCRLF(1), HSERPRINT(3), HSERPRINT(3), RB_7SEG_CHARTOPATTERN(1)</td></tr>
+<tr><td>RB_7SEG_PRINTMAP</td><td>6</td><td>48</td><td>2</td><td>HSERPRINTCRLF(3), HSERPRINT(3)</td></tr>
+<tr><td>RB_NCO_INITSTATE</td><td>5</td><td>7</td><td>2</td><td></td></tr>
+<tr><td>RB_NCO_SETINCREMENTBYTES</td><td>3</td><td>7</td><td>2</td><td></td></tr>
+<tr><td>RB_NCO_SETDEMOSLOW</td><td>1</td><td>5</td><td>2</td><td>RB_NCO_SETINCREMENTBYTES(1)</td></tr>
+<tr><td>RB_NCO_SETDEMOMEDIUM</td><td>1</td><td>5</td><td>2</td><td>RB_NCO_SETINCREMENTBYTES(1)</td></tr>
+<tr><td>RB_NCO_SETDEMOFAST</td><td>1</td><td>5</td><td>2</td><td>RB_NCO_SETINCREMENTBYTES(1)</td></tr>
+<tr><td>RB_NCO_ENABLESOFTWARESTATE</td><td>1</td><td>2</td><td>2</td><td></td></tr>
+<tr><td>RB_NCO_DISABLESOFTWARESTATE</td><td>1</td><td>2</td><td>2</td><td></td></tr>
+<tr><td>RB_NCO_PRINTSTATUS</td><td>19</td><td>92</td><td>2</td><td>HSERPRINTCRLF(1), HSERPRINT(3), HSERPRINT(9)</td></tr>
+<tr><td>RB_NCO_PRINTFORMULANOTE</td><td>2</td><td>14</td><td>2</td><td>HSERPRINTCRLF(1), HSERPRINT(1)</td></tr>
+<tr><td>READAD</td><td>74</td><td>202</td><td>2</td><td>Delay_10US(1)</td></tr>
+<tr><td>INITSYS</td><td>1146</td><td>21</td><td>1</td><td></td></tr>
+<tr><td>SYSDIVSUB</td><td>48</td><td>20</td><td>2</td><td></td></tr>
+<tr><td>SYSDIVSUB16</td><td>38</td><td>52</td><td>2</td><td>SYSCOMPEQUAL16(1)</td></tr>
+<tr><td>SYSDIVSUB32</td><td>40</td><td>90</td><td>2</td><td>SYSCOMPEQUAL32(1)</td></tr>
+<tr><td>SYSCOMPEQUAL16</td><td>34</td><td>11</td><td>2</td><td></td></tr>
+<tr><td>SYSCOMPEQUAL32</td><td>52</td><td>19</td><td>2</td><td></td></tr>
+<tr><td>SYSCOMPLESSTHAN</td><td>23</td><td>7</td><td>2</td><td></td></tr>
+<tr><td>SYSCOMPLESSTHAN16</td><td>38</td><td>15</td><td>2</td><td></td></tr>
+<tr><td>INITUSART</td><td>399</td><td>16</td><td>1</td><td></td></tr>
+<tr><td>HSERSEND</td><td>347</td><td>8</td><td>2</td><td>Delay_MS(1)</td></tr>
+<tr><td>HSERPRINT</td><td>42</td><td>29</td><td>2</td><td>HSERSEND(1)</td></tr>
+<tr><td>HSERPRINT</td><td>18</td><td>56</td><td>2</td><td>SYSDIVSUB(2), SYSCOMPLESSTHAN(2), HSERSEND(3)</td></tr>
+<tr><td>HSERPRINT</td><td>36</td><td>156</td><td>1</td><td>SYSDIVSUB16(4), SYSCOMPLESSTHAN16(4), HSERSEND(5)</td></tr>
+<tr><td>HSERPRINT</td><td>17</td><td>72</td><td>2</td><td>SYSDIVSUB32(1), SYSCOMPEQUAL32(1), HSERSEND(1)</td></tr>
+<tr><td>HSERPRINTCRLF</td><td>4</td><td>17</td><td>2</td><td>HSERSEND(2)</td></tr>
+<tr><td>Delay_10US</td><td>0</td><td>8</td><td>2</td><td></td></tr>
+<tr><td>Delay_MS</td><td>0</td><td>14</td><td>2</td><td></td></tr>
+<tr><td>SysStringTables</td><td>0</td><td>1128</td><td>1</td><td></td></tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Compilation Report</title>
+</head>
+<body>
+<h1>Compilation Report</h1>
+<p>Compiler Version (YYYY-MM-DD): 2025.10.04 (Windows 64 bit) : Build 1523)</p>
+<h2>Compilation time</h2>
+<p> (Compile time: 1.5 seconds)</p>
+<p> (Assembly time: 0 seconds)</p>
+<p> (Download time: 0 seconds)</p>
+<p> (Total time: 1.5 seconds)</p>
+<h2>Chip resource usage:</h2>
+<p>Chip Model: 16F18424</p>
+<p>Program Memory: 481/4096 words (11.74%)</p>
+<p>RAM: 21/512 bytes (4.1%)</p>
+<p> OSC: HFINT32, 32Mhz (Internal oscillator)</p>
+<h2>RAM Allocation</h2>
+<table border="1">
+</table>
+<h2>Subroutines</h2>
+<table border="1">
+<tr><th>Name</th><th>Code Size (lines)</th><th>Compiled Size (words)</th><th>Page</th><th>Outgoing calls</th></tr>
+<tr><td>Main</td><td>20</td><td>34</td><td>1</td><td>Delay_MS(1), RB_NCO_ENABLESOFTWARESTATE(1), RB_NCO_SETMODEPFM(1), RB_NCO_SETDEMOFAST(1), RB_NCO_SETDEMOMEDIUM(1), RB_NCO_SETDEMOSLOW(1), RB_NCO_PRINTSTATUS(5), RB_NCO_PRINTFORMULANOTE(1), HSERPRINTCRLF(1), HSERPRINT(1), RB_NCO_INITSTATE(1), INITSYS(4)</td></tr>
+<tr><td>RB_NCO_INITSTATE</td><td>5</td><td>7</td><td>1</td><td></td></tr>
+<tr><td>RB_NCO_SETINCREMENTBYTES</td><td>3</td><td>7</td><td>1</td><td></td></tr>
+<tr><td>RB_NCO_SETDEMOSLOW</td><td>1</td><td>5</td><td>1</td><td>RB_NCO_SETINCREMENTBYTES(1)</td></tr>
+<tr><td>RB_NCO_SETDEMOMEDIUM</td><td>1</td><td>5</td><td>1</td><td>RB_NCO_SETINCREMENTBYTES(1)</td></tr>
+<tr><td>RB_NCO_SETDEMOFAST</td><td>1</td><td>5</td><td>1</td><td>RB_NCO_SETINCREMENTBYTES(1)</td></tr>
+<tr><td>RB_NCO_SETMODEPFM</td><td>1</td><td>3</td><td>1</td><td></td></tr>
+<tr><td>RB_NCO_ENABLESOFTWARESTATE</td><td>1</td><td>2</td><td>1</td><td></td></tr>
+<tr><td>RB_NCO_PRINTSTATUS</td><td>19</td><td>90</td><td>1</td><td>HSERPRINTCRLF(1), HSERPRINT(3), HSERPRINT(9)</td></tr>
+<tr><td>RB_NCO_PRINTFORMULANOTE</td><td>2</td><td>12</td><td>1</td><td>HSERPRINTCRLF(1), HSERPRINT(1)</td></tr>
+<tr><td>INITSYS</td><td>1146</td><td>21</td><td>1</td><td></td></tr>
+<tr><td>SYSDIVSUB</td><td>48</td><td>20</td><td>1</td><td></td></tr>
+<tr><td>SYSCOMPLESSTHAN</td><td>23</td><td>7</td><td>1</td><td></td></tr>
+<tr><td>INITUSART</td><td>399</td><td>16</td><td>1</td><td></td></tr>
+<tr><td>HSERSEND</td><td>347</td><td>8</td><td>1</td><td>Delay_MS(1)</td></tr>
+<tr><td>HSERPRINT</td><td>42</td><td>29</td><td>1</td><td>HSERSEND(1)</td></tr>
+<tr><td>HSERPRINT</td><td>18</td><td>52</td><td>1</td><td>SYSDIVSUB(2), SYSCOMPLESSTHAN(2), HSERSEND(3)</td></tr>
+<tr><td>HSERPRINTCRLF</td><td>4</td><td>13</td><td>1</td><td>HSERSEND(2)</td></tr>
+<tr><td>Delay_MS</td><td>0</td><td>14</td><td>1</td><td></td></tr>
+<tr><td>SysStringTables</td><td>0</td><td>131</td><td>1</td><td></td></tr>
+</table>
+</body>
+</html>

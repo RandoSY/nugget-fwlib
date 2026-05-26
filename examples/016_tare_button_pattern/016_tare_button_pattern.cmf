@@ -1,0 +1,613 @@
+%CMF
+# %PSECTS Section
+# For each object file, details of its psects are enumerated here.
+# The begining of the section is indicated by %PSECTS.  The first
+# line indicates the name of the first object file, e.g.
+#    $foo.obj
+# Each line that follows describes a psect in that object file, until
+# the next object file.  The lines that describe a psect have the
+# format:
+#    <psect name> <class name> <space> <link address> <load addresses> <length> <delta> <reloc>
+# All addresses and the length are given in unqualified hexadecimal
+# in delta units.  Any other numeric values are decimal.
+%PSECTS
+$C:\Users\rasyoung\Desktop\nugget-fwlib\examples\016_tare_button_pattern\016_tare_button_pattern.o
+PROGMEM0 - 0 0 0 19A 2 1
+config CONFIG 4 8007 8007 5 2 1
+# %UNUSED Section
+# This section enumerates the unused ranges of each CLASS. Each entry
+# is described on a single line as follows:
+#    <class name> <range> <delta>
+# Addresses given in the range are in hexadecimal and units of delta.
+%UNUSED
+RAM 20-6F 1
+RAM A0-EF 1
+RAM 120-16F 1
+RAM 1A0-1EF 1
+RAM 220-26F 1
+RAM 2A0-2EF 1
+RAM 320-32F 1
+BANK0 20-6F 1
+BANK1 A0-EF 1
+BANK2 120-16F 1
+BANK3 1A0-1EF 1
+BANK4 220-26F 1
+BANK5 2A0-2EF 1
+BANK6 320-32F 1
+CONST 19A-FFF 2
+ENTRY 19A-FFF 2
+IDLOC 8000-8003 2
+SFR10 500-56F 1
+SFR11 580-5EF 1
+SFR12 600-66F 1
+SFR13 680-6EF 1
+SFR14 700-76F 1
+SFR15 780-7EF 1
+SFR16 800-86F 1
+SFR17 880-8EF 1
+SFR18 900-96F 1
+SFR19 980-9EF 1
+SFR20 A00-A6F 1
+SFR21 A80-AEF 1
+SFR22 B00-B6F 1
+SFR23 B80-BEF 1
+SFR24 C00-C6F 1
+SFR25 C80-CEF 1
+SFR26 D00-D6F 1
+SFR27 D80-DEF 1
+SFR28 E00-E6F 1
+SFR29 E80-EEF 1
+SFR30 F00-F6F 1
+SFR31 F80-FEF 1
+SFR32 1000-106F 1
+SFR33 1080-10EF 1
+SFR34 1100-116F 1
+SFR35 1180-11EF 1
+SFR36 1200-126F 1
+SFR37 1280-12EF 1
+SFR38 1300-136F 1
+SFR39 1380-13EF 1
+SFR40 1400-146F 1
+SFR41 1480-14EF 1
+SFR42 1500-156F 1
+SFR43 1580-15EF 1
+SFR44 1600-166F 1
+SFR45 1680-16EF 1
+SFR46 1700-176F 1
+SFR47 1780-17EF 1
+SFR48 1800-186F 1
+SFR49 1880-18EF 1
+SFR50 1900-196F 1
+SFR51 1980-19EF 1
+SFR52 1A00-1A6F 1
+SFR53 1A80-1AEF 1
+SFR54 1B00-1B6F 1
+SFR55 1B80-1BEF 1
+SFR56 1C00-1C6F 1
+SFR57 1C80-1CEF 1
+SFR58 1D00-1D6F 1
+SFR59 1D80-1DEF 1
+SFR60 1E00-1E6F 1
+SFR61 1E80-1EEF 1
+SFR62 1F00-1F6F 1
+SFR63 1F80-1FEF 1
+CODE 19A-FFF 2
+SFR7 380-3EF 1
+SFR8 400-46F 1
+SFR9 480-4EF 1
+BIGRAM 2000-21EF 1
+COMMON 70-7F 1
+EEDATA F000-F0FF 2
+STRCODE 19A-FFF 2
+STRING 19A-FFF 2
+# %LINETAB Section
+# This section enumerates the file/line to address mappings.
+# The beginning of the section is indicated by %LINETAB.
+# The first line indicates the name of the first object file, e.g.
+#   $foo.obj
+# Each line that follows describes a single mapping until the next
+# object file.  Mappings have the following format:
+#    <address> <psect name> <class name> ><line number>:<file name>
+# The address is absolute and given given in unqualified hex 
+# in delta units of the psect. All mappings within an object file
+# are in ascending order of addresses.
+# All other numeric values are in decimal.
+%LINETAB
+$C:\Users\rasyoung\Desktop\nugget-fwlib\examples\016_tare_button_pattern\016_tare_button_pattern.o
+800 PROGMEM1 CODE >653:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+0 PROGMEM0 ABS >128:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+0 PROGMEM0 ABS >129:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+1 PROGMEM0 ABS >130:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+2 PROGMEM0 ABS >131:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+4 PROGMEM0 ABS >132:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+5 PROGMEM0 ABS >137:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+5 PROGMEM0 ABS >140:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+6 PROGMEM0 ABS >141:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+7 PROGMEM0 ABS >144:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+8 PROGMEM0 ABS >145:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+9 PROGMEM0 ABS >146:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+A PROGMEM0 ABS >147:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+B PROGMEM0 ABS >148:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+C PROGMEM0 ABS >149:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+D PROGMEM0 ABS >150:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+E PROGMEM0 ABS >152:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+F PROGMEM0 ABS >153:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+10 PROGMEM0 ABS >154:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+11 PROGMEM0 ABS >155:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+12 PROGMEM0 ABS >156:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+13 PROGMEM0 ABS >157:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+14 PROGMEM0 ABS >158:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+15 PROGMEM0 ABS >159:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+16 PROGMEM0 ABS >160:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+17 PROGMEM0 ABS >161:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+18 PROGMEM0 ABS >162:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+19 PROGMEM0 ABS >163:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+1A PROGMEM0 ABS >164:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+1B PROGMEM0 ABS >165:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+1C PROGMEM0 ABS >166:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+1D PROGMEM0 ABS >167:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+1E PROGMEM0 ABS >168:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+1F PROGMEM0 ABS >169:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+20 PROGMEM0 ABS >170:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+21 PROGMEM0 ABS >171:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+22 PROGMEM0 ABS >172:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+23 PROGMEM0 ABS >173:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+24 PROGMEM0 ABS >174:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+25 PROGMEM0 ABS >175:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+26 PROGMEM0 ABS >176:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+27 PROGMEM0 ABS >177:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+28 PROGMEM0 ABS >178:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+29 PROGMEM0 ABS >179:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+2A PROGMEM0 ABS >180:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+2B PROGMEM0 ABS >181:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+2C PROGMEM0 ABS >182:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+2D PROGMEM0 ABS >183:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+2E PROGMEM0 ABS >184:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+2F PROGMEM0 ABS >185:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+30 PROGMEM0 ABS >187:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+31 PROGMEM0 ABS >190:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+32 PROGMEM0 ABS >191:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+33 PROGMEM0 ABS >196:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+34 PROGMEM0 ABS >198:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+35 PROGMEM0 ABS >199:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+36 PROGMEM0 ABS >201:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+37 PROGMEM0 ABS >202:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+38 PROGMEM0 ABS >204:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+39 PROGMEM0 ABS >205:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+3A PROGMEM0 ABS >206:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+3B PROGMEM0 ABS >207:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+3C PROGMEM0 ABS >208:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+3D PROGMEM0 ABS >209:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+3E PROGMEM0 ABS >210:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+3F PROGMEM0 ABS >211:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+40 PROGMEM0 ABS >212:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+41 PROGMEM0 ABS >217:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+42 PROGMEM0 ABS >218:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+43 PROGMEM0 ABS >219:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+44 PROGMEM0 ABS >220:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+45 PROGMEM0 ABS >221:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+46 PROGMEM0 ABS >222:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+47 PROGMEM0 ABS >223:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+48 PROGMEM0 ABS >224:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+49 PROGMEM0 ABS >225:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+4A PROGMEM0 ABS >226:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+4B PROGMEM0 ABS >227:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+4C PROGMEM0 ABS >228:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+4D PROGMEM0 ABS >229:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+4E PROGMEM0 ABS >230:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+4F PROGMEM0 ABS >232:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+50 PROGMEM0 ABS >233:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+51 PROGMEM0 ABS >234:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+52 PROGMEM0 ABS >235:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+53 PROGMEM0 ABS >236:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+54 PROGMEM0 ABS >237:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+55 PROGMEM0 ABS >238:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+56 PROGMEM0 ABS >239:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+57 PROGMEM0 ABS >240:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+58 PROGMEM0 ABS >241:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+59 PROGMEM0 ABS >242:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+5A PROGMEM0 ABS >243:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+5B PROGMEM0 ABS >244:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+5C PROGMEM0 ABS >245:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+5D PROGMEM0 ABS >248:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+5E PROGMEM0 ABS >253:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+5F PROGMEM0 ABS >255:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+60 PROGMEM0 ABS >256:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+61 PROGMEM0 ABS >257:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+62 PROGMEM0 ABS >258:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+63 PROGMEM0 ABS >259:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+64 PROGMEM0 ABS >260:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+65 PROGMEM0 ABS >261:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+66 PROGMEM0 ABS >262:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+67 PROGMEM0 ABS >263:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+68 PROGMEM0 ABS >264:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+69 PROGMEM0 ABS >265:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+6A PROGMEM0 ABS >266:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+6B PROGMEM0 ABS >267:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+6C PROGMEM0 ABS >268:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+6D PROGMEM0 ABS >269:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+6E PROGMEM0 ABS >270:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+6F PROGMEM0 ABS >271:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+70 PROGMEM0 ABS >272:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+71 PROGMEM0 ABS >273:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+72 PROGMEM0 ABS >274:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+73 PROGMEM0 ABS >275:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+74 PROGMEM0 ABS >276:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+75 PROGMEM0 ABS >277:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+76 PROGMEM0 ABS >278:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+77 PROGMEM0 ABS >279:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+78 PROGMEM0 ABS >280:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+79 PROGMEM0 ABS >281:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+7A PROGMEM0 ABS >282:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+7B PROGMEM0 ABS >283:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+7C PROGMEM0 ABS >284:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+7D PROGMEM0 ABS >285:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+7E PROGMEM0 ABS >286:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+7F PROGMEM0 ABS >287:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+80 PROGMEM0 ABS >288:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+81 PROGMEM0 ABS >289:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+82 PROGMEM0 ABS >290:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+83 PROGMEM0 ABS >291:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+84 PROGMEM0 ABS >292:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+85 PROGMEM0 ABS >293:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+86 PROGMEM0 ABS >294:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+87 PROGMEM0 ABS >295:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+88 PROGMEM0 ABS >296:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+89 PROGMEM0 ABS >297:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+8A PROGMEM0 ABS >298:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+8B PROGMEM0 ABS >299:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+8C PROGMEM0 ABS >300:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+8D PROGMEM0 ABS >301:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+8E PROGMEM0 ABS >302:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+8F PROGMEM0 ABS >304:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+90 PROGMEM0 ABS >305:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+91 PROGMEM0 ABS >306:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+92 PROGMEM0 ABS >307:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+93 PROGMEM0 ABS >308:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+94 PROGMEM0 ABS >309:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+95 PROGMEM0 ABS >311:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+96 PROGMEM0 ABS >312:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+97 PROGMEM0 ABS >313:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+98 PROGMEM0 ABS >314:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+99 PROGMEM0 ABS >315:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+9A PROGMEM0 ABS >316:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+9B PROGMEM0 ABS >317:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+9C PROGMEM0 ABS >318:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+9D PROGMEM0 ABS >319:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+9E PROGMEM0 ABS >320:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+9F PROGMEM0 ABS >321:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+A0 PROGMEM0 ABS >322:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+A1 PROGMEM0 ABS >323:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+A2 PROGMEM0 ABS >324:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+A3 PROGMEM0 ABS >325:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+A4 PROGMEM0 ABS >326:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+A5 PROGMEM0 ABS >328:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+A6 PROGMEM0 ABS >333:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+A7 PROGMEM0 ABS >334:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+A8 PROGMEM0 ABS >335:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+A9 PROGMEM0 ABS >336:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+AA PROGMEM0 ABS >338:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+AB PROGMEM0 ABS >339:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+AC PROGMEM0 ABS >340:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+AD PROGMEM0 ABS >341:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+AE PROGMEM0 ABS >342:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+AF PROGMEM0 ABS >343:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+B0 PROGMEM0 ABS >344:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+B1 PROGMEM0 ABS >345:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+B2 PROGMEM0 ABS >347:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+B3 PROGMEM0 ABS >353:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+B4 PROGMEM0 ABS >354:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+B5 PROGMEM0 ABS >355:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+B6 PROGMEM0 ABS >356:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+B7 PROGMEM0 ABS >357:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+B8 PROGMEM0 ABS >358:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+B9 PROGMEM0 ABS >359:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+BA PROGMEM0 ABS >360:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+BB PROGMEM0 ABS >366:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+BC PROGMEM0 ABS >367:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+BD PROGMEM0 ABS >368:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+BE PROGMEM0 ABS >369:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+BF PROGMEM0 ABS >370:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+C0 PROGMEM0 ABS >371:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+C1 PROGMEM0 ABS >374:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+C2 PROGMEM0 ABS >375:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+C3 PROGMEM0 ABS >377:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+C4 PROGMEM0 ABS >378:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+C5 PROGMEM0 ABS >379:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+C6 PROGMEM0 ABS >380:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+C7 PROGMEM0 ABS >381:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+C8 PROGMEM0 ABS >382:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+C9 PROGMEM0 ABS >383:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+CA PROGMEM0 ABS >384:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+CB PROGMEM0 ABS >385:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+CC PROGMEM0 ABS >386:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+CD PROGMEM0 ABS >387:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+CE PROGMEM0 ABS >388:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+CF PROGMEM0 ABS >389:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+D0 PROGMEM0 ABS >394:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+D1 PROGMEM0 ABS >395:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+D2 PROGMEM0 ABS >396:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+D3 PROGMEM0 ABS >397:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+D4 PROGMEM0 ABS >398:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+D5 PROGMEM0 ABS >399:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+D6 PROGMEM0 ABS >400:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+D7 PROGMEM0 ABS >401:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+D8 PROGMEM0 ABS >402:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+D9 PROGMEM0 ABS >403:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+DA PROGMEM0 ABS >404:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+DB PROGMEM0 ABS >405:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+DC PROGMEM0 ABS >406:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+DD PROGMEM0 ABS >407:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+DE PROGMEM0 ABS >408:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+DF PROGMEM0 ABS >409:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+E0 PROGMEM0 ABS >414:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+E1 PROGMEM0 ABS >419:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+E2 PROGMEM0 ABS >420:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+E3 PROGMEM0 ABS >421:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+E4 PROGMEM0 ABS >422:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+E5 PROGMEM0 ABS >423:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+E6 PROGMEM0 ABS >428:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+E7 PROGMEM0 ABS >429:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+E8 PROGMEM0 ABS >430:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+E9 PROGMEM0 ABS >435:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+EA PROGMEM0 ABS >436:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+EB PROGMEM0 ABS >441:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+EC PROGMEM0 ABS >442:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+ED PROGMEM0 ABS >443:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+EE PROGMEM0 ABS >444:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+EF PROGMEM0 ABS >445:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+F0 PROGMEM0 ABS >446:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+F1 PROGMEM0 ABS >451:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+F2 PROGMEM0 ABS >452:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+F3 PROGMEM0 ABS >453:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+F4 PROGMEM0 ABS >454:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+F5 PROGMEM0 ABS >455:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+F6 PROGMEM0 ABS >456:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+F7 PROGMEM0 ABS >457:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+F8 PROGMEM0 ABS >462:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+F9 PROGMEM0 ABS >463:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+FA PROGMEM0 ABS >464:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+FB PROGMEM0 ABS >465:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+FC PROGMEM0 ABS >466:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+FD PROGMEM0 ABS >467:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+FE PROGMEM0 ABS >468:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+FF PROGMEM0 ABS >469:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+100 PROGMEM0 ABS >470:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+101 PROGMEM0 ABS >471:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+102 PROGMEM0 ABS >476:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+103 PROGMEM0 ABS >477:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+104 PROGMEM0 ABS >478:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+105 PROGMEM0 ABS >479:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+106 PROGMEM0 ABS >480:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+107 PROGMEM0 ABS >481:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+108 PROGMEM0 ABS >482:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+109 PROGMEM0 ABS >483:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+10A PROGMEM0 ABS >484:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+10B PROGMEM0 ABS >485:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+10C PROGMEM0 ABS >486:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+10D PROGMEM0 ABS >489:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+10E PROGMEM0 ABS >490:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+10F PROGMEM0 ABS >491:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+110 PROGMEM0 ABS >492:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+111 PROGMEM0 ABS >497:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+112 PROGMEM0 ABS >498:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+113 PROGMEM0 ABS >499:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+114 PROGMEM0 ABS >500:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+115 PROGMEM0 ABS >501:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+116 PROGMEM0 ABS >502:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+117 PROGMEM0 ABS >503:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+118 PROGMEM0 ABS >504:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+119 PROGMEM0 ABS >505:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+11A PROGMEM0 ABS >506:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+11B PROGMEM0 ABS >507:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+11C PROGMEM0 ABS >508:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+11D PROGMEM0 ABS >509:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+11E PROGMEM0 ABS >510:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+11F PROGMEM0 ABS >511:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+120 PROGMEM0 ABS >512:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+121 PROGMEM0 ABS >513:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+122 PROGMEM0 ABS >514:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+123 PROGMEM0 ABS >515:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+124 PROGMEM0 ABS >520:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+125 PROGMEM0 ABS >521:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+126 PROGMEM0 ABS >522:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+127 PROGMEM0 ABS >523:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+128 PROGMEM0 ABS >524:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+129 PROGMEM0 ABS >525:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+12A PROGMEM0 ABS >526:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+12B PROGMEM0 ABS >527:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+12C PROGMEM0 ABS >528:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+12D PROGMEM0 ABS >529:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+12E PROGMEM0 ABS >530:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+12F PROGMEM0 ABS >531:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+130 PROGMEM0 ABS >532:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+131 PROGMEM0 ABS >533:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+132 PROGMEM0 ABS >534:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+133 PROGMEM0 ABS >535:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+134 PROGMEM0 ABS >536:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+135 PROGMEM0 ABS >537:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+136 PROGMEM0 ABS >538:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+137 PROGMEM0 ABS >539:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+138 PROGMEM0 ABS >540:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+139 PROGMEM0 ABS >541:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+13A PROGMEM0 ABS >542:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+13B PROGMEM0 ABS >543:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+13C PROGMEM0 ABS >544:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+13D PROGMEM0 ABS >545:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+13E PROGMEM0 ABS >546:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+13F PROGMEM0 ABS >547:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+140 PROGMEM0 ABS >548:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+141 PROGMEM0 ABS >549:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+142 PROGMEM0 ABS >550:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+143 PROGMEM0 ABS >551:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+144 PROGMEM0 ABS >552:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+145 PROGMEM0 ABS >553:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+146 PROGMEM0 ABS >554:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+147 PROGMEM0 ABS >555:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+148 PROGMEM0 ABS >556:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+149 PROGMEM0 ABS >557:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+14A PROGMEM0 ABS >558:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+14B PROGMEM0 ABS >559:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+14C PROGMEM0 ABS >561:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+14D PROGMEM0 ABS >562:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+14E PROGMEM0 ABS >564:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+14F PROGMEM0 ABS >565:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+150 PROGMEM0 ABS >566:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+151 PROGMEM0 ABS >567:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+152 PROGMEM0 ABS >568:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+153 PROGMEM0 ABS >569:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+154 PROGMEM0 ABS >570:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+155 PROGMEM0 ABS >571:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+156 PROGMEM0 ABS >572:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+157 PROGMEM0 ABS >573:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+158 PROGMEM0 ABS >574:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+159 PROGMEM0 ABS >575:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+15A PROGMEM0 ABS >576:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+15B PROGMEM0 ABS >577:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+15C PROGMEM0 ABS >578:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+15D PROGMEM0 ABS >579:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+15E PROGMEM0 ABS >580:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+15F PROGMEM0 ABS >581:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+160 PROGMEM0 ABS >582:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+161 PROGMEM0 ABS >583:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+162 PROGMEM0 ABS >584:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+163 PROGMEM0 ABS >585:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+164 PROGMEM0 ABS >586:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+165 PROGMEM0 ABS >587:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+166 PROGMEM0 ABS >588:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+167 PROGMEM0 ABS >589:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+168 PROGMEM0 ABS >590:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+169 PROGMEM0 ABS >591:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+16A PROGMEM0 ABS >592:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+16B PROGMEM0 ABS >594:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+16C PROGMEM0 ABS >595:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+16D PROGMEM0 ABS >596:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+16E PROGMEM0 ABS >597:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+16F PROGMEM0 ABS >598:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+170 PROGMEM0 ABS >599:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+171 PROGMEM0 ABS >600:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+172 PROGMEM0 ABS >601:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+173 PROGMEM0 ABS >602:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+174 PROGMEM0 ABS >603:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+175 PROGMEM0 ABS >604:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+176 PROGMEM0 ABS >605:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+177 PROGMEM0 ABS >606:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+178 PROGMEM0 ABS >607:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+179 PROGMEM0 ABS >608:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+17A PROGMEM0 ABS >609:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+17B PROGMEM0 ABS >610:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+17C PROGMEM0 ABS >611:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+17D PROGMEM0 ABS >612:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+17E PROGMEM0 ABS >617:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+17F PROGMEM0 ABS >618:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+180 PROGMEM0 ABS >619:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+181 PROGMEM0 ABS >620:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+182 PROGMEM0 ABS >621:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+183 PROGMEM0 ABS >622:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+184 PROGMEM0 ABS >623:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+185 PROGMEM0 ABS >626:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+186 PROGMEM0 ABS >627:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+187 PROGMEM0 ABS >628:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+188 PROGMEM0 ABS >629:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+189 PROGMEM0 ABS >630:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+18A PROGMEM0 ABS >631:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+18B PROGMEM0 ABS >632:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+18C PROGMEM0 ABS >633:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+18D PROGMEM0 ABS >634:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+18E PROGMEM0 ABS >635:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+18F PROGMEM0 ABS >636:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+190 PROGMEM0 ABS >637:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+191 PROGMEM0 ABS >638:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+192 PROGMEM0 ABS >639:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+193 PROGMEM0 ABS >640:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+194 PROGMEM0 ABS >641:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+195 PROGMEM0 ABS >642:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+196 PROGMEM0 ABS >643:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+197 PROGMEM0 ABS >644:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+198 PROGMEM0 ABS >645:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+199 PROGMEM0 ABS >646:C:\\Users\\rasyoung\\Desktop\\nugget-fwlib\\examples\\016_tare_button_pattern\\016_tare_button_pattern.S
+# %SYMTAB Section
+# An enumeration of all symbols in the program.
+# The beginning of the section is indicated by %SYMTAB.
+# Each line describes a single symbol as follows:
+#    <label> <value> [-]<load-adj> <class> <space> <psect> <file-name>
+# The value and load-adj are both in unqualified hexadecimal.
+# All other numeric values are in decimal.  The load-adj is the
+# quantity one needs to add to the symbol value in order to obtain the load
+# address of the symbol.  This value may be signed. If the symbol
+# was defined in a psect then <psect> will be "-". File-name
+# is the name of the object file in which the symbol was defined.
+%SYMTAB
+__Hspace_0 1000 0 ABS 0 - -
+__Hspace_1 0 0 ABS 0 - -
+__Hspace_3 0 0 ABS 0 - -
+__Hspace_4 10013 0 ABS 0 - -
+__Hudata_bank0 0 0 ABS 0 udata_bank0 -
+__Hudata_bank1 0 0 ABS 0 udata_bank1 -
+__Hudata_bank2 0 0 ABS 0 udata_bank2 -
+__Hudata_bank3 0 0 ABS 0 udata_bank3 -
+__Hudata_bank4 0 0 ABS 0 udata_bank4 -
+__Hudata_bank5 0 0 ABS 0 udata_bank5 -
+__Hudata_bank6 0 0 ABS 0 udata_bank6 -
+__Hedata 0 0 ABS 0 edata -
+__Hudata 0 0 ABS 0 udata -
+__Hconfig 10018 0 CONFIG 4 config -
+__Ledata 0 0 ABS 0 edata -
+__Ludata 0 0 ABS 0 udata -
+__Hcode 0 0 ABS 0 code -
+__Hdata 0 0 ABS 0 data -
+__Lcode 0 0 ABS 0 code -
+__Ldata 0 0 ABS 0 data -
+__S0 0 0 ABS 0 - -
+__S1 0 0 ABS 0 - -
+__S3 0 0 ABS 0 - -
+__Lconfig 0 0 CONFIG 4 config -
+__Lspace_0 0 0 ABS 0 - -
+__Lspace_1 0 0 ABS 0 - -
+__Lspace_3 0 0 ABS 0 - -
+__Lspace_4 0 0 ABS 0 - -
+__LPROGMEM0 0 0 ABS 0 PROGMEM0 -
+__LPROGMEM1 0 0 CODE 0 PROGMEM1 -
+__Ludata_bank0 0 0 ABS 0 udata_bank0 -
+__Ludata_bank1 0 0 ABS 0 udata_bank1 -
+__Ludata_bank2 0 0 ABS 0 udata_bank2 -
+__Ludata_bank3 0 0 ABS 0 udata_bank3 -
+__Ludata_bank4 0 0 ABS 0 udata_bank4 -
+__Ludata_bank5 0 0 ABS 0 udata_bank5 -
+__Ludata_bank6 0 0 ABS 0 udata_bank6 -
+__HPROGMEM0 334 0 ABS 0 PROGMEM0 -
+__HPROGMEM1 1000 0 CODE 0 PROGMEM1 -
+__Hudata_shr 0 0 ABS 0 udata_shr -
+__Ludata_shr 0 0 ABS 0 udata_shr -
+# %SPLITSTAB Section
+# This section enumerates all the psect splits performed by the assembler.
+# The beginning of the section is indicated by %SPLITSTAB.
+# Each line is a record a particular split, where the parent psect is on
+# the left and the child on the right.  Note that a child psect is always
+# split form the top of the parent psect. All splits from a given parent
+# are listed in the order in which they occurred.
+%SPLITSTAB
+# %DABS Section
+# This section contains a table of all usuage of the assember
+# directive DABS in the program. Each line has the following format:
+#   <name> <space> <address> <size>
+# If the DABS was originally labelled then that shall be <name>,
+# otherwise name will be "-".  The <space> number is in decimal.
+# <address> and <size> are in byte units as unqaulified hexadecimal
+%DABS
+# %SEGMENTS Section
+# This sections enumerates the segments of the program.  Each segment
+# is described on a single line as follows:
+#    <name> <space> <link address> <file address> <size> <delta>
+# Addresses and size are in unqualified hexadecimal.  The link address
+# and size are in units of delta. The file address is in units of bytes.
+# All other numeric quantities are in decimal.
+%SEGMENTS
+# %NOTES Section
+# This section contains data of all the note-psects.  The beginning of the section
+# is indicated by %NOTES. The first line indicates the name and decimal
+# byte-length of the first note-psect, e.g.
+#   $codecov_info_hdr 16
+# Each line that follows contains the byte-data of the psect in hexadecimal as a
+# space-separated list. These lines are limited to 16 bytes of data.
+%NOTES

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Compilation Report</title>
+</head>
+<body>
+<h1>Compilation Report</h1>
+<p>Compiler Version (YYYY-MM-DD): 2025.10.04 (Windows 64 bit) : Build 1523)</p>
+<h2>Compilation time</h2>
+<p> (Compile time: 5.292969 seconds)</p>
+<p> (Assembly time: 2.673828 seconds)</p>
+<p> (Download time: 0 seconds)</p>
+<p> (Total time: 7.966797 seconds)</p>
+<h2>Chip resource usage:</h2>
+<p>Chip Model: 16F18424</p>
+<p>Program Memory: 998/4096 words (24.37%)</p>
+<p>RAM: 59/512 bytes (11.52%)</p>
+<p> OSC: HFINT32, 32Mhz (Internal oscillator)</p>
+<h2>RAM Allocation</h2>
+<table border="1">
+</table>
+<h2>Subroutines</h2>
+<table border="1">
+<tr><th>Name</th><th>Code Size (lines)</th><th>Compiled Size (words)</th><th>Page</th><th>Outgoing calls</th></tr>
+<tr><td>Main</td><td>25</td><td>39</td><td>1</td><td>Delay_MS(1), HSERPRINTCRLF(2), HSERPRINT(1), RUN_REACTION_TRIAL(1), REPORT_FALSE_START(1), QUIET_WAIT_BEFORE_GO(1), WAIT_FOR_USER_READY(1), PRINT_BANNER(1), RB_STOPWATCH_RESET(1), RB_LED_STATUS_INIT(1), RB_SW1_INITPULLUP(1), RB_CORE_INIT(1), INITSYS(7)</td></tr>
+<tr><td>PRINT_BANNER</td><td>4</td><td>24</td><td>1</td><td>HSERPRINTCRLF(2), HSERPRINT(2)</td></tr>
+<tr><td>WAIT_FOR_USER_READY</td><td>6</td><td>26</td><td>1</td><td>RB_SW1_WAITFORRELEASE(1), RB_LED_STATUS_OFF(1), HSERPRINTCRLF(2), HSERPRINT(2)</td></tr>
+<tr><td>QUIET_WAIT_BEFORE_GO</td><td>10</td><td>39</td><td>1</td><td>SYSCOMPLESSTHAN16(1), Delay_MS(1), RB_SW1_ISPRESSED(1), HSERPRINTCRLF(1), HSERPRINT(1)</td></tr>
+<tr><td>REPORT_FALSE_START</td><td>4</td><td>16</td><td>1</td><td>RB_SW1_WAITFORRELEASE(1), RB_LED_STATUS_BLINKCODE(1), HSERPRINTCRLF(1), HSERPRINT(1)</td></tr>
+<tr><td>RUN_REACTION_TRIAL</td><td>40</td><td>168</td><td>1</td><td>SYSCOMPLESSTHAN32(3), Delay_MS(2), RB_SW1_WAITFORRELEASE(1), HSERPRINT(1), RB_LED_STATUS_OFF(1), RB_STOPWATCH_STOP(1), RB_STOPWATCH_READMS(1), RB_SW1_ISPRESSED(2), RB_STOPWATCH_TICK1MS(1), RB_STOPWATCH_START(1), RB_LED_STATUS_ON(1), HSERPRINTCRLF(6), HSERPRINT(6), RB_STOPWATCH_RESET(1)</td></tr>
+<tr><td>RB_CORE_ALLDIGITAL</td><td>2</td><td>5</td><td>1</td><td></td></tr>
+<tr><td>RB_CORE_CLEARLATCHES</td><td>2</td><td>3</td><td>1</td><td></td></tr>
+<tr><td>RB_CORE_INIT</td><td>2</td><td>2</td><td>1</td><td>RB_CORE_CLEARLATCHES(1), RB_CORE_ALLDIGITAL(1)</td></tr>
+<tr><td>RB_SW1_INITPULLUP</td><td>5</td><td>10</td><td>1</td><td></td></tr>
+<tr><td>RB_SW1_ISPRESSED</td><td>5</td><td>6</td><td>1</td><td></td></tr>
+<tr><td>RB_SW1_WAITFORRELEASE</td><td>3</td><td>7</td><td>1</td><td>Delay_MS(1)</td></tr>
+<tr><td>RB_LED_STATUS_INIT</td><td>3</td><td>6</td><td>1</td><td></td></tr>
+<tr><td>RB_LED_STATUS_ON</td><td>1</td><td>2</td><td>1</td><td></td></tr>
+<tr><td>RB_LED_STATUS_OFF</td><td>1</td><td>2</td><td>1</td><td></td></tr>
+<tr><td>RB_LED_STATUS_BLINKCODE</td><td>8</td><td>25</td><td>1</td><td>Delay_MS(3)</td></tr>
+<tr><td>RB_STOPWATCH_RESET</td><td>2</td><td>6</td><td>1</td><td></td></tr>
+<tr><td>RB_STOPWATCH_START</td><td>2</td><td>6</td><td>1</td><td></td></tr>
+<tr><td>RB_STOPWATCH_STOP</td><td>1</td><td>2</td><td>1</td><td></td></tr>
+<tr><td>RB_STOPWATCH_TICK1MS</td><td>3</td><td>10</td><td>1</td><td></td></tr>
+<tr><td>RB_STOPWATCH_READMS</td><td>1</td><td>9</td><td>1</td><td></td></tr>
+<tr><td>INITSYS</td><td>1146</td><td>21</td><td>1</td><td></td></tr>
+<tr><td>SYSDIVSUB32</td><td>40</td><td>90</td><td>1</td><td>SYSCOMPEQUAL32(1)</td></tr>
+<tr><td>SYSCOMPEQUAL32</td><td>52</td><td>19</td><td>1</td><td></td></tr>
+<tr><td>SYSCOMPLESSTHAN16</td><td>38</td><td>15</td><td>1</td><td></td></tr>
+<tr><td>SYSCOMPLESSTHAN32</td><td>63</td><td>25</td><td>1</td><td></td></tr>
+<tr><td>INITUSART</td><td>399</td><td>16</td><td>1</td><td></td></tr>
+<tr><td>HSERSEND</td><td>347</td><td>8</td><td>1</td><td>Delay_MS(1)</td></tr>
+<tr><td>HSERPRINT</td><td>42</td><td>29</td><td>1</td><td>HSERSEND(1)</td></tr>
+<tr><td>HSERPRINT</td><td>17</td><td>72</td><td>1</td><td>SYSDIVSUB32(1), SYSCOMPEQUAL32(1), HSERSEND(1)</td></tr>
+<tr><td>HSERPRINTCRLF</td><td>4</td><td>13</td><td>1</td><td>HSERSEND(2)</td></tr>
+<tr><td>Delay_MS</td><td>0</td><td>14</td><td>1</td><td></td></tr>
+<tr><td>SysStringTables</td><td>0</td><td>263</td><td>1</td><td></td></tr>
+</table>
+</body>
+</html>
