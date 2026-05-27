@@ -288,11 +288,12 @@ if ($LASTEXITCODE -ne 0) {
 }
 
 $ExpectedRoot = (Resolve-Path $PSScriptRoot).Path
-if ($RepoRoot -ne $ExpectedRoot) {
+$ResolvedRepoRoot = (Resolve-Path $RepoRoot).Path
+if ([System.IO.DirectoryInfo]::new($ResolvedRepoRoot).FullName -ne [System.IO.DirectoryInfo]::new($ExpectedRoot).FullName) {
     throw "Run this script from the nugget-fwlib repository root: $ExpectedRoot"
 }
 
-Set-Location $RepoRoot
+Set-Location $ResolvedRepoRoot
 
 Write-Host "Current Git status:" -ForegroundColor Cyan
 Invoke-Git status --short
