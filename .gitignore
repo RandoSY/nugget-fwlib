@@ -1,4 +1,9 @@
 # Generated build artifacts
+build/
+dist/
+out/
+Debug/
+Release/
 *.hex
 *.lst
 *.asm
@@ -6,5 +11,29 @@
 *.map
 *.err
 *.tmp
+*.log
+*.bak
+*.orig
+*.swp
+*.uf2
+*.bin
+
+# Great Cow BASIC generated outputs
+*.html
+*.i
+*.rlf
+*.s
+*.elf
+*.sym
+*.cmf
+*.hxl
+*.pum
+*.d
+
+# Local scratch files
+fixme.txt
+
+# IDE/runtime noise
+.vscode/
 __pycache__/
 .DS_Store

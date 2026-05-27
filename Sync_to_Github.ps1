@@ -10,12 +10,21 @@
 #   .\Sync_to_Github.ps1 -PublishRevelatorRelease -CommitMessage "Publish Revelator v3.6"
 #
 # Dry-run style local update without pushing:
+#   .\Sync_to_Github.ps1 "Your commit message here" -NoPush
 #   .\Sync_to_Github.ps1 -PublishRevelatorRelease -CommitMessage "Publish Revelator v3.6" -NoPush
+#
+# Strategy:
+#   1. Verify this is the local nugget-fwlib worktree
+#   2. Pull/rebase latest GitHub changes with autostash
+#   3. Stage all local changes that are not ignored
+#   4. Commit if there is anything to commit
+#   5. Push to GitHub unless -NoPush is set
+#   6. Print final status
 # ================================================================
 
 param(
     [Parameter(Position = 0)]
-    [string]$CommitMessage,
+    [string]$CommitMessage = "",
 
     [switch]$PublishRevelatorRelease,
 
@@ -43,9 +52,31 @@ function Resolve-ExistingPath {
 
 function Invoke-Git {
     param([Parameter(ValueFromRemainingArguments = $true)][string[]]$GitArgs)
+
     & git @GitArgs
     if ($LASTEXITCODE -ne 0) {
         throw "git $($GitArgs -join ' ') failed with exit code $LASTEXITCODE"
+    }
+}
+
+function Get-PorcelainStatus {
+    git status --porcelain --untracked-files=normal
+}
+
+function Show-IgnoredSummary {
+    $Ignored = git status --porcelain --ignored --untracked-files=all |
+        Where-Object { $_.StartsWith("!! ") } |
+        ForEach-Object { $_.Substring(3).Trim('"') }
+
+    if ($Ignored) {
+        Write-Host ""
+        Write-Host "Ignored local-only files left alone:" -ForegroundColor DarkGray
+        $Ignored | Select-Object -First 25 | ForEach-Object {
+            Write-Host "  $_" -ForegroundColor DarkGray
+        }
+        if ($Ignored.Count -gt 25) {
+            Write-Host "  ... $($Ignored.Count - 25) more" -ForegroundColor DarkGray
+        }
     }
 }
 
@@ -124,7 +155,7 @@ function Commit-And-Push {
         Invoke-Git status --short
         Invoke-Git add -A
 
-        $pending = git status --porcelain
+        $pending = Get-PorcelainStatus
         if (-not $pending) {
             Write-Host "No changes to commit in $RepoDir" -ForegroundColor Yellow
             return
@@ -172,9 +203,9 @@ function Publish-RevelatorRelease {
 
     Write-Host "Pulling latest repositories..." -ForegroundColor Cyan
     Push-Location $xc8Repo
-    try { Invoke-Git pull --rebase origin main } finally { Pop-Location }
+    try { Invoke-Git pull --rebase --autostash origin main } finally { Pop-Location }
     Push-Location $nuggetRepo
-    try { Invoke-Git pull --rebase origin main } finally { Pop-Location }
+    try { Invoke-Git pull --rebase --autostash origin main } finally { Pop-Location }
 
     Assert-CleanRepo $xc8Repo
     Assert-CleanRepo $nuggetRepo
@@ -229,14 +260,8 @@ The current assembly review artifacts are generated with XC8 ASM Revelator v3.6:
     Commit-And-Push -RepoDir $nuggetRepo -Message $Message -SkipPush:$SkipPush
 }
 
-if (-not $CommitMessage) {
-    Write-Host ""
-    Write-Host "SYNC FAILED" -ForegroundColor Red
-    Write-Host "Usage:" -ForegroundColor Yellow
-    Write-Host '  .\Sync_to_Github.ps1 "commit message"'
-    Write-Host '  .\Sync_to_Github.ps1 -PublishRevelatorRelease -CommitMessage "Publish Revelator v3.6"'
-    Write-Host ""
-    exit 1
+if (-not $CommitMessage.Trim()) {
+    $CommitMessage = "Local sync $(Get-Date -Format 'yyyy-MM-dd HH:mm')"
 }
 
 if ($PublishRevelatorRelease) {
@@ -257,34 +282,44 @@ Write-Host "Commit message: $CommitMessage"
 Write-Host "============================================================"
 Write-Host ""
 
-Write-Host "Checking current Git status..." -ForegroundColor Cyan
-git status
+$RepoRoot = (git rev-parse --show-toplevel).Trim()
+if ($LASTEXITCODE -ne 0) {
+    throw "This folder is not inside a Git repository."
+}
+
+$ExpectedRoot = (Resolve-Path $PSScriptRoot).Path
+if ($RepoRoot -ne $ExpectedRoot) {
+    throw "Run this script from the nugget-fwlib repository root: $ExpectedRoot"
+}
+
+Set-Location $RepoRoot
+
+Write-Host "Current Git status:" -ForegroundColor Cyan
+Invoke-Git status --short
+Show-IgnoredSummary
 
 Write-Host ""
-Write-Host "Pulling latest GitHub changes with rebase..." -ForegroundColor Cyan
-Invoke-Git pull --rebase origin main
+Write-Host "Pulling latest GitHub changes with rebase/autostash..." -ForegroundColor Cyan
+Invoke-Git pull --rebase --autostash origin main
 
 Write-Host ""
-Write-Host "Adding local changes..." -ForegroundColor Cyan
+Write-Host "Staging all non-ignored local changes..." -ForegroundColor Cyan
 Invoke-Git add -A
 
 Write-Host ""
-Write-Host "Status after git add:" -ForegroundColor Cyan
-git status
+Write-Host "Status after staging:" -ForegroundColor Cyan
+Invoke-Git status --short
 
-$Pending = git status --porcelain
+$Pending = Get-PorcelainStatus
 
 if (-not $Pending) {
     Write-Host ""
     Write-Host "NO LOCAL CHANGES TO COMMIT" -ForegroundColor Yellow
-    Write-Host "Repository is already clean after pull/rebase."
+} else {
     Write-Host ""
-    exit 0
+    Write-Host "Committing..." -ForegroundColor Cyan
+    Invoke-Git commit -m $CommitMessage
 }
-
-Write-Host ""
-Write-Host "Committing..." -ForegroundColor Cyan
-Invoke-Git commit -m "$CommitMessage"
 
 if (-not $NoPush) {
     Write-Host ""
@@ -296,6 +331,13 @@ Write-Host ""
 Write-Host "============================================================" -ForegroundColor Green
 Write-Host "                 SYNC COMPLETE OK" -ForegroundColor Green
 Write-Host "============================================================" -ForegroundColor Green
-Write-Host " Local work is committed and pushed to GitHub." -ForegroundColor Green
+if ($NoPush) {
+    Write-Host " Local work is committed. Push skipped because -NoPush was set." -ForegroundColor Green
+} else {
+    Write-Host " Local work is committed and pushed to GitHub." -ForegroundColor Green
+}
 Write-Host "============================================================" -ForegroundColor Green
 Write-Host ""
+
+Write-Host "Final Git status:" -ForegroundColor Cyan
+Invoke-Git status
